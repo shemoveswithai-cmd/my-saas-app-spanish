@@ -162,10 +162,10 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-6 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">IA PhotoFusion</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-6 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">IA PhotoFusion</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Combina personas de dos fotos en una nueva escena — de manera hermosa y natural con calidad de estudio profesional.
                 </p>
             </div>
@@ -178,7 +178,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-4">
                         <p className="text-center font-bold text-gray-800 text-lg">Persona 1</p>
-                        <div onClick={() => input1Ref.current?.click()} className="aspect-[16/6] md:aspect-video bg-white rounded-lg border-2 border-dashed border-pink-200 flex items-center justify-center cursor-pointer hover:border-smw-pink transition-colors">
+                        <div onClick={() => input1Ref.current?.click()} className="aspect-[16/6] md:aspect-video bg-white rounded-lg border-2 border-dashed border-pink-200 flex items-center justify-center cursor-pointer hover:border-rosa-principal transition-colors">
                             {person1 ? (
                                 <img src={person1.preview} className="h-full w-full object-cover rounded-lg" alt="Persona 1" />
                             ) : (
@@ -190,7 +190,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
 
                     <div className="space-y-4">
                         <p className="text-center font-bold text-gray-800 text-lg">Persona 2</p>
-                        <div onClick={() => input2Ref.current?.click()} className="aspect-[16/6] md:aspect-video bg-white rounded-lg border-2 border-dashed border-pink-200 flex items-center justify-center cursor-pointer hover:border-smw-pink transition-colors">
+                        <div onClick={() => input2Ref.current?.click()} className="aspect-[16/6] md:aspect-video bg-white rounded-lg border-2 border-dashed border-pink-200 flex items-center justify-center cursor-pointer hover:border-rosa-principal transition-colors">
                             {person2 ? (
                                 <img src={person2.preview} className="h-full w-full object-cover rounded-lg" alt="Persona 2" />
                             ) : (
@@ -242,7 +242,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                                             setSelectedScene(opt);
                                             setCustomPrompt(opt.prompt);
                                         }}
-                                        className={`px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm border ${selectedScene.name === opt.name ? 'bg-smw-pink text-black border-smw-pink' : 'bg-white text-gray-600 hover:bg-gray-50 border-gray-100'}`}
+                                        className={`px-5 py-2 rounded-full text-sm font-bold transition-all shadow-sm border ${selectedScene.name === opt.name ? 'bg-rosa-principal text-black border-rosa-principal' : 'bg-white text-gray-600 hover:bg-gray-50 border-gray-100'}`}
                                     >
                                         {opt.name}
                                     </button>
@@ -255,14 +255,14 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                 <textarea
                     value={customPrompt}
                     onChange={(e) => setCustomPrompt(e.target.value)}
-                    className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none resize-none text-black font-medium"
+                    className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none resize-none text-black font-medium"
                     placeholder="Describe tu propia escena aquí..."
                 />
 
                 <button
                     onClick={handleGenerate}
                     disabled={isLoading || !person1 || !person2}
-                    className="w-full bg-smw-pink text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed text-lg transition-all border border-transparent flex items-center justify-center shadow-md"
+                    className="w-full bg-rosa-principal text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed text-lg transition-all border border-transparent flex items-center justify-center shadow-md"
                 >
                     {isLoading ? <Spinner className="text-black" /> : 'Generar Foto Ahora'}
                 </button>
@@ -275,7 +275,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                 <div className="aspect-[16/7] bg-white rounded-xl border border-gray-100 flex items-center justify-center relative overflow-hidden shadow-inner">
                     {isLoading ? (
                         <div className="text-center p-4">
-                            <Spinner className="w-12 h-12 text-smw-pink mb-4 mx-auto" />
+                            <Spinner className="w-12 h-12 text-rosa-principal mb-4 mx-auto" />
                             <p className="text-lg font-bold text-gray-500 animate-pulse">Fusionando identidades...</p>
                         </div>
                     ) : generatedImage ? (
@@ -294,7 +294,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
             </div>
 
             {/* Information Boxes */}
-            <div className="space-y-6 pt-10 border-t border-smw-pink/20">
+            <div className="space-y-6 pt-10 border-t border-rosa-principal/20">
                 <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Introducción</h2>
                     <div className={`text-gray-700 space-y-4 leading-relaxed text-base transition-all duration-500 overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
@@ -303,7 +303,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-bold hover:underline">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline">
                             {isIntroExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -319,7 +319,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-bold hover:underline">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline">
                             {isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -336,7 +336,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesMonetizationExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesMonetizationExpanded(!isSalesMonetizationExpanded)} className="mt-4 text-smw-pink font-bold hover:underline">
+                        <button onClick={() => setIsSalesMonetizationExpanded(!isSalesMonetizationExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline">
                             {isSalesMonetizationExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -352,7 +352,7 @@ STYLE: Professional, high-end, photorealistic photography. The two people should
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline">
                             {isProTipsExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>

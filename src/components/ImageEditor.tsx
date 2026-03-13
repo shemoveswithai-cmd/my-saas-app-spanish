@@ -75,23 +75,23 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-6 space-y-4 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Edición de Imágenes</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col h-full bg-rosa-claro rounded-lg shadow-xl p-4 md:p-6 space-y-4 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Edición de Imágenes</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Transforma tus imágenes con comandos de texto simples. Cambia fondos, añade objetos o ajusta la iluminación con precisión profesional.
                 </p>
             </div>
-            {error && <div className="p-4 bg-red-900 text-smw-text rounded-md">{error}</div>}
+            {error && <div className="p-4 bg-red-900 text-blanco-texto rounded-md">{error}</div>}
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-shrink-0 min-h-[400px]">
                 <div className="bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 flex flex-col items-center justify-center">
-                    <h3 className="text-lg font-semibold mb-4 text-smw-gray-dark opacity-80">Imagen Original</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-negro-fondo opacity-80">Imagen Original</h3>
                     <div className="w-full h-full flex items-center justify-center">
                         {originalImage ? (
                             <img src={originalImage} alt="Original" className="max-h-full max-w-full rounded-md object-contain shadow-sm" />
                         ) : (
-                            <button onClick={() => fileInputRef.current?.click()} className="w-full h-full border-2 border-dashed border-smw-pink rounded-lg flex flex-col items-center justify-center hover:bg-white/80 text-smw-gray-dark opacity-80 transition-all">
+                            <button onClick={() => fileInputRef.current?.click()} className="w-full h-full border-2 border-dashed border-rosa-principal rounded-lg flex flex-col items-center justify-center hover:bg-white/80 text-negro-fondo opacity-80 transition-all">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mb-2 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16l4.586-4.586a2 2 0 012.828L16 16m-2-2l1.586 1.586a2 2 0 010 2.828L12 20M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-2-2m0 0l-2 2m2-2v12" /></svg>
                                 Haz clic para subir
                             </button>
@@ -100,9 +100,9 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
                     <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
                 </div>
                 <div className="bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 flex flex-col items-center justify-center">
-                    <h3 className="text-lg font-semibold mb-4 text-smw-gray-dark opacity-80">Resultado Editado</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-negro-fondo opacity-80">Resultado Editado</h3>
                     <div className="w-full h-full flex items-center justify-center">
-                        {isLoading ? <Spinner className="w-12 h-12 text-smw-gray-dark" /> : editedImage ? (
+                        {isLoading ? <Spinner className="w-12 h-12 text-negro-fondo" /> : editedImage ? (
                             <div className="relative group h-full flex items-center justify-center">
                                 <img src={editedImage} alt="Editada" className="max-h-full max-w-full rounded-md object-contain cursor-zoom-in shadow-sm" onClick={() => setZoomedImage(editedImage)} />
                                 <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -114,7 +114,7 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
                                     </a>
                                 </div>
                             </div>
-                        ) : <p className="text-smw-gray-dark opacity-80 italic">La imagen editada aparecerá aquí.</p>}
+                        ) : <p className="text-negro-fondo opacity-80 italic">La imagen editada aparecerá aquí.</p>}
                     </div>
                 </div>
             </div>
@@ -126,13 +126,13 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
                         value={prompt} 
                         onChange={(e) => setPrompt(e.target.value)} 
                         placeholder="ej., Cambia el fondo a una playa de lujo al atardecer" 
-                        className="flex-1 bg-white/50 border-2 border-smw-pink/50 rounded-lg p-3 text-smw-gray-dark focus:ring-2 focus:ring-smw-pink outline-none transition-all placeholder:text-smw-gray-dark/50" 
+                        className="flex-1 bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-3 text-negro-fondo focus:ring-2 focus:ring-rosa-principal outline-none transition-all placeholder:text-negro-fondo/50" 
                         disabled={isLoading} 
                     />
                     <button 
                         onClick={handleEdit} 
                         disabled={isLoading || !prompt.trim() || !originalImage} 
-                        className="bg-smw-pink text-smw-gray-dark font-bold py-3 px-8 rounded-lg hover:bg-white disabled:opacity-50 transition-all shadow-sm"
+                        className="bg-rosa-principal text-negro-fondo font-bold py-3 px-8 rounded-lg hover:bg-white disabled:opacity-50 transition-all shadow-sm"
                     >
                         {isLoading ? <Spinner /> : 'Aplicar Edición'}
                     </button>
@@ -140,18 +140,18 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
             </div>
 
             {/* Information Sections */}
-            <div className="space-y-6 pt-10 border-t border-smw-pink/20 flex-shrink-0">
+            <div className="space-y-6 pt-10 border-t border-rosa-principal/20 flex-shrink-0">
                 {/* Introduction Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p>La herramienta de Edición de Imágenes es tu asistente de diseño personal impulsado por IA. Olvida el software complejo y la tediosa edición manual. Con esta herramienta, puedes transformar tus fotos usando comandos de lenguaje natural simples. Describe el cambio que deseas—ya sea cambiar un fondo, añadir un objeto o ajustar la iluminación—y nuestra IA lo ejecutará con precisión profesional.</p>
                         <p>Esto es perfecto para creadores que buscan iterar rápidamente en el contenido, dueños de negocios que necesitan pulir fotos de productos, o cualquier persona que quiera dar vida a su visión creativa sin necesidad de habilidades de edición profesional.</p>
                         <p>Nuestro modelo avanzado entiende el contexto y mantiene la identidad de tus sujetos, asegurando que cada edición parezca fluida y orgánica. Desde cambios estilísticos como "haz que esto parezca una película vintage de los 90" hasta cambios estructurales como "añade una taza de café a la mesa", las posibilidades son infinitas.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isIntroExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -159,8 +159,8 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
 
                 {/* How It Works Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo Funciona</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo Funciona</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p><strong>Paso 1: Sube tu Foto</strong> - Haz clic en el cuadro de carga y selecciona la imagen que deseas modificar. Asegúrate de que el sujeto esté claro y la imagen tenga una resolución decente para obtener los mejores resultados.</p>
                         <p><strong>Paso 2: Describe tu Edición</strong> - Escribe tu instrucción en el cuadro de texto. Sé lo más descriptivo posible. Por ejemplo, en lugar de "cambiar fondo", intenta con "cambia el fondo a un balcón de un apartamento de lujo moderno y soleado con vistas a la ciudad".</p>
                         <p><strong>Paso 3: Aplicar Edición</strong> - Haz clic en el botón "Aplicar Edición". Nuestra IA analizará tanto la imagen como tu texto para generar un resultado fluido y de alta resolución que respete la identidad del sujeto original.</p>
@@ -168,7 +168,7 @@ const ImageEditor: React.FC<ImageEditorProps> = ({ addCreations }) => {
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>

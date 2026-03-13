@@ -44,7 +44,7 @@ const tryOnSettings = [
 
 const Step: React.FC<{ number: number | string; title: string; children: React.ReactNode }> = ({ number, title, children }) => (
     <div className="bg-white rounded-xl shadow-sm p-6 mb-4">
-        <h3 className="text-lg font-bold text-smw-black mb-4">Paso {number}: {title}</h3>
+        <h3 className="text-lg font-bold text-negro-fondo mb-4">Paso {number}: {title}</h3>
         {children}
     </div>
 );
@@ -52,12 +52,12 @@ const Step: React.FC<{ number: number | string; title: string; children: React.R
 const GentleLoader: React.FC<{ message?: string; submessage?: string }> = ({ message, submessage }) => (
     <div className="flex flex-col items-center justify-center space-y-3 p-6 text-center">
         <div className="flex space-x-2">
-            <div className="w-2 h-2 bg-smw-pink rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-            <div className="w-2 h-2 bg-smw-pink rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-            <div className="w-2 h-2 bg-smw-pink rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+            <div className="w-2 h-2 bg-rosa-principal rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+            <div className="w-2 h-2 bg-rosa-principal rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+            <div className="w-2 h-2 bg-rosa-principal rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
         </div>
         <div>
-            <p className="text-sm font-bold text-smw-black opacity-80 animate-pulse">{message || 'Creando tu vista previa...'}</p>
+            <p className="text-sm font-bold text-negro-fondo opacity-80 animate-pulse">{message || 'Creando tu vista previa...'}</p>
             {submessage && <p className="text-[10px] font-bold text-gray-400 mt-1 uppercase tracking-widest">{submessage}</p>}
         </div>
     </div>
@@ -410,23 +410,23 @@ Seed: ${Math.random() + i}`;
     const activeGeneratedImages = activeTab === 'Estudio de Maniquí' ? mannequinGeneratedImages : tryOnGeneratedImages;
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 md:p-10 space-y-6 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Estudio de Pelucas IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 md:p-10 space-y-6 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Estudio de Pelucas IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Extrae una peluca de una foto y colócala en un maniquí o pruébatela virtualmente con preservación absoluta de la identidad y calidad profesional.
                 </p>
             </div>
 
-            <div className="flex border-b border-smw-pink/20 mb-6 gap-8 justify-center md:justify-start">
+            <div className="flex border-b border-rosa-principal/20 mb-6 gap-8 justify-center md:justify-start">
                 {['Estudio de Maniquí', 'Prueba Virtual'].map((tab) => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab as any)}
-                        className={`pb-2 text-lg font-bold transition-all relative ${activeTab === tab ? 'text-smw-black' : 'text-smw-gray-dark opacity-60'}`}
+                        className={`pb-2 text-lg font-bold transition-all relative ${activeTab === tab ? 'text-negro-fondo' : 'text-negro-fondo opacity-60'}`}
                     >
                         {tab}
-                        {activeTab === tab && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-smw-pink" />}
+                        {activeTab === tab && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-rosa-principal" />}
                     </button>
                 ))}
             </div>
@@ -451,12 +451,12 @@ Seed: ${Math.random() + i}`;
                     )}
                     <div 
                         onClick={() => activeTab === 'Estudio de Maniquí' ? mannequinWigInputRef.current?.click() : tryOnWigInputRef.current?.click()} 
-                        className="w-full h-48 bg-white rounded-xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/30 hover:border-smw-pink transition-colors p-4 text-center mb-4"
+                        className="w-full h-48 bg-white rounded-xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/30 hover:border-rosa-principal transition-colors p-4 text-center mb-4"
                     >
                         {activeWigPhoto ? (
                             <img src={activeWigPhoto.preview} className="h-full object-contain rounded-lg" alt="Wig preview" />
                         ) : (
-                            <p className="text-sm font-semibold text-smw-gray-dark opacity-70">
+                            <p className="text-sm font-semibold text-negro-fondo opacity-70">
                                 {activeTab === 'Estudio de Maniquí' 
                                     ? 'Haz clic para subir una foto de la peluca en un modelo o maniquí.' 
                                     : 'Haz clic para subir una foto de la peluca.'}
@@ -472,12 +472,12 @@ Seed: ${Math.random() + i}`;
                     </div>
                     {activeTab === 'Estudio de Maniquí' && (
                         <div>
-                            <label className="text-xs font-bold text-smw-gray-dark opacity-60 uppercase mb-2 block">Opcional: Añadir Detalles</label>
+                            <label className="text-xs font-bold text-negro-fondo opacity-60 uppercase mb-2 block">Opcional: Añadir Detalles</label>
                             <textarea
                                 value={mannequinCustomDetails}
                                 onChange={(e) => setMannequinCustomDetails(e.target.value)}
                                 placeholder="ej. haz la peluca de 30 pulgadas de largo"
-                                className="w-full h-24 bg-white border border-smw-pink/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-smw-pink outline-none resize-none text-black font-medium"
+                                className="w-full h-24 bg-white border border-rosa-principal/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-rosa-principal outline-none resize-none text-black font-medium"
                             />
                         </div>
                     )}
@@ -486,26 +486,26 @@ Seed: ${Math.random() + i}`;
                 {activeTab === 'Estudio de Maniquí' ? (
                     <>
                         <Step number={2} title="Elegir Escena y Maniquí">
-                            <p className="text-sm text-smw-gray-dark opacity-80 mb-4">Primero, selecciona una escena fotorrealista para tu toma de producto.</p>
+                            <p className="text-sm text-negro-fondo opacity-80 mb-4">Primero, selecciona una escena fotorrealista para tu toma de producto.</p>
                             <div className="flex flex-wrap gap-2 mb-6">
                                 {scenes.map(s => (
                                     <button
                                         key={s.name}
                                         onClick={() => setSelectedScene(s)}
-                                        className={`px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm ${selectedScene.name === s.name ? 'bg-smw-pink text-smw-black' : 'bg-white text-smw-gray-dark border border-gray-100 hover:bg-gray-50'}`}
+                                        className={`px-5 py-2 rounded-lg text-sm font-bold transition-all shadow-sm ${selectedScene.name === s.name ? 'bg-rosa-principal text-negro-fondo' : 'bg-white text-negro-fondo border border-gray-100 hover:bg-gray-50'}`}
                                     >
                                         {s.name}
                                     </button>
                                 ))}
                             </div>
 
-                            <p className="text-sm text-smw-gray-dark opacity-80 mb-4">A continuación, sube tu propia foto de cabeza de maniquí (Opcional). Si no proporcionas una, generaremos una para ti.</p>
+                            <p className="text-sm text-negro-fondo opacity-80 mb-4">A continuación, sube tu propia foto de cabeza de maniquí (Opcional). Si no proporcionas una, generaremos una para ti.</p>
                             <div className="flex flex-wrap gap-4 items-start">
                                 {mannequins.map(m => (
                                     <button
                                         key={m.id}
                                         onClick={() => {setSelectedMannequin(m.id); setUserMannequin(null);}}
-                                        className={`flex flex-col items-center justify-center gap-2 p-4 rounded-xl transition-all w-[100px] h-[150px] ${selectedMannequin === m.id && !userMannequin ? 'bg-smw-pink' : 'bg-white'}`}
+                                        className={`flex flex-col items-center justify-center gap-2 p-4 rounded-xl transition-all w-[100px] h-[150px] ${selectedMannequin === m.id && !userMannequin ? 'bg-rosa-principal' : 'bg-white'}`}
                                     >
                                         <div className="relative mb-2">
                                             <div 
@@ -514,18 +514,18 @@ Seed: ${Math.random() + i}`;
                                             />
                                             <div className="w-1 h-4 bg-gray-400 mx-auto -mt-0.5 opacity-60 rounded-b-full" />
                                         </div>
-                                        <span className={`text-xs font-bold tracking-tight ${selectedMannequin === m.id && !userMannequin ? 'text-smw-black' : 'text-smw-gray-dark opacity-80'}`}>{m.name}</span>
+                                        <span className={`text-xs font-bold tracking-tight ${selectedMannequin === m.id && !userMannequin ? 'text-negro-fondo' : 'text-negro-fondo opacity-80'}`}>{m.name}</span>
                                     </button>
                                 ))}
                                 
                                 <div 
                                     onClick={() => mannequinInputRef.current?.click()}
-                                    className={`w-[100px] h-[150px] rounded-xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all ${userMannequin ? 'border-smw-pink bg-smw-pink' : 'border-gray-200 bg-white/50 hover:border-smw-pink'}`}
+                                    className={`w-[100px] h-[150px] rounded-xl border-2 border-dashed flex flex-col items-center justify-center cursor-pointer transition-all ${userMannequin ? 'border-rosa-principal bg-rosa-principal' : 'border-gray-200 bg-white/50 hover:border-rosa-principal'}`}
                                 >
                                     {userMannequin ? (
                                         <div className="flex flex-col items-center gap-2">
                                             <img src={userMannequin.preview} className="w-12 h-12 object-cover rounded-full border-2 border-white shadow-md" alt="User mannequin" />
-                                            <p className="text-[10px] font-bold text-smw-black uppercase text-center px-1">Seleccionado</p>
+                                            <p className="text-[10px] font-bold text-negro-fondo uppercase text-center px-1">Seleccionado</p>
                                         </div>
                                     ) : (
                                         <div className="text-center p-2">
@@ -541,13 +541,13 @@ Seed: ${Math.random() + i}`;
                             <button 
                                 onClick={handleGenerate} 
                                 disabled={isLoading || !mannequinWigPhoto} 
-                                className="w-full bg-smw-pink text-smw-black font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm flex items-center justify-center gap-3"
+                                className="w-full bg-rosa-principal text-negro-fondo font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm flex items-center justify-center gap-3"
                             >
                                 {isLoading ? (
                                     <>
-                                        <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                                        <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                                        <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                                        <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                                        <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                                        <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                                         <span className="ml-2 uppercase tracking-widest text-sm">Procesando...</span>
                                     </>
                                 ) : 'Crear Vista Previa del Maniquí'}
@@ -560,12 +560,12 @@ Seed: ${Math.random() + i}`;
                         <Step number={2} title="Subir Tu Foto">
                             <div 
                                 onClick={() => userPhotoInputRef.current?.click()} 
-                                className="w-full h-48 bg-white rounded-xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/30 hover:border-smw-pink transition-colors p-4 text-center"
+                                className="w-full h-48 bg-white rounded-xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/30 hover:border-rosa-principal transition-colors p-4 text-center"
                             >
                                 {tryOnUserPhoto ? (
                                     <img src={tryOnUserPhoto.preview} className="h-full object-contain rounded-lg" alt="User preview" />
                                 ) : (
-                                    <p className="text-sm font-semibold text-smw-gray-dark opacity-70">Haz clic para subir una foto clara de la persona.</p>
+                                    <p className="text-sm font-semibold text-negro-fondo opacity-70">Haz clic para subir una foto clara de la persona.</p>
                                 )}
                                 <input type="file" ref={userPhotoInputRef} onChange={e => e.target.files?.[0] && setTryOnUserPhoto({file: e.target.files[0], preview: URL.createObjectURL(e.target.files[0])})} className="hidden" accept="image/*" />
                             </div>
@@ -575,24 +575,24 @@ Seed: ${Math.random() + i}`;
                             <div className="space-y-6">
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label className="text-sm font-bold text-smw-gray-dark block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Largo de la Peluca</label>
+                                        <label className="text-sm font-bold text-negro-fondo block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Largo de la Peluca</label>
                                         <select 
                                             value={wigLength} 
                                             onChange={e => setWigLength(e.target.value)}
-                                            className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-black appearance-none font-medium"
+                                            className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo appearance-none font-medium"
                                             style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem'}}
                                         >
                                             {wigLengths.map(l => <option key={l} value={l}>{l}</option>)}
                                         </select>
                                     </div>
                                     <div>
-                                        <label className="text-sm font-bold text-smw-gray-dark block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Bordes / Línea del Cabello</label>
+                                        <label className="text-sm font-bold text-negro-fondo block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Bordes / Línea del Cabello</label>
                                         <div className="flex bg-gray-50 rounded-full p-1 border border-gray-100">
                                             {hairlineStyles.map(s => (
                                                 <button 
                                                     key={s}
                                                     onClick={() => setHairlineStyle(s)}
-                                                    className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${hairlineStyle === s ? 'bg-smw-pink text-smw-black shadow-sm' : 'text-smw-gray-dark opacity-60 hover:text-smw-black'}`}
+                                                    className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${hairlineStyle === s ? 'bg-rosa-principal text-negro-fondo shadow-sm' : 'text-negro-fondo opacity-60 hover:text-negro-fondo'}`}
                                                 >
                                                     {s}
                                                 </button>
@@ -602,13 +602,13 @@ Seed: ${Math.random() + i}`;
                                 </div>
 
                                 <div className="pt-2">
-                                    <label className="text-sm font-bold text-smw-gray-dark block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Elegir Entorno</label>
+                                    <label className="text-sm font-bold text-negro-fondo block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Elegir Entorno</label>
                                     <div className="flex flex-wrap gap-2">
                                         {tryOnSettings.map(s => (
                                             <button
                                                 key={s.id}
                                                 onClick={() => setSelectedTryOnSetting(s.id)}
-                                                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all border shadow-sm ${selectedTryOnSetting === s.id ? 'bg-smw-pink text-smw-black border-smw-pink' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
+                                                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all border shadow-sm ${selectedTryOnSetting === s.id ? 'bg-rosa-principal text-negro-fondo border-rosa-principal' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
                                             >
                                                 {s.name}
                                             </button>
@@ -617,17 +617,17 @@ Seed: ${Math.random() + i}`;
                                 </div>
 
                                 <div className="pt-2">
-                                    <label className="text-sm font-bold text-smw-gray-dark block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Estilo de Variación de Resultados</label>
+                                    <label className="text-sm font-bold text-negro-fondo block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Estilo de Variación de Resultados</label>
                                     <div className="flex bg-gray-50 rounded-full p-1 border border-gray-100 max-w-sm">
                                         <button 
                                             onClick={() => setTryOnVariationMode('Poses Únicas')}
-                                            className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${tryOnVariationMode === 'Poses Únicas' ? 'bg-smw-pink text-smw-black shadow-sm' : 'text-smw-gray-dark opacity-60 hover:text-smw-black'}`}
+                                            className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${tryOnVariationMode === 'Poses Únicas' ? 'bg-rosa-principal text-negro-fondo shadow-sm' : 'text-negro-fondo opacity-60 hover:text-negro-fondo'}`}
                                         >
                                             4 Poses Únicas
                                         </button>
                                         <button 
                                             onClick={() => setTryOnVariationMode('Poses Consistentes')}
-                                            className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${tryOnVariationMode === 'Poses Consistentes' ? 'bg-smw-pink text-smw-black shadow-sm' : 'text-smw-gray-dark opacity-60 hover:text-smw-black'}`}
+                                            className={`flex-1 text-center rounded-full py-2 text-sm font-bold transition-all ${tryOnVariationMode === 'Poses Consistentes' ? 'bg-rosa-principal text-negro-fondo shadow-sm' : 'text-negro-fondo opacity-60 hover:text-negro-fondo'}`}
                                         >
                                             Opción Única
                                         </button>
@@ -640,12 +640,12 @@ Seed: ${Math.random() + i}`;
                                 </div>
 
                                 <div>
-                                    <label className="text-sm font-bold text-smw-gray-dark block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Prompt Personalizado (Opcional)</label>
+                                    <label className="text-sm font-bold text-negro-fondo block mb-2 opacity-70 uppercase tracking-widest text-[10px]">Prompt Personalizado (Opcional)</label>
                                     <textarea
                                         value={tryOnCustomDetails}
                                         onChange={(e) => setTryOnCustomDetails(e.target.value)}
                                         placeholder="ej. añade rizos suaves, haz el color del cabello un poco más cálido, luciendo feliz"
-                                        className="w-full h-24 bg-white border border-smw-pink/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-smw-pink outline-none resize-none text-black font-medium"
+                                        className="w-full h-24 bg-white border border-rosa-principal/10 rounded-lg p-3 text-sm focus:ring-1 focus:ring-rosa-principal outline-none resize-none text-black font-medium"
                                     />
                                 </div>
                             </div>
@@ -656,20 +656,20 @@ Seed: ${Math.random() + i}`;
                                 <button 
                                     onClick={handleGenerate} 
                                     disabled={isLoading || !tryOnWigPhoto || !tryOnUserPhoto} 
-                                    className="w-full bg-smw-pink text-smw-black font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm flex items-center justify-center gap-3"
+                                    className="w-full bg-rosa-principal text-negro-fondo font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm flex items-center justify-center gap-3"
                                 >
                                     {isLoading ? (
                                         <>
-                                            <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
-                                            <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
-                                            <div className="w-4 h-4 bg-smw-black rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
+                                            <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0s' }} />
+                                            <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                                            <div className="w-4 h-4 bg-negro-fondo rounded-full animate-bounce" style={{ animationDelay: '0.4s' }} />
                                             <span className="ml-2 uppercase tracking-widest text-sm">Procesando...</span>
                                         </>
                                     ) : 'Crear Prueba Virtual'}
                                 </button>
                                 <button 
                                     onClick={handleStartOver}
-                                    className="w-full bg-white text-smw-black font-bold py-3 rounded-xl hover:bg-gray-50 transition-all text-md shadow-sm border border-gray-100"
+                                    className="w-full bg-white text-negro-fondo font-bold py-3 rounded-xl hover:bg-gray-50 transition-all text-md shadow-sm border border-gray-100"
                                 >
                                     Empezar de Nuevo
                                 </button>
@@ -683,14 +683,14 @@ Seed: ${Math.random() + i}`;
                 {activeTab === 'Estudio de Maniquí' && (
                     <div className="bg-white rounded-xl shadow-sm p-6">
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="text-md font-bold text-smw-black">Peluca Extraída (PNG)</h3>
+                            <h3 className="text-md font-bold text-negro-fondo">Peluca Extraída (PNG)</h3>
                             {extractedWig && (
                                 <div className="flex gap-2">
-                                    <a href={extractedWig} download="extracted-wig.png" className="bg-white/90 text-xs font-bold text-smw-black px-3 py-1.5 rounded-full border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition-all shadow-sm">
+                                    <a href={extractedWig} download="extracted-wig.png" className="bg-white/90 text-xs font-bold text-negro-fondo px-3 py-1.5 rounded-full border border-gray-200 hover:bg-gray-50 flex items-center gap-2 transition-all shadow-sm">
                                         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                         Descargar PNG
                                     </a>
-                                    <button onClick={handleSendToTryOn} className="bg-smw-pink text-xs font-bold text-smw-black px-3 py-1.5 rounded-full hover:opacity-90 flex items-center gap-2 transition-all shadow-sm">
+                                    <button onClick={handleSendToTryOn} className="bg-rosa-principal text-xs font-bold text-negro-fondo px-3 py-1.5 rounded-full hover:opacity-90 flex items-center gap-2 transition-all shadow-sm">
                                         <svg className="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                                         Usar en Prueba
                                     </button>
@@ -731,10 +731,10 @@ Seed: ${Math.random() + i}`;
                                 <div className="relative group w-full h-full animate-fade-in">
                                     <img src={activeGeneratedImages[idx]} alt={`Result ${num}`} className="w-full h-full object-cover cursor-zoom-in transition-transform group-hover:scale-105" onClick={() => setZoomedImage(activeGeneratedImages[idx])} />
                                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                                        <button onClick={() => setZoomedImage(activeGeneratedImages[idx])} className="bg-white/90 text-smw-black p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95">
+                                        <button onClick={() => setZoomedImage(activeGeneratedImages[idx])} className="bg-white/90 text-negro-fondo p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95">
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                         </button>
-                                        <a href={activeGeneratedImages[idx]} download={`wig-result-${num}.png`} className="bg-white/90 text-smw-black p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95" onClick={e => e.stopPropagation()}>
+                                        <a href={activeGeneratedImages[idx]} download={`wig-result-${num}.png`} className="bg-white/90 text-negro-fondo p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95" onClick={e => e.stopPropagation()}>
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                         </a>
                                     </div>
@@ -747,24 +747,24 @@ Seed: ${Math.random() + i}`;
                 </div>
 
                 {/* Information Sections */}
-                <div className="space-y-6 pt-10 border-t border-smw-pink/20">
+                <div className="space-y-6 pt-10 border-t border-rosa-principal/20">
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <p>Bienvenido al Estudio de Pelucas IA, una herramienta de visualización de vanguardia para la industria del cabello y la belleza. Esta plataforma permite a los creadores de pelucas, dueños de boutiques y entusiastas extraer instantáneamente una peluca de una foto y presentarla en un entorno profesional de grado comercial.</p>
                             <p>Ya sea que busques generar fotos de productos de alta gama en maniquíes profesionales o quieras probarte virtualmente un nuevo look antes de realizar una compra, nuestra IA mantiene una precisión del 100% en la textura y el color del cabello. Es la forma perfecta de construir una marca profesional o experimentar con tu estilo sin salir de casa.</p>
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                            <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                                 {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                             </button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo Funciona</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo Funciona</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <p><strong>Paso 1: Sube Tu Peluca de Origen</strong> - Sube una foto de la peluca. Puede estar en una persona, en un maniquí o incluso ser una foto de stock. Este es el "plano" que nuestra IA utiliza para la textura y el color del cabello.</p>
                             <p><strong>Paso 2: Elige Tu Camino</strong> - Selecciona <strong>'Estudio de Maniquí'</strong> para generar recursos profesionales para tu tienda, o <strong>'Prueba Virtual'</strong> para ver la peluca en una persona específica (tú mismo o un modelo).</p>
                             <div className="space-y-2">
@@ -778,15 +778,15 @@ Seed: ${Math.random() + i}`;
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                            <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                                 {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                             </button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos de Venta e Ideas de Monetización</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos de Venta e Ideas de Monetización</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <p><strong>1. Galería de Productos Profesional:</strong> Deja de depender de fotos de aficionados tomadas con el celular. Usa el Estudio de Maniquí para generar una colección uniforme y de alta gama para tu sitio web. La iluminación y los fondos consistentes aumentan la confianza del cliente y las conversiones.</p>
                             <p><strong>2. Contenido de Afiliados y Promoción:</strong> Promociona extensiones de cabello y pelucas como afiliado. Genera contenido editorial impresionante usando fotos de stock de productos y muéstralos "en uso" para impulsar más clics en los enlaces.</p>
                             <p><strong>3. Consultas Virtuales:</strong> Ofrece un servicio premium donde los clientes te envíen su foto y tú "instales digitalmente" diferentes pelucas de tu catálogo para que puedan elegir el ajuste perfecto antes de comprar.</p>
@@ -794,15 +794,15 @@ Seed: ${Math.random() + i}`;
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                            <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                                 {isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                             </button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos Pro</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos Pro</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <p><strong>• Dirección de la Iluminación:</strong> Para la extracción más realista, sube una foto de origen con iluminación clara y frontal. Evita las sombras pesadas que pueden difuminar la textura del cabello.</p>
                             <p><strong>• El Contraste es el Rey:</strong> Si la peluca es muy oscura, intenta usar una foto de origen con un fondo más claro. Esto ayuda a la IA a definir los bordes del cabello con mayor precisión.</p>
                             <p><strong>• Preparación de la Línea del Cabello:</strong> En la Prueba Virtual, usa una foto de origen donde tu frente sea visible. La IA mezclará naturalmente el encaje o la línea del cabello de la peluca en tu piel para un look impecable.</p>
@@ -810,7 +810,7 @@ Seed: ${Math.random() + i}`;
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                            <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                                 {isProTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                             </button>
                         </div>

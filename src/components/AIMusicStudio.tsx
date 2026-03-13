@@ -53,7 +53,7 @@ const Step: React.FC<{ number: number; title: string; children: React.ReactNode;
 const PillButton: React.FC<{ label: string, isSelected: boolean, onClick: () => void }> = ({ label, isSelected, onClick }) => (
     <button 
         onClick={onClick}
-        className={`px-4 py-2.5 rounded-lg text-sm transition-all mb-2 mr-2 ${isSelected ? 'bg-smw-pink text-black font-bold shadow-sm' : 'bg-white text-gray-600 border border-gray-100 hover:bg-gray-50 font-medium'}`}
+        className={`px-4 py-2.5 rounded-lg text-sm transition-all mb-2 mr-2 ${isSelected ? 'bg-rosa-principal text-black font-bold shadow-sm' : 'bg-white text-gray-600 border border-gray-100 hover:bg-gray-50 font-medium'}`}
     >
         {label}
     </button>
@@ -180,10 +180,10 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
     };
     
     return (
-        <div className="flex flex-col bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-8 space-y-6 h-full overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Estudio de Música IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro rounded-lg shadow-xl p-4 md:p-8 space-y-6 h-full overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Estudio de Música IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Sitúate en un estudio de música profesional. Elige tu ambiente, escena y ángulos de cámara para crear la toma perfecta.
                 </p>
             </div>
@@ -196,13 +196,13 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div className="flex flex-col space-y-6">
                     <Step number={1} title="Sube tu foto">
-                        <div onClick={() => personInputRef.current?.click()} className="w-full min-h-[450px] bg-white rounded-xl flex items-center justify-center border-2 border-dashed border-pink-200 p-2 cursor-pointer hover:border-smw-pink transition-colors group">
+                        <div onClick={() => personInputRef.current?.click()} className="w-full min-h-[450px] bg-white rounded-xl flex items-center justify-center border-2 border-dashed border-pink-200 p-2 cursor-pointer hover:border-rosa-principal transition-colors group">
                             {personImage ? (
                                 <img src={personImage.preview} className="max-h-[440px] max-w-full rounded-lg object-cover shadow-sm" alt="Vista previa" />
                             ) : (
                                 <div className="text-center">
                                     <div className="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-pink-100 transition-colors">
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-smw-pink" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-rosa-principal" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
                                     </div>
                                     <p className="text-gray-400 font-bold text-lg">Haz clic para subir foto</p>
                                 </div>
@@ -241,13 +241,13 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                         <div className="flex bg-gray-50 rounded-full p-1.5 w-full md:w-5/6 shadow-inner border border-gray-100">
                             <button 
                                 onClick={() => setCameraAngle('single')} 
-                                className={`w-1/2 text-center rounded-full py-3 text-sm font-bold transition-all ${cameraAngle === 'single' ? 'bg-smw-pink text-black shadow-md' : 'text-gray-500 hover:text-gray-700'}`}
+                                className={`w-1/2 text-center rounded-full py-3 text-sm font-bold transition-all ${cameraAngle === 'single' ? 'bg-rosa-principal text-black shadow-md' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 Foto única
                             </button>
                             <button 
                                 onClick={() => setCameraAngle('multiple')} 
-                                className={`w-1/2 text-center rounded-full py-3 text-sm font-bold transition-all ${cameraAngle === 'multiple' ? 'bg-smw-pink text-black shadow-md' : 'text-gray-500 hover:text-gray-700'}`}
+                                className={`w-1/2 text-center rounded-full py-3 text-sm font-bold transition-all ${cameraAngle === 'multiple' ? 'bg-rosa-principal text-black shadow-md' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 6 ángulos diferentes
                             </button>
@@ -259,7 +259,7 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                             value={customDetails}
                             onChange={(e) => setCustomDetails(e.target.value)}
                             placeholder="ej. usando una chaqueta de cuero, iluminación atmosférica"
-                            className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none resize-none text-black placeholder:text-gray-400 font-medium"
+                            className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none resize-none text-black placeholder:text-gray-400 font-medium"
                         />
                     </Step>
 
@@ -267,7 +267,7 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                         <button 
                             onClick={handleGenerate} 
                             disabled={isLoading || !personImage} 
-                            className="w-auto px-16 bg-smw-pink text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-pink-100 disabled:text-pink-300 disabled:cursor-not-allowed text-xl shadow-lg transition-all border border-transparent hover:border-smw-pink"
+                            className="w-auto px-16 bg-rosa-principal text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-pink-100 disabled:text-pink-300 disabled:cursor-not-allowed text-xl shadow-lg transition-all border border-transparent hover:border-rosa-principal"
                         >
                             {isLoading ? <Spinner className="mx-auto text-black" /> : 'Generar sesión de fotos en el estudio'}
                         </button>
@@ -282,7 +282,7 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                          {(!isLoading && generatedImages.length === 0) ? (
                             <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                                 <div className="w-24 h-24 bg-pink-50 rounded-full flex items-center justify-center mb-6">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-smw-pink opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586 1.586a2 2 0 010 2.828L12 20M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-rosa-principal opacity-50" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586 1.586a2 2 0 010 2.828L12 20M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                 </div>
                                 <p className="text-gray-400 font-bold text-xl">Tus fotos generadas aparecerán aquí</p>
                                 <p className="text-gray-300 text-sm mt-2">Completa los pasos y haz clic en generar para comenzar tu sesión de fotos</p>
@@ -293,7 +293,7 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                                     <div key={index} className="relative aspect-square bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden shadow-inner">
                                         {isLoading && index >= generatedImages.length ? (
                                             <div className="text-center p-4">
-                                                <Spinner className="w-10 h-10 text-smw-pink mb-4 mx-auto" />
+                                                <Spinner className="w-10 h-10 text-rosa-principal mb-4 mx-auto" />
                                                 <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest animate-pulse">Mezclando pistas...</p>
                                             </div>
                                         ) : generatedImages[index] ? (
@@ -314,24 +314,24 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
             </div>
 
             {/* Information Sections */}
-            <div className="space-y-6 mt-12 border-t border-smw-pink/20 pt-10">
+            <div className="space-y-6 mt-12 border-t border-rosa-principal/20 pt-10">
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p>Bienvenido al Estudio de Música IA, una experiencia de sesión de fotos virtual de vanguardia diseñada específicamente para artistas, productores y músicos. En lugar de reservar un costoso alquiler de estudio y contratar a un fotógrafo profesional, ahora puedes generar fotos promocionales de clase mundial desde la comodidad de tu hogar.</p>
                         <p>Nuestra IA avanzada comprende la estética de la industria musical, desde el equipo técnico de una sala de control de alta gama hasta la atmósfera creativa y melancólica de un espacio de ensayo privado. Al combinar tu imagen con estos entornos icónicos, puedes construir una marca visual poderosa que coincida con la calidad de tu sonido.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-semibold hover:underline">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-semibold hover:underline">
                             {isIntroExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
                 </div>
 
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo funciona</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo funciona</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p><strong>Paso 1: Sube tu foto</strong> - Proporciona una foto clara de ti mismo. Un simple primer plano o un plano medio con buena iluminación funciona mejor. La IA usa esto como el "plano" para tu rostro e identidad.</p>
                         <p><strong>Paso 2: Elige el ambiente del estudio</strong> - Selecciona el entorno que se adapte a tu género. Ya sea una suite de "Lujo de Alta Tecnología" para pop y EDM o un "Refugio de Rock Grunge" para una estética alternativa, tenemos el telón de fondo perfecto para tu marca.</p>
                         <p><strong>Paso 3: Selecciona tu escena</strong> - ¿Qué estás haciendo en la foto? Elige entre acciones como mezclar en la mesa, cantar en una cabina vocal o escribir letras en un sofá de estudio.</p>
@@ -340,15 +340,15 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-semibold hover:underline">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-semibold hover:underline">
                             {isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
                 </div>
 
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos de ventas e ideas de monetización</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos de ventas e ideas de monetización</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p><strong>1. Arte profesional para álbumes y sencillos:</strong> Usa estas tomas de alta fidelidad como el arte principal para tus lanzamientos en Spotify, Apple Music y SoundCloud. Los visuales profesionales conducen a mayores tasas de clics y recuentos de reproducciones.</p>
                         <p><strong>2. Impulsa tu kit de prensa electrónico (EPK):</strong> Los promotores y sellos quieren ver que te tomas en serio tu marca. Llenar tu EPK con fotos de estudio profesionales te hace ver establecido y listo para contrataciones.</p>
                         <p><strong>3. Consistencia en Instagram y TikTok:</strong> A los fans les encanta el contenido "detrás de escena". Incluso si no estás en un estudio de $5,000 al día en este momento, estas fotos te permiten mantener una estética de alto valor que atrae a más seguidores y colaboradores potenciales.</p>
@@ -356,15 +356,15 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-smw-pink font-semibold hover:underline">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-rosa-principal font-semibold hover:underline">
                             {isSalesTipsExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
                 </div>
 
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos profesionales</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos profesionales</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[70vh] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p><strong>• La iluminación es clave:</strong> Para obtener el resultado más realista, sube una foto de origen con iluminación neutral. Las sombras fuertes en tu rostro en la foto de origen a veces pueden interferir con la capacidad de la IA para integrarte perfectamente en el entorno del estudio.</p>
                         <p><strong>• Vístete para la ocasión:</strong> La IA mantendrá tu atuendo de la foto de origen pero lo estilizará para que coincida con la iluminación del estudio. Usa algo que se ajuste a tu "personaje de artista" para obtener el mejor resultado de marca.</p>
                         <p><strong>• Usa detalles personalizados:</strong> ¡No tengas miedo de usar el Paso 5! Puedes añadir nombres de equipos específicos como "micrófono de tubo vintage", "discos de oro en la pared" o "letrero de neón rojo con mi nombre" para que la sesión de fotos se sienta verdaderamente única para ti.</p>
@@ -372,7 +372,7 @@ Estilo: Fotorrealista, iluminación cinematográfica, fotografía de estudio de 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-semibold hover:underline">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-semibold hover:underline">
                             {isProTipsExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>

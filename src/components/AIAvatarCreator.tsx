@@ -11,7 +11,7 @@ interface AIAvatarCreatorProps {
 
 const Step: React.FC<{ number: number | string; title: string; children: React.ReactNode }> = ({ number, title, children }) => (
     <div className="bg-white/60 backdrop-blur-sm shadow-md p-4 rounded-lg">
-        <h3 className="text-md font-bold text-smw-gray-dark mb-3">Paso {number}: {title}</h3>
+        <h3 className="text-md font-bold text-negro-fondo mb-3">Paso {number}: {title}</h3>
         {children}
     </div>
 );
@@ -31,8 +31,8 @@ const formSchema = {
 
 const LabeledSelect: React.FC<{ label: string; value: string; onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void; options: string[]; disabled?: boolean }> = ({ label, value, onChange, options, disabled }) => (
     <div>
-        <label className="block text-sm font-medium text-smw-gray-dark opacity-80 mb-1">{label}</label>
-        <select value={value} onChange={onChange} disabled={disabled} className="w-full bg-white/50 border-2 border-smw-pink/50 rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-gray-dark">
+        <label className="block text-sm font-medium text-negro-fondo opacity-80 mb-1">{label}</label>
+        <select value={value} onChange={onChange} disabled={disabled} className="w-full bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo">
             {options.map(opt => <option key={opt} value={opt}>{opt}</option>)}
         </select>
     </div>
@@ -438,10 +438,10 @@ APARIENCIA:
     };
     
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light rounded-lg p-4 md:p-6 space-y-6 border border-smw-pink/30">
+        <div className="flex flex-col h-full bg-rosa-claro rounded-lg p-4 md:p-6 space-y-6 border border-rosa-principal/30">
             {/* Page Title at the very top */}
             <div className="bg-white rounded-2xl p-4 border border-gray-200 text-center shrink-0 shadow-sm">
-                <h1 className="text-md font-bold text-smw-gray-dark uppercase tracking-tight mb-1">
+                <h1 className="text-md font-bold text-negro-fondo uppercase tracking-tight mb-1">
                     {activeTab === 'generator' ? 'Creador de Avatar IA' : 'Estudio de Libros para Colorear'}
                 </h1>
                 <p className="text-[11px] text-gray-500 max-w-2xl mx-auto font-medium leading-tight">
@@ -453,16 +453,16 @@ APARIENCIA:
 
             {/* Tab Buttons below the title */}
             <header className="flex justify-center pb-2">
-                <div className="bg-white/50 p-1 rounded-xl flex gap-1 border border-smw-pink/20">
+                <div className="bg-white/50 p-1 rounded-xl flex gap-1 border border-rosa-principal/20">
                     <button 
                         onClick={() => setActiveTab('generator')}
-                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'generator' ? 'bg-smw-pink text-smw-gray-dark' : 'text-smw-gray-dark/60 hover:bg-white/50'}`}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${activeTab === 'generator' ? 'bg-rosa-principal text-negro-fondo' : 'text-negro-fondo/60 hover:bg-white/50'}`}
                     >
                         Generador de Avatar
                     </button>
                     <button 
                         onClick={() => setActiveTab('coloring')}
-                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all relative ${activeTab === 'coloring' ? 'bg-smw-pink text-smw-gray-dark' : 'text-smw-gray-dark/60 hover:bg-white/50'}`}
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all relative ${activeTab === 'coloring' ? 'bg-rosa-principal text-negro-fondo' : 'text-negro-fondo/60 hover:bg-white/50'}`}
                     >
                         Estudio de Colorear
                         {Array.isArray(coloringCollection) && coloringCollection.length > 0 && (
@@ -483,14 +483,14 @@ APARIENCIA:
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div>
                                             <div className="flex justify-between items-center mb-1">
-                                                <label className="block text-sm font-medium text-smw-gray-dark opacity-80">Foto de Referencia</label>
+                                                <label className="block text-sm font-medium text-negro-fondo opacity-80">Foto de Referencia</label>
                                                 {referenceImage?.isAI && (
-                                                    <span className="text-[10px] bg-smw-pink text-smw-gray-dark px-2 py-0.5 rounded-full font-black uppercase tracking-widest animate-pulse">Personaje Bloqueado</span>
+                                                    <span className="text-[10px] bg-rosa-principal text-negro-fondo px-2 py-0.5 rounded-full font-black uppercase tracking-widest animate-pulse">Personaje Bloqueado</span>
                                                 )}
                                             </div>
                                             {referenceImage ? (
                                                 <div className="relative">
-                                                    <img src={referenceImage.preview} alt="Reference" className="w-full h-auto object-cover rounded-lg border-2 border-smw-pink" />
+                                                    <img src={referenceImage.preview} alt="Reference" className="w-full h-auto object-cover rounded-lg border-2 border-rosa-principal" />
                                                     <button onClick={() => removeImage('reference')} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold hover:bg-red-600 shadow-md transition-all">&times;</button>
                                                     {referenceImage.isAI && (
                                                         <div className="absolute bottom-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] px-2 py-1 rounded-md font-bold uppercase tracking-widest">
@@ -499,8 +499,8 @@ APARIENCIA:
                                                     )}
                                                 </div>
                                             ) : (
-                                                <div onClick={() => referenceImageInputRef.current?.click()} className="w-full aspect-square bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-smw-pink/50 p-4 cursor-pointer hover:border-smw-pink transition-colors">
-                                                    <div className="text-center text-smw-gray-dark opacity-80">
+                                                <div onClick={() => referenceImageInputRef.current?.click()} className="w-full aspect-square bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-rosa-principal/50 p-4 cursor-pointer hover:border-rosa-principal transition-colors">
+                                                    <div className="text-center text-negro-fondo opacity-80">
                                                         <svg className="w-10 h-10 mx-auto mb-2 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                                                         <p className="text-xs font-bold uppercase tracking-widest">Haz clic para subir foto</p>
                                                     </div>
@@ -523,28 +523,28 @@ APARIENCIA:
                                 </div>
                                  {scene === 'Subir Imagen' && (
                                     <div className="mt-4">
-                                        <label className="block text-sm font-medium text-smw-gray-dark opacity-80 mb-1">Imagen de Escena Personalizada</label>
+                                        <label className="block text-sm font-medium text-negro-fondo opacity-80 mb-1">Imagen de Escena Personalizada</label>
                                         {userSceneImage ? (
                                             <div className="relative">
                                                 <img src={userSceneImage.preview} alt="Custom Scene" className="w-full h-auto object-cover rounded-lg" />
                                                 <button onClick={() => removeImage('scene')} className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold hover:bg-red-600">&times;</button>
                                             </div>
                                         ) : (
-                                            <div onClick={() => customSceneInputRef.current?.click()} className="w-full aspect-video bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-smw-pink/50 p-4 cursor-pointer hover:border-smw-pink transition-colors">
-                                                <p className="text-center text-smw-gray-dark opacity-80">Haz clic para subir fondo</p>
+                                            <div onClick={() => customSceneInputRef.current?.click()} className="w-full aspect-video bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-rosa-principal/50 p-4 cursor-pointer hover:border-rosa-principal transition-colors">
+                                                <p className="text-center text-negro-fondo opacity-80">Haz clic para subir fondo</p>
                                             </div>
                                         )}
                                          <input type="file" ref={customSceneInputRef} onChange={(e) => handleFileChange(e, 'scene')} className="hidden" accept="image/*" />
                                     </div>
                                 )}
                                 <div className="mt-4">
-                                    <label className="block text-sm font-medium text-smw-gray-dark opacity-80 mb-1">Acción/Pose Personalizada (Opcional)</label>
+                                    <label className="block text-sm font-medium text-negro-fondo opacity-80 mb-1">Acción/Pose Personalizada (Opcional)</label>
                                     <textarea 
                                         value={customAction} 
                                         onChange={e => setCustomAction(e.target.value)} 
                                         placeholder="ej., sosteniendo un orbe brillante, montando un dragón, jugando con el perro en el parque" 
                                         rows={2} 
-                                        className="w-full bg-white/50 border-2 border-smw-pink/50 rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none resize-none text-smw-gray-dark placeholder:text-smw-gray-dark/70 font-medium" 
+                                        className="w-full bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none resize-none text-negro-fondo placeholder:text-negro-fondo/70 font-medium" 
                                     />
                                 </div>
                             </Step>
@@ -560,22 +560,22 @@ APARIENCIA:
                             </Step>
 
                             <Step number={4} title="Generar">
-                                <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-smw-pink text-smw-gray-dark font-black py-4 px-4 rounded-xl flex items-center justify-center hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed shadow-lg transition-all text-lg uppercase tracking-tight">
-                                    {isLoading ? <Spinner className="w-6 h-6 text-smw-gray-dark" /> : 'Generar 4 Avatares'}
+                                <button onClick={handleGenerate} disabled={isLoading} className="w-full bg-rosa-principal text-negro-fondo font-black py-4 px-4 rounded-xl flex items-center justify-center hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed shadow-lg transition-all text-lg uppercase tracking-tight">
+                                    {isLoading ? <Spinner className="w-6 h-6 text-negro-fondo" /> : 'Generar 4 Avatares'}
                                 </button>
                             </Step>
                         </div>
 
                         <div className="bg-white/60 backdrop-blur-sm shadow-md p-4 rounded-lg flex flex-col min-h-[400px]">
-                            <h3 className="text-md font-bold text-smw-gray-dark mb-3">Tus Avatares</h3>
+                            <h3 className="text-md font-bold text-negro-fondo mb-3">Tus Avatares</h3>
                              {error && <div className="p-3 bg-red-900 text-white rounded-md mb-4 text-sm font-bold shadow-lg animate-pulse">{error}</div>}
                             <div className="grid grid-cols-2 gap-4 flex-1">
                                  {[...Array(4)].map((_, index) => (
                                     <div key={index} className="relative aspect-square bg-white/40 rounded-xl flex items-center justify-center border border-white shadow-inner overflow-hidden">
                                         {isLoading && index >= generatedImages.length ? (
                                             <div className="text-center p-2">
-                                                <Spinner className="w-10 h-10 text-smw-pink mb-2 mx-auto" />
-                                                <p className="text-[10px] text-smw-gray-dark opacity-60 font-black uppercase tracking-widest">Renderizando...</p>
+                                                <Spinner className="w-10 h-10 text-rosa-principal mb-2 mx-auto" />
+                                                <p className="text-[10px] text-negro-fondo opacity-60 font-black uppercase tracking-widest">Renderizando...</p>
                                             </div>
                                         ) : generatedImages[index] ? (
                                             <div className="relative group w-full h-full">
@@ -588,7 +588,7 @@ APARIENCIA:
                                                  <div className="absolute bottom-2 left-2 right-2 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex flex-wrap justify-center gap-2">
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); handleUseAsReference(generatedImages[index]); }}
-                                                        className="bg-smw-pink text-smw-gray-dark p-1.5 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-transform"
+                                                        className="bg-rosa-principal text-negro-fondo p-1.5 rounded-full shadow-lg hover:scale-110 active:scale-95 transition-transform"
                                                         title="Mantener este Personaje"
                                                     >
                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
@@ -608,7 +608,7 @@ APARIENCIA:
                                                     </button>
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); handleOpenResizeModal(generatedImages[index]); }}
-                                                        className="bg-white text-smw-gray-dark p-1.5 rounded-full shadow-lg hover:scale-110 transition-transform"
+                                                        className="bg-white text-negro-fondo p-1.5 rounded-full shadow-lg hover:scale-110 transition-transform"
                                                         title="Redimensionar y Descargar"
                                                     >
                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" /></svg>
@@ -618,7 +618,7 @@ APARIENCIA:
                                                         download={`smw-ai-avatar-${index + 1}.png`}
                                                         title="Descargar Original"
                                                         onClick={(e) => e.stopPropagation()}
-                                                        className="bg-white text-smw-gray-dark p-1.5 rounded-full shadow-lg hover:scale-110 transition-transform"
+                                                        className="bg-white text-negro-fondo p-1.5 rounded-full shadow-lg hover:scale-110 transition-transform"
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                                     </a>
@@ -635,24 +635,24 @@ APARIENCIA:
 
                     <div className="space-y-6 pb-10">
                         <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                            <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                            <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                            <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                            <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                                 <p>El Creador de Avatar IA te permite construir tu propio personaje digital en segundos. Puedes subir una foto si quieres que el avatar se parezca a ti, o puedes saltarte la foto y elegir entre ajustes preestablecidos femeninos, masculinos o compañeros de fantasía como perros, gatos, tigres, zorros, conejos y más. Tienes el control total del estilo, desde Pixar/Disney hasta 3D Realista, anime, cuentos de hadas, cinemático o aspectos de videojuegos.</p>
                                 <p>Una vez que tu avatar esté generado, puedes darle vida usando nuestra función de **Bloqueo de Personaje**. Haz clic en el botón 'Mantener Personaje' en cualquier avatar que te guste, y el sistema lo usará como base para todas las generaciones futuras. Esto asegura que el rostro, el cabello y la identidad general permanezcan idénticos, permitiéndote construir historias completas, series y personalidades de marca con el mismo avatar en nuevas poses, nuevas acciones y nuevas escenas.</p>
                                 <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                             </div>
                             <div className="text-center">
-                                <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                                <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                                     {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                                 </button>
                             </div>
                         </div>
 
                         <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                            <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo Funciona</h2>
-                            <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1500px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                            <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo Funciona</h2>
+                            <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1500px] overflow-y-auto' : 'max-h-[150px]'}`}>
                                 <div>
-                                    <h3 className="font-bold text-lg text-smw-gray-dark">Paso 1 – Identidad</h3>
+                                    <h3 className="font-bold text-lg text-negro-fondo">Paso 1 – Identidad</h3>
                                     <ul className="list-disc list-inside space-y-1 my-2 pl-2">
                                         <li>Sube una foto de referencia clara (opcional, pero recomendada para obtener semejanza)</li>
                                         <li>Selecciona tu Tipo de Avatar</li>
@@ -660,7 +660,7 @@ APARIENCIA:
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg text-smw-gray-dark">Paso 2 – Estilo y Escena</h3>
+                                    <h3 className="font-bold text-lg text-negro-fondo">Paso 2 – Estilo y Escena</h3>
                                     <ul className="list-disc list-inside space-y-1 my-2 pl-2">
                                         <li>Elige tu Estilo Artístico (Pixar Disney, 3D Realista, Anime, Fantasía, Realeza, Cyberpunk, Princesa, Dibujos Animados y muchos más)</li>
                                         <li>Elige un Fondo/Escena como estudio, bosque, castillo, galaxia, ciudad, jardín encantado, etc.</li>
@@ -676,7 +676,7 @@ APARIENCIA:
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg text-smw-gray-dark">Paso 3 – Apariencia</h3>
+                                    <h3 className="font-bold text-lg text-negro-fondo">Paso 3 – Apariencia</h3>
                                     <ul className="list-disc list-inside space-y-1 my-2 pl-2">
                                         <li>Elige el largo del cabello</li>
                                         <li>Selecciona la textura del cabello</li>
@@ -687,7 +687,7 @@ APARIENCIA:
                                     <p>Estos ajustes ayudan a que tu avatar coincida con tu personalidad y estilo.</p>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg text-smw-gray-dark">Paso 4 – Generar</h3>
+                                    <h3 className="font-bold text-lg text-negro-fondo">Paso 4 – Generar</h3>
                                     <ul className="list-disc list-inside space-y-1 my-2 pl-2">
                                         <li>Haz clic en Generar 4 Avatares</li>
                                         <li>Espera unos momentos</li>
@@ -696,7 +696,7 @@ APARIENCIA:
                                     </ul>
                                 </div>
                                 <div>
-                                    <h3 className="font-bold text-lg text-smw-gray-dark">✨ Función Avanzada – Consistencia de Personaje</h3>
+                                    <h3 className="font-bold text-lg text-negro-fondo">✨ Función Avanzada – Consistencia de Personaje</h3>
                                     <p>Esta es una de las funciones más potentes.</p>
                                     <p>Una vez que generes un avatar que te guste, simplemente haz clic en el botón 'Mantener Personaje'. El sistema:</p>
                                     <ul className="list-disc list-inside space-y-1 my-2 pl-2">
@@ -709,15 +709,15 @@ APARIENCIA:
                                 <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                             </div>
                             <div className="text-center">
-                                <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                                <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                                     {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                                 </button>
                             </div>
                         </div>
 
                         <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                            <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos de Venta e Ideas de Monetización</h2>
-                            <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1500px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                            <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos de Venta e Ideas de Monetización</h2>
+                            <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1500px] overflow-y-auto' : 'max-h-[150px]'}`}>
                                 <p>Cuando creas avatares con esta herramienta, no solo estás haciendo imágenes bonitas, estás creando contenido digital que puedes usar para crecer, monetizar y promocionarte a ti mismo o a tu negocio. Aquí te explicamos cómo usar estos avatares de forma inteligente.</p>
                                 <p><strong>Primero,</strong> después de generar tu avatar, puedes convertir esas imágenes en videos cortos o animaciones para TikTok, Instagram Reels y YouTube Shorts. Estas plataformas pagan por el contenido, por lo que incluso una historia sencilla hecha con tu avatar puede empezar a generar visitas e ingresos.</p>
                                 <p><strong>A continuación,</strong> puedes crear series completas de narración de historias. Usa la función de **Bloqueo de Personaje** para continuar la historia solicitando una nueva acción: caminar con un perro, leer un libro, luchar contra un dragón, explorar el bosque, lo que imagines. Debido a que el sistema mantiene el mismo rostro y estilo, puedes crear episodios, capítulos o mini historias diarias que a la gente le encanta ver y que pueden monetizarse en todas las plataformas.</p>
@@ -726,7 +726,7 @@ APARIENCIA:
                                 <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                             </div>
                             <div className="text-center">
-                                <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                                <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                                     {isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                                 </button>
                             </div>
@@ -827,11 +827,11 @@ APARIENCIA:
                         </div>
                     ) : (
                         <div className="flex-1 bg-white rounded-2xl flex flex-col items-center justify-center p-6 text-center mx-auto max-w-sm w-full shadow-none border-none">
-                            <div className="w-12 h-12 bg-smw-pink/20 rounded-full flex items-center justify-center mb-4">
-                                <Book className="w-6 h-6 text-smw-pink" />
+                            <div className="w-12 h-12 bg-rosa-principal/20 rounded-full flex items-center justify-center mb-4">
+                                <Book className="w-6 h-6 text-rosa-principal" />
                             </div>
-                            <h3 className="text-base font-black text-smw-gray-dark mb-1 uppercase tracking-widest">Tu Colección está Vacía</h3>
-                            <p className="text-xs text-smw-gray-dark/70 mb-6 font-bold max-w-[200px] leading-relaxed">¡Ve al Generador y haz clic en el icono del libro en cualquier imagen que te guste!</p>
+                            <h3 className="text-base font-black text-negro-fondo mb-1 uppercase tracking-widest">Tu Colección está Vacía</h3>
+                            <p className="text-xs text-negro-fondo/70 mb-6 font-bold max-w-[200px] leading-relaxed">¡Ve al Generador y haz clic en el icono del libro en cualquier imagen que te guste!</p>
                             <button 
                                 onClick={() => setActiveTab('generator')}
                                 className="bg-black text-white px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-transform"

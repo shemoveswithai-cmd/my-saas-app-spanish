@@ -101,11 +101,11 @@ const WebSearch: React.FC = () => {
         });
         
         return (
-            <div className="mt-4 pt-4 border-t border-smw-gray-light">
-                <h4 className="font-semibold text-smw-text-dim mb-2">Sources:</h4>
+            <div className="mt-4 pt-4 border-t border-gris-medio-light">
+                <h4 className="font-semibold text-gris-atenuado mb-2">Sources:</h4>
                 <div className="flex flex-wrap gap-2">
                     {Array.from(uniqueLinks.values()).map((link) => (
-                        <a key={link.uri} href={link.uri} target="_blank" rel="noopener noreferrer" className="text-sm bg-smw-gray-light text-smw-pink px-3 py-1 rounded-full hover:bg-smw-gray-dark transition-colors">
+                        <a key={link.uri} href={link.uri} target="_blank" rel="noopener noreferrer" className="text-sm bg-gris-medio-light text-rosa-principal px-3 py-1 rounded-full hover:bg-negro-fondo transition-colors">
                             {link.title}
                         </a>
                     ))}
@@ -115,8 +115,8 @@ const WebSearch: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-smw-gray-dark rounded-lg shadow-xl p-4 md:p-6 space-y-4">
-            <h2 className="text-2xl font-bold text-smw-pink">Web & Maps Grounding</h2>
+        <div className="flex flex-col h-full bg-negro-fondo rounded-lg shadow-xl p-4 md:p-6 space-y-4">
+            <h2 className="text-2xl font-bold text-rosa-principal">Web & Maps Grounding</h2>
             
             <div className="flex flex-col md:flex-row gap-4">
                 <input
@@ -124,13 +124,13 @@ const WebSearch: React.FC = () => {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder={tool === 'googleSearch' ? 'e.g., Who won the last olympics?' : 'e.g., Good Italian restaurants nearby'}
-                    className="flex-1 bg-smw-gray-light border border-smw-gray-light rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none"
+                    className="flex-1 bg-gris-medio-light border border-gris-medio-light rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none"
                     disabled={isLoading}
                 />
                  <select
                     value={tool}
                     onChange={(e) => setTool(e.target.value as GroundingTool)}
-                    className="bg-smw-gray-light border border-smw-gray-light rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none"
+                    className="bg-gris-medio-light border border-gris-medio-light rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none"
                     disabled={isLoading}
                 >
                     <option value="googleSearch">Google Search</option>
@@ -139,27 +139,27 @@ const WebSearch: React.FC = () => {
                 <button
                     onClick={handleSearch}
                     disabled={isLoading || !query.trim()}
-                    className="bg-smw-pink text-smw-gray-dark font-bold py-2 px-4 rounded-lg flex items-center justify-center hover:bg-smw-pink-light disabled:bg-smw-gray-light disabled:cursor-not-allowed"
+                    className="bg-rosa-principal text-negro-fondo font-bold py-2 px-4 rounded-lg flex items-center justify-center hover:bg-rosa-claro disabled:bg-gris-medio-light disabled:cursor-not-allowed"
                 >
                     {isLoading ? <Spinner /> : 'Search'}
                 </button>
             </div>
             
-            {error && <div className="p-4 bg-red-900 text-smw-text rounded-md">{error}</div>}
+            {error && <div className="p-4 bg-red-900 text-blanco-texto rounded-md">{error}</div>}
 
-            <div className="flex-1 bg-smw-black rounded-lg p-4 overflow-y-auto">
+            <div className="flex-1 bg-negro-fondo rounded-lg p-4 overflow-y-auto">
                 {isLoading ? (
                     <div className="text-center pt-10">
                         <Spinner className="w-12 h-12 mx-auto" />
-                        <p className="mt-4 text-smw-text-dim">Searching the web...</p>
+                        <p className="mt-4 text-gris-atenuado">Searching the web...</p>
                     </div>
                 ) : result ? (
                     <div>
-                        <p className="whitespace-pre-wrap text-smw-text">{result.text}</p>
+                        <p className="whitespace-pre-wrap text-blanco-texto">{result.text}</p>
                         {renderGroundingChunks(result.candidates?.[0]?.groundingMetadata?.groundingChunks)}
                     </div>
                 ) : (
-                    <p className="text-smw-text-dim text-center pt-10">Search results will appear here.</p>
+                    <p className="text-gris-atenuado text-center pt-10">Search results will appear here.</p>
                 )}
             </div>
         </div>

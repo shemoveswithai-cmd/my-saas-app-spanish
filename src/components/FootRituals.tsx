@@ -81,7 +81,7 @@ const ritualElementDescriptions: Record<RitualElement, string> = {
 
 const Step: React.FC<{ number: number | string; title: string; children: React.ReactNode }> = ({ number, title, children }) => (
     <div className="bg-white shadow-sm p-6 rounded-2xl border border-gray-100 mb-5">
-        <h3 className="text-lg font-bold text-smw-gray-dark mb-4 tracking-tight">
+        <h3 className="text-lg font-bold text-negro-fondo mb-4 tracking-tight">
             Paso {number}: {title}
         </h3>
         {children}
@@ -245,10 +245,10 @@ Create a photorealistic, high-end commercial image of a person's feet.
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-8 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Rituales de Pies IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-8 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Rituales de Pies IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Diseña visuales de pies estéticos y de alta fidelidad para branding y portafolios profesionales en entornos de spa de lujo.
                 </p>
             </div>
@@ -261,7 +261,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                             <p className="text-sm font-bold text-gray-400 mb-2 block tracking-tight uppercase">Opción A: Sube Tu Propia Foto (Recomendado)</p>
                             <div 
                                 onClick={() => fileInputRef.current?.click()}
-                                className="w-full aspect-video bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-smw-pink transition-all p-4 group relative overflow-hidden"
+                                className="w-full aspect-video bg-white rounded-2xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-rosa-principal transition-all p-4 group relative overflow-hidden"
                             >
                                 {userPhoto ? (
                                     <>
@@ -278,8 +278,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     </>
                                 ) : (
                                     <>
-                                        <svg className="w-8 h-8 text-gray-300 group-hover:text-smw-pink mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
-                                        <p className="text-sm font-bold text-gray-400 group-hover:text-smw-gray-dark transition-colors">Haz clic para subir tu propia imagen</p>
+                                        <svg className="w-8 h-8 text-gray-300 group-hover:text-rosa-principal mb-2 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
+                                        <p className="text-sm font-bold text-gray-400 group-hover:text-negro-fondo transition-colors">Haz clic para subir tu propia imagen</p>
                                     </>
                                 )}
                                 <input type="file" ref={fileInputRef} onChange={handleFileChange} className="hidden" accept="image/*" />
@@ -291,7 +291,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     <button
                                         key={tone}
                                         onClick={() => { setSkinTone(tone as SkinTone); if(userPhoto) removeUserPhoto(); }}
-                                        className={`flex-1 py-3 rounded-full font-bold transition-all shadow-sm text-sm border-2 ${!userPhoto && skinTone === tone ? 'bg-smw-pink text-smw-black border-smw-pink' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
+                                        className={`flex-1 py-3 rounded-full font-bold transition-all shadow-sm text-sm border-2 ${!userPhoto && skinTone === tone ? 'bg-rosa-principal text-negro-fondo border-rosa-principal' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
                                     >
                                         {label}
                                     </button>
@@ -314,7 +314,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                 ))}
                                 <button 
                                     onClick={() => setIsDesignModalOpen(true)}
-                                    className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-dashed border-smw-pink flex items-center justify-center bg-white text-smw-pink font-bold hover:bg-smw-pink/5 transition-colors"
+                                    className="flex-shrink-0 w-12 h-12 rounded-full border-2 border-dashed border-rosa-principal flex items-center justify-center bg-white text-rosa-principal font-bold hover:bg-rosa-principal/5 transition-colors"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
                                 </button>
@@ -326,11 +326,11 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     value={nailDesign}
                                     onChange={(e) => setNailDesign(e.target.value)}
                                     placeholder="ej: punta francesa brillante, rojo intenso..."
-                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-4 text-sm text-smw-gray-dark font-medium focus:ring-2 focus:ring-smw-pink outline-none shadow-sm pr-12"
+                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-4 text-sm text-negro-fondo font-medium focus:ring-2 focus:ring-rosa-principal outline-none shadow-sm pr-12"
                                 />
                                 <button 
                                     onClick={() => setIsDesignModalOpen(true)}
-                                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-smw-pink hover:bg-smw-pink/10 rounded-full transition-colors"
+                                    className="absolute right-3 top-1/2 -translate-y-1/2 p-2 text-rosa-principal hover:bg-rosa-principal/10 rounded-full transition-colors"
                                     title="Abrir Ventana de Diseño"
                                 >
                                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -345,7 +345,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                 <button
                                     key={element}
                                     onClick={() => setRitualElement(element)}
-                                    className={`py-2 px-1 rounded-xl font-bold transition-all shadow-sm text-[11px] border-2 leading-tight ${ritualElement === element ? 'bg-smw-pink text-smw-black border-smw-pink' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
+                                    className={`py-2 px-1 rounded-xl font-bold transition-all shadow-sm text-[11px] border-2 leading-tight ${ritualElement === element ? 'bg-rosa-principal text-negro-fondo border-rosa-principal' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
                                 >
                                     {ritualElementLabels[element]}
                                 </button>
@@ -360,7 +360,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                 <select 
                                     value={aspectRatio} 
                                     onChange={(e) => setAspectRatio(e.target.value as AspectRatio)}
-                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-3 text-sm focus:ring-2 focus:ring-smw-pink outline-none font-bold appearance-none text-smw-gray-dark"
+                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal outline-none font-bold appearance-none text-negro-fondo"
                                     style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1rem' }}
                                 >
                                     <option value="1:1">Cuadrado (1:1)</option>
@@ -376,7 +376,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     value={additionalPrompt}
                                     onChange={(e) => setAdditionalPrompt(e.target.value)}
                                     placeholder="ej: sombras suaves..."
-                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-3 text-sm focus:ring-2 focus:ring-smw-pink outline-none font-bold text-smw-gray-dark placeholder:text-gray-300"
+                                    className="w-full bg-white border-2 border-gray-100 rounded-2xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal outline-none font-bold text-negro-fondo placeholder:text-gray-300"
                                 />
                             </div>
                         </div>
@@ -385,20 +385,20 @@ Create a photorealistic, high-end commercial image of a person's feet.
                     <button
                         onClick={handleGenerate}
                         disabled={isLoading}
-                        className="w-full bg-smw-pink text-smw-black font-bold py-4 rounded-2xl shadow-lg hover:opacity-95 disabled:opacity-50 transition-all text-lg flex items-center justify-center gap-3"
+                        className="w-full bg-rosa-principal text-negro-fondo font-bold py-4 rounded-2xl shadow-lg hover:opacity-95 disabled:opacity-50 transition-all text-lg flex items-center justify-center gap-3"
                     >
-                        {isLoading ? <Spinner className="w-6 h-6 text-smw-black" /> : 'Crear Fotos de Ritual'}
+                        {isLoading ? <Spinner className="w-6 h-6 text-negro-fondo" /> : 'Crear Fotos de Ritual'}
                     </button>
                     {error && <div className="p-3 bg-red-50 text-red-600 rounded-xl border border-red-100 text-xs font-bold text-center mt-3">{error}</div>}
                 </div>
 
                 {/* Right Panel: Results */}
                 <div className="bg-white shadow-md p-6 rounded-3xl border border-white min-h-[450px] flex flex-col">
-                    <h3 className="text-base font-bold text-center text-smw-gray-dark mb-6 opacity-20 uppercase tracking-widest">Galería Generada</h3>
+                    <h3 className="text-base font-bold text-center text-negro-fondo mb-6 opacity-20 uppercase tracking-widest">Galería Generada</h3>
                     <div className="flex-1">
                         {isLoading && generatedImages.length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center space-y-3">
-                                <Spinner className="w-10 h-10 text-smw-pink" />
+                                <Spinner className="w-10 h-10 text-rosa-principal" />
                                 <p className="text-gray-400 font-bold animate-pulse text-sm text-center">Diseñando tu visual...</p>
                             </div>
                         ) : generatedImages.length === 0 ? (
@@ -415,8 +415,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     <div key={idx} className="relative group aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-50 border-2 border-white">
                                         <img src={img} className="w-full h-full object-cover cursor-zoom-in transition-transform duration-700 group-hover:scale-110" alt="Resultado de Ritual" onClick={() => setZoomedImage(img)} />
                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-smw-black p-2 rounded-full hover:scale-110 shadow-lg transition-transform active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
-                                            <a href={img} download={`ritual-pies-${idx + 1}.png`} className="bg-white text-smw-black p-2 rounded-full hover:scale-110 shadow-lg transition-transform active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
+                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-negro-fondo p-2 rounded-full hover:scale-110 shadow-lg transition-transform active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
+                                            <a href={img} download={`ritual-pies-${idx + 1}.png`} className="bg-white text-negro-fondo p-2 rounded-full hover:scale-110 shadow-lg transition-transform active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
                                         </div>
                                     </div>
                                 ))}
@@ -427,18 +427,18 @@ Create a photorealistic, high-end commercial image of a person's feet.
             </div>
 
             {/* Information Sections */}
-            <div className="space-y-4 pt-8 border-t border-smw-pink/30 max-w-6xl mx-auto w-full px-4">
+            <div className="space-y-4 pt-8 border-t border-rosa-principal/30 max-w-6xl mx-auto w-full px-4">
                 {/* Introduction Box */}
                 <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-white/60">
-                    <h2 className="text-xl font-bold text-smw-black mb-6 text-center">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
                         <p>Bienvenido al **Estudio de Rituales de Pies IA**, un espacio creativo exclusivo impulsado por IA para branding de bienestar, portafolios profesionales y visualización artística. Esta herramienta está diseñada para ayudar a creadores, dueños de spas y especialistas en estética a generar imágenes de clase mundial y grado comercial sin la necesidad de costosas sesiones de fotos.</p>
                         <p>Nuestra IA avanzada comprende los finos detalles de la anatomía, la textura de la piel y los elementos sensoriales. Desde acabados de aceite de alto brillo hasta tratamientos de lodo orgánico y gotas de agua cristalinas, puedes construir una marca visual consistente que se sienta lujosa e intencional.</p>
                         <p>Cada generación es única, lo que te permite mostrar diversos tonos de piel y arte de uñas preciso en un entorno de estudio profesional.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/80 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -446,8 +446,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
 
                 {/* How It Works Box */}
                 <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-white/60">
-                    <h2 className="text-xl font-bold text-smw-black mb-6 text-center">Cómo Funciona</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-xl font-bold text-negro-fondo mb-6 text-center">Cómo Funciona</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
                         <p><strong>Paso Uno: Foto de Origen o Tono de Piel</strong> - Selecciona el tono de piel objetivo para tu visual O sube tu propia foto para usarla como base directa. Si subes una foto, nuestra IA la usará como referencia para la máxima precisión.</p>
                         <p><strong>Paso Dos: Diseña las Uñas</strong> - Especifica el diseño de las uñas de los pies. Puedes describir colores, acabados (como mate o brillante) y patrones (como puntas francesas o cromo) para que coincidan con el estilo de tu salón o producto.</p>
                         <p><strong>Paso Tres: Aplica Elementos de Ritual</strong> - Elige una textura para elevar la toma. Usa **aceite** para un brillo saludable, **agua** para un aspecto fresco/refrescante, o **lodo** para una sensación orgánica y terrenal.</p>
@@ -455,7 +455,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/80 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -463,8 +463,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
 
                 {/* Sales & Monetization Box */}
                 <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-white/60">
-                    <h2 className="text-xl font-bold text-smw-black mb-6 text-center">Consejos de Ventas y Monetización</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-xl font-bold text-negro-fondo mb-6 text-center">Consejos de Ventas y Monetización</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
                         <p><strong>1. Branding para Spas y Bienestar:</strong> Construye una presencia completa en redes sociales para tu negocio de spa o pedicura. Las imágenes profesionales y consistentes generan confianza y justifican precios más altos para tus servicios.</p>
                         <p><strong>2. Fotografía de Stock:</strong> Genera fotos de rituales únicas y de alta fidelidad y véndelas en mercados digitales como activos de stock para especialistas en marketing y diseñadores en la industria del bienestar.</p>
                         <p><strong>3. Expansión de Portafolio:</strong> Si eres técnico de uñas o esteticista, usa estos visuales para mostrar "servicios futuros" o "posibilidades de diseño" en tu sitio web y páginas de reserva.</p>
@@ -472,7 +472,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/80 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -480,8 +480,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
 
                 {/* Pro Tips Box */}
                 <div className="bg-white/80 backdrop-blur-xl p-8 rounded-3xl shadow-sm border border-white/60">
-                    <h2 className="text-xl font-bold text-smw-black mb-6 text-center">Consejos Profesionales</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-xl font-bold text-negro-fondo mb-6 text-center">Consejos Profesionales</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1500px]' : 'max-h-[120px]'}`}>
                         <p><strong>• El Contraste es el Rey:</strong> Si usas un tono de piel oscuro, prueba diseños de uñas más claros como "cromo blanco" o "coral brillante" para un contraste impresionante y profesional que resalte en las redes sociales.</p>
                         <p><strong>• Precisión de la Fuente:</strong> Al subir tu propia foto, asegúrate de que los pies sean claramente visibles y estén bien iluminados. Esto ayuda a la IA a mapear perfectamente el nuevo diseño de uñas y los elementos del ritual.</p>
                         <p><strong>• Sinergia de Texturas:</strong> Haz que el acabado de la uña coincida con el elemento. Las uñas "mate" lucen increíbles con tratamientos de "lodo", mientras que las uñas de "alto brillo" brillan mejor bajo "aceite" o "agua goteando".</p>
@@ -489,7 +489,7 @@ Create a photorealistic, high-end commercial image of a person's feet.
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/80 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-sm text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-sm text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isProTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -501,8 +501,8 @@ Create a photorealistic, high-end commercial image of a person's feet.
                 <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[110] p-4 animate-fade-in" onClick={() => setIsDesignModalOpen(false)}>
                     <div className="bg-white rounded-3xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col max-h-[80vh]" onClick={e => e.stopPropagation()}>
                         <header className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
-                            <h3 className="text-xl font-black text-smw-gray-dark lowercase tracking-tighter">opciones de diseño de uñas</h3>
-                            <button onClick={() => setIsDesignModalOpen(false)} className="text-gray-400 hover:text-smw-pink transition-colors">
+                            <h3 className="text-xl font-black text-negro-fondo lowercase tracking-tighter">opciones de diseño de uñas</h3>
+                            <button onClick={() => setIsDesignModalOpen(false)} className="text-gray-400 hover:text-rosa-principal transition-colors">
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                             </button>
                         </header>
@@ -514,10 +514,10 @@ Create a photorealistic, high-end commercial image of a person's feet.
                                     className="flex flex-col items-center group transition-transform active:scale-95"
                                 >
                                     <div 
-                                        className="w-16 h-16 rounded-full border-4 border-white shadow-md mb-2 group-hover:ring-4 group-hover:ring-smw-pink/30 transition-all"
+                                        className="w-16 h-16 rounded-full border-4 border-white shadow-md mb-2 group-hover:ring-4 group-hover:ring-rosa-principal/30 transition-all"
                                         style={{ background: preset.color }}
                                     />
-                                    <span className="text-[10px] font-black text-center text-smw-gray-dark uppercase tracking-tight leading-tight px-1">
+                                    <span className="text-[10px] font-black text-center text-negro-fondo uppercase tracking-tight leading-tight px-1">
                                         {preset.name}
                                     </span>
                                 </button>

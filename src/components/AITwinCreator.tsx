@@ -38,9 +38,9 @@ const aiTwinPrompts: Prompt[] = [
 
 const Step: React.FC<{ number: number | string; title: string; subtext: string; children: React.ReactNode }> = ({ number, title, subtext, children }) => (
     <div className="bg-white rounded-xl shadow-sm p-6 mb-4">
-        <h3 className="text-lg font-bold text-smw-black mb-1">Paso {number}: {title}</h3>
+        <h3 className="text-lg font-bold text-negro-fondo mb-1">Paso {number}: {title}</h3>
         {children}
-        {subtext && <p className="text-sm text-smw-gray-dark opacity-70 mt-2">{subtext}</p>}
+        {subtext && <p className="text-sm text-negro-fondo opacity-70 mt-2">{subtext}</p>}
     </div>
 );
 
@@ -230,11 +230,11 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
     };
     
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 md:p-10 space-y-6 overflow-y-auto">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 md:p-10 space-y-6 overflow-y-auto">
             <div className="max-w-6xl space-y-6">
-                <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                    <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">CREADOR DE GEMELO IA</h1>
-                    <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+                <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                    <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">CREADOR DE GEMELO IA</h1>
+                    <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                         Crea tu propio gemelo digital en segundos. Sube una foto para el parecido y genera fotos de alta calidad de ti mismo en cualquier entorno, estilo o pose con preservación absoluta de la identidad.
                     </p>
                 </div>
@@ -243,21 +243,21 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                     <div className="flex justify-center">
                         {selfiePreview ? (
                             <div className="relative group cursor-pointer w-64 h-64" onClick={() => selfieInputRef.current?.click()}>
-                                <img src={selfiePreview} alt="Selfie preview" className="w-full h-full object-cover rounded-lg border border-smw-pink/20" />
+                                <img src={selfiePreview} alt="Selfie preview" className="w-full h-full object-cover rounded-lg border border-rosa-principal/20" />
                                 <div className="absolute inset-0 bg-black/50 rounded-lg flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">Haz clic para cambiar</div>
                             </div>
                         ) : (
-                            <div onClick={() => selfieInputRef.current?.click()} className="w-64 h-64 bg-white rounded-lg flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/30 hover:border-smw-pink transition-colors p-4 text-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-smw-gray-dark opacity-40 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v-1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
-                                <p className="text-sm font-bold text-smw-black">Haz clic para subir</p>
-                                <p className="text-xs text-smw-gray-dark opacity-60 mt-1 uppercase tracking-wider">PNG, JPG, WEBP hasta 10MB</p>
+                            <div onClick={() => selfieInputRef.current?.click()} className="w-64 h-64 bg-white rounded-lg flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/30 hover:border-rosa-principal transition-colors p-4 text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-negro-fondo opacity-40 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v-1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
+                                <p className="text-sm font-bold text-negro-fondo">Haz clic para subir</p>
+                                <p className="text-xs text-negro-fondo opacity-60 mt-1 uppercase tracking-wider">PNG, JPG, WEBP hasta 10MB</p>
                             </div>
                         )}
                     </div>
                 </Step>
 
                 <Step number={2} title="Personaliza el Tipo de Cuerpo" subtext="Opcionalmente especifica un tipo de cuerpo para tu Gemelo IA.">
-                    <select value={bodyType} onChange={(e) => setBodyType(e.target.value)} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-black appearance-none" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem'}}>
+                    <select value={bodyType} onChange={(e) => setBodyType(e.target.value)} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo appearance-none" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem'}}>
                         <option value="Match Photo">Igual a la Foto</option>
                         <option value="Slim">Delgado</option>
                         <option value="Athletic">Atlético</option>
@@ -268,8 +268,8 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
 
                 <Step number={3} title="Crea tu Prompt" subtext="">
                     <div className="flex gap-6 border-b border-gray-100 mb-6">
-                        <button onClick={() => setPromptMode('Category Prompts')} className={`pb-2 px-1 text-sm font-bold transition-all relative ${promptMode === 'Category Prompts' ? 'text-smw-black' : 'text-smw-gray-dark opacity-60'}`}>Prompts por Categoría{promptMode === 'Category Prompts' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-smw-pink" />}</button>
-                        <button onClick={() => setPromptMode('Custom Prompt')} className={`pb-2 px-1 text-sm font-bold transition-all relative ${promptMode === 'Custom Prompt' ? 'text-smw-black' : 'text-smw-gray-dark opacity-60'}`}>Prompt Personalizado{promptMode === 'Custom Prompt' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-smw-pink" />}</button>
+                        <button onClick={() => setPromptMode('Category Prompts')} className={`pb-2 px-1 text-sm font-bold transition-all relative ${promptMode === 'Category Prompts' ? 'text-negro-fondo' : 'text-negro-fondo opacity-60'}`}>Prompts por Categoría{promptMode === 'Category Prompts' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-rosa-principal" />}</button>
+                        <button onClick={() => setPromptMode('Custom Prompt')} className={`pb-2 px-1 text-sm font-bold transition-all relative ${promptMode === 'Custom Prompt' ? 'text-negro-fondo' : 'text-negro-fondo opacity-60'}`}>Prompt Personalizado{promptMode === 'Custom Prompt' && <div className="absolute bottom-0 left-0 w-full h-0.5 bg-rosa-principal" />}</button>
                     </div>
                     {promptMode === 'Category Prompts' ? (
                         <div className="space-y-4">
@@ -278,16 +278,16 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                                 setSelectedCategory(cat);
                                 const firstPrompt = aiTwinPrompts.find(p => p.category === cat)?.prompts[0] || "";
                                 setPrompt(firstPrompt);
-                            }} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-black appearance-none" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem'}}>
+                            }} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo appearance-none" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 24 24\' stroke=\'currentColor\'%3E%3Cpath stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M19 9l-7 7-7-7\' /%3E%3C/svg%3E")', backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.25rem'}}>
                                 {aiTwinPrompts.map(p => <option key={p.category} value={p.category}>{p.category}</option>)}
                             </select>
                             <div className="relative">
-                                <textarea value={prompt} onChange={e => setPrompt(e.target.value)} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 pr-12 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-black min-h-[60px] resize-none" />
-                                <button onClick={() => shufflePrompt(selectedCategory)} className="absolute top-1/2 -translate-y-1/2 right-3 p-2 bg-smw-pink rounded-lg hover:opacity-90 transition-all text-smw-black" title="Cambiar prompt"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg></button>
+                                <textarea value={prompt} onChange={e => setPrompt(e.target.value)} className="w-full bg-white border-2 border-gray-100 rounded-lg p-3 pr-12 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo min-h-[60px] resize-none" />
+                                <button onClick={() => shufflePrompt(selectedCategory)} className="absolute top-1/2 -translate-y-1/2 right-3 p-2 bg-rosa-principal rounded-lg hover:opacity-90 transition-all text-negro-fondo" title="Cambiar prompt"><svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg></button>
                             </div>
                         </div>
                     ) : (
-                        <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="ej., Un retrato cinematográfico en una ciudad futurista, vistiendo una chaqueta de neón." className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-black placeholder:text-gray-300 resize-none" />
+                        <textarea value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="ej., Un retrato cinematográfico en una ciudad futurista, vistiendo una chaqueta de neón." className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo placeholder:text-gray-300 resize-none" />
                     )}
                 </Step>
 
@@ -297,7 +297,7 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                             <button 
                                 key={num}
                                 onClick={() => setPhotoCount(num)} 
-                                className={`flex-1 text-center rounded-lg py-2.5 text-sm font-bold transition-all ${photoCount === num ? 'bg-smw-pink text-smw-black shadow-sm' : 'text-smw-gray-dark opacity-60 hover:text-smw-black hover:bg-gray-100'}`}
+                                className={`flex-1 text-center rounded-lg py-2.5 text-sm font-bold transition-all ${photoCount === num ? 'bg-rosa-principal text-negro-fondo shadow-sm' : 'text-negro-fondo opacity-60 hover:text-negro-fondo hover:bg-gray-100'}`}
                             >
                                 {num} Fotos
                             </button>
@@ -306,10 +306,10 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                 </Step>
 
                 <Step number={5} title="¡Generar!" subtext={`Obtén ${photoCount} fotos diferentes con un solo clic.`}>
-                    <button onClick={handleGenerate} disabled={isLoading || !selfieFile} className="w-full bg-smw-pink text-smw-black font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm">
+                    <button onClick={handleGenerate} disabled={isLoading || !selfieFile} className="w-full bg-rosa-principal text-negro-fondo font-bold py-4 rounded-xl hover:opacity-90 disabled:opacity-50 transition-all text-lg shadow-sm">
                         {isLoading ? (
                             <div className="flex items-center justify-center gap-2">
-                                <Spinner className="w-4 h-4 text-smw-black" />
+                                <Spinner className="w-4 h-4 text-negro-fondo" />
                                 <span className="text-sm uppercase tracking-widest font-black">Generando...</span>
                             </div>
                         ) : 'Generar Ahora'}
@@ -331,7 +331,7 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                 </Step>
 
                 <div className="bg-white rounded-xl shadow-sm p-6">
-                    <h3 className="text-lg font-bold text-smw-black mb-6">Tu Sesión de Fotos IA</h3>
+                    <h3 className="text-lg font-bold text-negro-fondo mb-6">Tu Sesión de Fotos IA</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                         {[...Array(photoCount)].map((_, index) => (
                             <div key={index} className="relative aspect-square bg-gray-50 rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden group shadow-inner">
@@ -339,14 +339,14 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                                     <div className="relative group w-full h-full">
                                         <img src={generatedImages[index]} alt={`Result ${index + 1}`} className="w-full h-full object-cover rounded-lg shadow-lg cursor-zoom-in transition-transform group-hover:scale-105" onClick={() => setZoomedImage(generatedImages[index])} />
                                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
-                                            <button onClick={() => setZoomedImage(generatedImages[index])} className="bg-white/90 text-smw-black p-1.5 sm:p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95"><svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
-                                            <a href={generatedImages[index]} download={`ai-twin-${index + 1}.png`} className="bg-white/90 text-smw-black p-1.5 sm:p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95" onClick={e => e.stopPropagation()}><svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
+                                            <button onClick={() => setZoomedImage(generatedImages[index])} className="bg-white/90 text-negro-fondo p-1.5 sm:p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95"><svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
+                                            <a href={generatedImages[index]} download={`ai-twin-${index + 1}.png`} className="bg-white/90 text-negro-fondo p-1.5 sm:p-2 rounded-full hover:bg-white shadow-md transition-transform active:scale-95" onClick={e => e.stopPropagation()}><svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
                                         </div>
                                     </div>
                                 ) : isLoading && index >= generatedImages.length ? (
                                     <div className="flex flex-col items-center p-4 text-center">
-                                        <Spinner className="w-3 h-3 text-smw-pink mb-2" />
-                                        <p className="text-[7px] font-black text-smw-gray-dark opacity-40 uppercase tracking-widest leading-tight">Tus visuales se están generando</p>
+                                        <Spinner className="w-3 h-3 text-rosa-principal mb-2" />
+                                        <p className="text-[7px] font-black text-negro-fondo opacity-40 uppercase tracking-widest leading-tight">Tus visuales se están generando</p>
                                     </div>
                                 ) : (
                                     <span className="text-gray-200 text-6xl font-bold">{index + 1}</span>
@@ -356,21 +356,21 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                     </div>
                 </div>
 
-                <div className="space-y-6 pt-10 border-t border-smw-pink/20 pb-20">
+                <div className="space-y-6 pt-10 border-t border-rosa-principal/20 pb-20">
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Introducción</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center uppercase tracking-widest">Introducción</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <p>El Creador de Gemelo IA es una herramienta revolucionaria de marca personal que te permite generar fotos de estilo de vida de calidad profesional de ti mismo en cualquier escenario imaginable. Al mantener un 100% de precisión en la identidad y el rostro, puedes construir una presencia digital consistente que parezca una sesión de fotos editorial de alta gama, todo sin salir de casa.</p>
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">{isIntroExpanded ? 'Leer Menos' : 'Leer Más'}</button>
+                            <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">{isIntroExpanded ? 'Leer Menos' : 'Leer Más'}</button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center uppercase tracking-widest">cómo funciona</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center uppercase tracking-widest">cómo funciona</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                                 <p><span className="font-bold">paso 1: sube tu selfie</span> - proporciona una selfie clara y de alta calidad. esta sirve como la "fuente de identidad" para todas tus fotos generadas.</p>
                                 <p><span className="font-bold">paso 2: selecciona el tipo de cuerpo</span> - elige un tipo de cuerpo que coincida con tu preferencia para asegurar que la ai renderice tu figura correctamente.</p>
@@ -380,13 +380,13 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">{isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}</button>
+                            <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">{isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}</button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Ventas, consejos e ideas de monetización</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center uppercase tracking-widest">Ventas, consejos e ideas de monetización</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                                 <div className="bg-pink-50/30 p-4 rounded-lg border border-pink-100/50">
                                     <p className="font-bold text-gray-800 mb-1">1. lookbooks de marca personal</p>
@@ -408,22 +408,22 @@ const AITwinCreator: React.FC<AITwinCreatorProps> = ({ addCreations, user }) => 
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">{isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}</button>
+                            <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">{isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}</button>
                         </div>
                     </div>
 
                     <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
-                        <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Consejos Pro</h2>
-                        <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                        <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center uppercase tracking-widest">Consejos Pro</h2>
+                        <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                             <div className="space-y-4 text-left">
-                                <p><span className="font-bold text-smw-pink">consejo 1:</span> usa una selfie con luz natural y frontal. las sombras en el rostro en tu foto de origen pueden llevar a resultados inconsistentes en las imágenes generadas.</p>
-                                <p><span className="font-bold text-smw-pink">consejo 2:</span> cuando uses prompts personalizados, incluye palabras clave como "8k", "altamente detallado" e "iluminación cinematográfica" para empujar a la ai hacia el resultado más realista.</p>
-                                <p><span className="font-bold text-smw-pink">consejo 3:</span> para un look más natural, prueba la opción de "misma pose" si encuentras un ángulo específico que te encante, luego solo cambia la escena o el atuendo en el prompt.</p>
+                                <p><span className="font-bold text-rosa-principal">consejo 1:</span> usa una selfie con luz natural y frontal. las sombras en el rostro en tu foto de origen pueden llevar a resultados inconsistentes en las imágenes generadas.</p>
+                                <p><span className="font-bold text-rosa-principal">consejo 2:</span> cuando uses prompts personalizados, incluye palabras clave como "8k", "altamente detallado" e "iluminación cinematográfica" para empujar a la ai hacia el resultado más realista.</p>
+                                <p><span className="font-bold text-rosa-principal">consejo 3:</span> para un look más natural, prueba la opción de "misma pose" si encuentras un ángulo específico que te encante, luego solo cambia la escena o el atuendo en el prompt.</p>
                             </div>
                             <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                         </div>
                         <div className="text-center">
-                            <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">{isProTipsExpanded ? 'Leer Menos' : 'Leer Más'}</button>
+                            <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">{isProTipsExpanded ? 'Leer Menos' : 'Leer Más'}</button>
                         </div>
                     </div>
                 </div>

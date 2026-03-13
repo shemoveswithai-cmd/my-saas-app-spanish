@@ -192,38 +192,38 @@ const LiveConversation: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-6 space-y-4">
-            <h2 className="text-2xl font-bold text-smw-gray-dark">Live Conversation</h2>
+        <div className="flex flex-col h-full bg-rosa-claro rounded-lg shadow-xl p-4 md:p-6 space-y-4">
+            <h2 className="text-2xl font-bold text-negro-fondo">Live Conversation</h2>
             
             <div className="bg-white/60 backdrop-blur-sm shadow-md p-4 rounded-lg flex flex-col items-center space-y-4">
                 <button
                     onClick={isSessionActive ? stopSession : startSession}
-                    className={`px-6 py-3 text-lg font-bold rounded-full transition-colors ${isSessionActive ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-smw-pink hover:bg-white text-smw-gray-dark'}`}
+                    className={`px-6 py-3 text-lg font-bold rounded-full transition-colors ${isSessionActive ? 'bg-red-600 hover:bg-red-700 text-white' : 'bg-rosa-principal hover:bg-white text-negro-fondo'}`}
                 >
                     {isSessionActive ? 'Stop Conversation' : 'Start Conversation'}
                 </button>
-                <p className="text-smw-gray-dark opacity-80">Status: {status}</p>
+                <p className="text-negro-fondo opacity-80">Status: {status}</p>
                 {error && <p className="text-red-500">{error}</p>}
             </div>
 
-            <div className="flex-1 bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 overflow-y-auto space-y-4 text-smw-gray-dark">
+            <div className="flex-1 bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 overflow-y-auto space-y-4 text-negro-fondo">
                 <div>
-                    <h3 className="text-lg font-semibold text-smw-gray-dark">Transcription</h3>
+                    <h3 className="text-lg font-semibold text-negro-fondo">Transcription</h3>
                     {transcriptionHistory.length === 0 && <p className="opacity-80">Conversation transcript will appear here...</p>}
                     {transcriptionHistory.map((turn, index) => (
                         <div key={index} className="space-y-2 py-2">
-                            {turn.user && <p><span className="font-bold text-smw-pink">You:</span> {turn.user}</p>}
-                            {turn.model && <p><span className="font-bold text-smw-gray-dark">Gemini:</span> {turn.model}</p>}
+                            {turn.user && <p><span className="font-bold text-rosa-principal">You:</span> {turn.user}</p>}
+                            {turn.model && <p><span className="font-bold text-negro-fondo">Gemini:</span> {turn.model}</p>}
                         </div>
                     ))}
                 </div>
                 
                 {placesList && (
-                    <div className="pt-4 mt-4 border-t border-smw-pink/20">
-                        <h3 className="text-lg font-semibold text-smw-gray-dark mb-3">{placesList.title}</h3>
+                    <div className="pt-4 mt-4 border-t border-rosa-principal/20">
+                        <h3 className="text-lg font-semibold text-negro-fondo mb-3">{placesList.title}</h3>
                         <ul className="space-y-3">
                             {placesList.places.map((placeName, index) => (
-                                <li key={index} className="bg-white/50 p-3 rounded-md border-l-4 border-smw-pink">
+                                <li key={index} className="bg-white/50 p-3 rounded-md border-l-4 border-rosa-principal">
                                     <p className="font-bold">{placeName}</p>
                                 </li>
                             ))}

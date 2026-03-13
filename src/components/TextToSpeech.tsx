@@ -177,28 +177,28 @@ const TextToSpeech: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 md:p-10 space-y-8 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">{t('TEXT-TO-SPEECH', 'TEXTO A VOZ')}</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 md:p-10 space-y-8 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">{t('TEXT-TO-SPEECH', 'TEXTO A VOZ')}</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     {t('Turn your script into natural, studio-quality audio in seconds. Choose from a variety of professional voice characters.', 'Convierte tu guion en audio natural de calidad de estudio en segundos. Elige entre una variedad de personajes de voz profesionales.')}
                 </p>
             </div>
             
             <div className="flex-shrink-0 bg-white/70 backdrop-blur-xl shadow-2xl p-8 rounded-3xl space-y-8 border border-white/50">
                 <div>
-                    <label className="block text-xs font-black text-smw-gray-dark mb-3 uppercase tracking-[0.2em] opacity-40">{t('Your Script', 'Tu Guion')}</label>
+                    <label className="block text-xs font-black text-negro-fondo mb-3 uppercase tracking-[0.2em] opacity-40">{t('Your Script', 'Tu Guion')}</label>
                     <textarea
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         placeholder={t('Type your script here...', 'Escribe tu guion aquí...')}
-                        className="w-full h-48 bg-white/40 border-2 border-smw-pink/20 rounded-2xl p-6 focus:ring-4 focus:ring-smw-pink/20 focus:border-smw-pink focus:outline-none resize-none text-smw-gray-dark placeholder:text-smw-gray-dark/30 text-xl font-medium transition-all shadow-inner"
+                        className="w-full h-48 bg-white/40 border-2 border-rosa-principal/20 rounded-2xl p-6 focus:ring-4 focus:ring-rosa-principal/20 focus:border-rosa-principal focus:outline-none resize-none text-negro-fondo placeholder:text-negro-fondo/30 text-xl font-medium transition-all shadow-inner"
                         disabled={isLoading}
                     />
                 </div>
                 
                 <div className="space-y-6">
-                    <label className="block text-xs font-black text-smw-gray-dark mb-4 uppercase tracking-[0.2em] opacity-40">{t('Select Voice Character', 'Seleccionar Personaje de Voz')}</label>
+                    <label className="block text-xs font-black text-negro-fondo mb-4 uppercase tracking-[0.2em] opacity-40">{t('Select Voice Character', 'Seleccionar Personaje de Voz')}</label>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
                         {voices.map((voice) => (
                             <div 
@@ -206,14 +206,14 @@ const TextToSpeech: React.FC = () => {
                                 onClick={() => setSelectedVoice(voice.name)}
                                 className={`relative p-4 rounded-2xl border-2 cursor-pointer transition-all duration-300 group flex flex-col justify-between ${
                                     selectedVoice === voice.name 
-                                    ? 'bg-smw-pink border-smw-pink shadow-lg translate-y-[-2px]' 
-                                    : 'bg-white/40 border-white/10 hover:bg-white/60 hover:border-smw-pink/30'
+                                    ? 'bg-rosa-principal border-rosa-principal shadow-lg translate-y-[-2px]' 
+                                    : 'bg-white/40 border-white/10 hover:bg-white/60 hover:border-rosa-principal/30'
                                 }`}
                             >
                                 <div className="flex justify-between items-start mb-2">
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-2 mb-1">
-                                            <h4 className={`text-lg font-black tracking-tighter truncate ${selectedVoice === voice.name ? 'text-smw-gray-dark' : 'text-smw-gray-dark'}`}>
+                                            <h4 className={`text-lg font-black tracking-tighter truncate ${selectedVoice === voice.name ? 'text-negro-fondo' : 'text-negro-fondo'}`}>
                                                 {voice.displayName}
                                             </h4>
                                             <span className={`text-[8px] px-1.5 py-0.5 rounded-full font-black uppercase tracking-widest ${
@@ -226,7 +226,7 @@ const TextToSpeech: React.FC = () => {
                                                     : (voice.gender === 'Male' ? 'MASCULINO' : 'FEMENINO')}
                                             </span>
                                         </div>
-                                        <p className={`text-[10px] font-black uppercase tracking-widest leading-tight ${selectedVoice === voice.name ? 'text-smw-gray-dark/60' : 'text-smw-pink'}`}>
+                                        <p className={`text-[10px] font-black uppercase tracking-widest leading-tight ${selectedVoice === voice.name ? 'text-negro-fondo/60' : 'text-rosa-principal'}`}>
                                             {voice.description}
                                         </p>
                                     </div>
@@ -235,8 +235,8 @@ const TextToSpeech: React.FC = () => {
                                         disabled={!!isPreviewing || isLoading}
                                         className={`p-2 rounded-full flex-shrink-0 transition-all hover:scale-110 active:scale-95 ${
                                             selectedVoice === voice.name 
-                                            ? 'bg-white/40 text-smw-gray-dark' 
-                                            : 'bg-smw-pink/10 text-smw-pink'
+                                            ? 'bg-white/40 text-negro-fondo' 
+                                            : 'bg-rosa-principal/10 text-rosa-principal'
                                         } disabled:opacity-30`}
                                         title={t('Hear Sample', 'Escuchar Muestra')}
                                     >
@@ -253,11 +253,11 @@ const TextToSpeech: React.FC = () => {
                                         )}
                                     </button>
                                 </div>
-                                <p className={`text-[10px] leading-tight font-medium ${selectedVoice === voice.name ? 'text-smw-gray-dark/80' : 'text-smw-gray-dark/50'}`}>
+                                <p className={`text-[10px] leading-tight font-medium ${selectedVoice === voice.name ? 'text-negro-fondo/80' : 'text-negro-fondo/50'}`}>
                                     {voice.vibe}
                                 </p>
                                 {selectedVoice === voice.name && (
-                                    <div className="absolute -bottom-1.5 -right-1.5 bg-smw-gray-dark text-white rounded-full p-1 shadow-lg">
+                                    <div className="absolute -bottom-1.5 -right-1.5 bg-negro-fondo text-white rounded-full p-1 shadow-lg">
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" viewBox="0 0 20 20" fill="currentColor">
                                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                                         </svg>
@@ -272,9 +272,9 @@ const TextToSpeech: React.FC = () => {
                     <button
                         onClick={handleMainPlay}
                         disabled={isLoading || isPreviewing !== null || !text.trim()}
-                        className="flex-1 bg-smw-gray-dark text-smw-pink font-black py-2 sm:py-3 px-4 sm:px-6 rounded-2xl flex items-center justify-center hover:bg-black hover:text-white disabled:bg-smw-gray-dark/20 disabled:text-smw-gray-dark/30 disabled:cursor-not-allowed shadow-xl transition-all text-base sm:text-lg uppercase tracking-tighter"
+                        className="flex-1 bg-negro-fondo text-rosa-principal font-black py-2 sm:py-3 px-4 sm:px-6 rounded-2xl flex items-center justify-center hover:bg-black hover:text-white disabled:bg-negro-fondo/20 disabled:text-negro-fondo/30 disabled:cursor-not-allowed shadow-xl transition-all text-base sm:text-lg uppercase tracking-tighter"
                     >
-                        {isLoading ? <Spinner className="w-5 h-5 sm:w-6 sm:h-6 text-smw-pink" /> : t('GENERATE & PLAY', 'GENERAR Y REPRODUCIR')}
+                        {isLoading ? <Spinner className="w-5 h-5 sm:w-6 sm:h-6 text-rosa-principal" /> : t('GENERATE & PLAY', 'GENERAR Y REPRODUCIR')}
                     </button>
                     
                     {audioSource && (
@@ -290,7 +290,7 @@ const TextToSpeech: React.FC = () => {
                         <a
                             href={generatedAudioUrl}
                             download={`smw-audio-${Date.now()}.wav`}
-                            className="bg-smw-pink text-smw-gray-dark font-black py-2 sm:py-3 px-4 sm:px-6 rounded-2xl flex items-center justify-center hover:bg-white shadow-xl transition-all text-sm sm:text-base uppercase tracking-tighter flex-shrink-0 border-2 border-smw-pink hover:border-smw-gray-dark"
+                            className="bg-rosa-principal text-negro-fondo font-black py-2 sm:py-3 px-4 sm:px-6 rounded-2xl flex items-center justify-center hover:bg-white shadow-xl transition-all text-sm sm:text-base uppercase tracking-tighter flex-shrink-0 border-2 border-rosa-principal hover:border-negro-fondo"
                         >
                             {t('DOWNLOAD AUDIO', 'DESCARGAR AUDIO')}
                         </a>
@@ -301,18 +301,18 @@ const TextToSpeech: React.FC = () => {
             {error && <div className="p-5 bg-red-900 text-white rounded-2xl shadow-xl font-bold text-center animate-pulse border-2 border-red-500/50">{error}</div>}
 
             {/* Information Sections */}
-            <div className="space-y-6 mt-12 border-t border-smw-pink/30 pt-16 max-w-6xl mx-auto w-full">
+            <div className="space-y-6 mt-12 border-t border-rosa-principal/30 pt-16 max-w-6xl mx-auto w-full">
                 {/* Introduction Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">{t('Introduction', 'Introducción')}</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">{t('Introduction', 'Introducción')}</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p>{t('Welcome to the Crazy Addictive TEXT-TO-SPEECH Studio, a premium AI speech generation suite powered by Gemini\'s ultra-responsive technology. This studio allows you to transform any written text into natural, lifelike audio in seconds.', 'Bienvenido al Estudio de TEXTO A VOZ Locamente Adictivo, una suite de generación de voz de IA premium impulsada por la tecnología ultra-responsiva de Gemini. Este estudio te permite transformar cualquier texto escrito en audio natural y realista en segundos.')}</p>
                         <p>{t('Unlike standard text-to-speech tools that sound robotic, our studio offers fifteen distinct prebuilt voice characters—ranging from the energetic vibe of Kore to the smooth sophistication of Zephyr. We\'ve recently updated our library to include dedicated kid voices and more masculine gentleman tones to ensure all your creative needs are met.', 'A diferencia de las herramientas estándar de texto a voz que suenan robóticas, nuestro estudio ofrece quince personajes de voz predefinidos distintos, que van desde el estilo enérgico de Kore hasta la suave sofisticación de Zephyr. Recientemente hemos actualizado nuestra biblioteca para incluir voces de niños dedicadas y tonos de caballeros más masculinos para asegurar que todas tus necesidades creativas sean satisfechas.')}</p>
                         <p>{t('This is the ultimate tool for creating social media narration, podcast introductions, training materials, and more. Use these professional voices to save hours of recording time and build a consistent brand voice across all your platforms.', 'Esta es la herramienta definitiva para crear narraciones para redes sociales, introducciones de podcasts, materiales de capacitación y más. Usa estas voces profesionales para ahorrar horas de tiempo de grabación y construir una voz de marca consistente en todas tus plataformas.')}</p>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isIntroExpanded ? t('Read Less', 'Leer menos') : t('Read More', 'Leer más')}
                         </button>
                     </div>
@@ -320,8 +320,8 @@ const TextToSpeech: React.FC = () => {
 
                 {/* How It Works Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">{t('How It Works', 'Cómo funciona')}</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">{t('How It Works', 'Cómo funciona')}</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="space-y-4">
                                 <p><strong>{t('Step 1: Input Your Text', 'Paso 1: Ingresa tu texto')}</strong> - {t('Paste or type your script into the high-fidelity text area. Our AI can handle everything from snappy 5-second ad hooks to long-form storytelling.', 'Pega o escribe tu guion en el área de texto de alta fidelidad. Nuestra IA puede manejar todo, desde ganchos publicitarios rápidos de 5 segundos hasta narraciones de larga duración.')}</p>
@@ -335,7 +335,7 @@ const TextToSpeech: React.FC = () => {
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isHowItWorksExpanded ? t('Read Less', 'Leer menos') : t('Read More', 'Leer más')}
                         </button>
                     </div>
@@ -343,30 +343,30 @@ const TextToSpeech: React.FC = () => {
 
                 {/* Sales Tips & Monetization Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">{t('Sales & Monetization Ideas', 'Ideas de Ventas y Monetización')}</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">{t('Sales & Monetization Ideas', 'Ideas de Ventas y Monetización')}</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="bg-white/40 p-5 rounded-2xl">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">1. {t('Faceless Social Channels', 'Canales sociales sin rostro')}</h4>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">1. {t('Faceless Social Channels', 'Canales sociales sin rostro')}</h4>
                                 <p className="text-sm">{t('Use these natural voices to narrate TikToks, Reels, and YouTube Shorts. Faceless channels are high-growth assets that rely on high-quality voiceovers.', 'Usa estas voces naturales para narrar TikToks, Reels y YouTube Shorts. Los canales sin rostro son activos de alto crecimiento que dependen de locuciones de alta calidad.')}</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">2. {t('Voiceover Service', 'Servicio de locución')}</h4>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">2. {t('Voiceover Service', 'Servicio de locución')}</h4>
                                 <p className="text-sm">{t('Offer "Quick-Turnaround Voiceovers" on platforms like Fiverr or Upwork. You can provide professional audio for business ads at a fraction of the cost of traditional talent.', 'Ofrece "Locuciones de entrega rápida" en plataformas como Fiverr o Upwork. Puedes proporcionar audio profesional para anuncios de negocios a una fracción del costo del talento tradicional.')}</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">3. {t('Educational Content', 'Contenido educativo')}</h4>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">3. {t('Educational Content', 'Contenido educativo')}</h4>
                                 <p className="text-sm">{t('Narrate online courses or corporate training videos. Clear, human-like voices like Achernar or Zephyr increase information retention for students.', 'Narra cursos en línea o videos de capacitación corporativa. Las voces claras y humanas como Achernar o Zephyr aumentan la retención de información para los estudiantes.')}</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">4. {t('Audio Article Add-ons', 'Complementos de artículos de audio')}</h4>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">4. {t('Audio Article Add-ons', 'Complementos de artículos de audio')}</h4>
                                 <p className="text-sm">{t('If you\'re a blogger, offer an "audio version" of your top articles. This improves accessibility and keeps readers engaged with your content longer.', 'Si eres bloguero, ofrece una "versión de audio" de tus mejores artículos. Esto mejora la accesibilidad y mantiene a los lectores comprometidos con tu contenido por más tiempo.')}</p>
                             </div>
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isSalesTipsExpanded ? t('Read Less', 'Leer menos') : t('Read More', 'Leer más')}
                         </button>
                     </div>
@@ -374,30 +374,30 @@ const TextToSpeech: React.FC = () => {
 
                 {/* Pro Tips Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">{t('Pro Tips', 'Consejos Pro')}</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">{t('Pro Tips', 'Consejos Pro')}</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <ul className="space-y-4">
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black">01</span>
+                                <span className="text-rosa-principal font-black">01</span>
                                 <p><strong>{t('Punctuation is Pacing:', 'La puntuación es el ritmo:')}</strong> {t('Commas create natural pauses. Ellipses (...) create dramatic ones. Use them strategically to make the AI sound even more human.', 'Las comas crean pausas naturales. Los puntos suspensivos (...) crean pausas dramáticas. Úsalos estratégicamente para que la IA suene aún más humana.')}</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black">02</span>
+                                <span className="text-rosa-principal font-black">02</span>
                                 <p><strong>{t('Phonetic Spelling:', 'Ortografía fonética:')}</strong> {t('If the AI struggles with a brand name, spell it phonetically. For example, "Gemini" could be written as "Jem-in-eye" for a different inflection.', 'Si la IA tiene problemas con el nombre de una marca, escríbelo fonéticamente. Por ejemplo, "Gemini" podría escribirse como "Jem-in-ai" para una inflexión diferente.')}</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black">03</span>
+                                <span className="text-rosa-principal font-black">03</span>
                                 <p><strong>{t('Voice Matching:', 'Emparejamiento de voz:')}</strong> {t('Match the voice to your demographic. Use Kore for Gen Z audiences, and Zephyr or Achernar for professional markets.', 'Empareja la voz con tu demografía. Usa Kore para audiencias de la Generación Z, y Zephyr o Achernar para mercados profesionales.')}</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black">04</span>
+                                <span className="text-rosa-principal font-black">04</span>
                                 <p><strong>{t('Layer with Music:', 'Capa con música:')}</strong> {t('Download your voiceover and layer it over soft background music (lo-fi for Zephyr, energetic for Kore) to create a 10x more professional finish.', 'Descarga tu locución y colócala sobre música de fondo suave (lo-fi para Zephyr, enérgica para Kore) para crear un acabado 10 veces más profesional.')}</p>
                             </li>
                         </ul>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isProTipsExpanded ? t('Read Less', 'Leer menos') : t('Read More', 'Leer más')}
                         </button>
                     </div>

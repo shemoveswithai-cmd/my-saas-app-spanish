@@ -86,8 +86,8 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
      const flushCodeBlock = () => {
         if (codeBlockContent) {
             elements.push(
-                <pre key={`code-${elements.length}`} className="bg-smw-gray-dark p-4 rounded-md overflow-x-auto my-3">
-                    <code className="font-mono text-sm text-smw-pink-light">{codeBlockContent}</code>
+                <pre key={`code-${elements.length}`} className="bg-negro-fondo p-4 rounded-md overflow-x-auto my-3">
+                    <code className="font-mono text-sm text-rosa-claro">{codeBlockContent}</code>
                 </pre>
             );
             codeBlockContent = '';
@@ -112,7 +112,7 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
 
         if (line.trim().startsWith('## ')) {
             flushListBuffer();
-            elements.push(<h3 key={`h3-${index}`} className="text-xl font-bold text-smw-gray-dark mt-6 mb-3">{line.substring(3)}</h3>);
+            elements.push(<h3 key={`h3-${index}`} className="text-xl font-bold text-negro-fondo mt-6 mb-3">{line.substring(3)}</h3>);
             return;
         }
 
@@ -138,7 +138,7 @@ const MarkdownRenderer: React.FC<{ content: string }> = ({ content }) => {
     flushListBuffer();
     flushCodeBlock();
 
-    return <div className="text-base leading-relaxed text-smw-gray-dark">{elements}</div>;
+    return <div className="text-base leading-relaxed text-negro-fondo">{elements}</div>;
 };
 
 
@@ -266,28 +266,28 @@ const VideoRepurposer: React.FC = () => {
     }
 
     return (
-        <div className="grid grid-rows-[auto_auto_1fr] gap-4 h-full bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-6">
+        <div className="grid grid-rows-[auto_auto_1fr] gap-4 h-full bg-rosa-claro rounded-lg shadow-xl p-4 md:p-6">
             {/* Header */}
             <div>
-                <h2 className="text-2xl font-bold text-smw-gray-dark">Video Repurposing Analyst</h2>
-                <p className="text-smw-gray-dark opacity-80 mt-1">Transform video transcripts into a comprehensive content package. Instantly get summaries, social media hooks, script drafts, and more.</p>
+                <h2 className="text-2xl font-bold text-negro-fondo">Video Repurposing Analyst</h2>
+                <p className="text-negro-fondo opacity-80 mt-1">Transform video transcripts into a comprehensive content package. Instantly get summaries, social media hooks, script drafts, and more.</p>
             </div>
             
             {/* Inputs Section */}
             <div className="bg-white/60 backdrop-blur-sm shadow-md p-4 rounded-lg space-y-4">
-                <h3 className="text-lg font-semibold text-smw-gray-dark">Inputs</h3>
+                <h3 className="text-lg font-semibold text-negro-fondo">Inputs</h3>
                  <textarea
                     value={transcript}
                     onChange={(e) => setTranscript(e.target.value)}
                     placeholder="Paste your full video transcript here..."
-                    className="w-full h-32 bg-white/50 border-2 border-smw-pink/50 rounded-lg p-3 focus:ring-2 focus:ring-smw-pink focus:outline-none resize-y text-smw-gray-dark placeholder:text-smw-gray-dark/70"
+                    className="w-full h-32 bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-3 focus:ring-2 focus:ring-rosa-principal focus:outline-none resize-y text-negro-fondo placeholder:text-negro-fondo/70"
                     disabled={isLoading}
                 />
                 <div className="flex flex-col sm:flex-row gap-4 items-center">
                     <div>
                         <button
                             onClick={() => fileInputRef.current?.click()}
-                            className="bg-white/80 text-smw-gray-dark py-2 px-4 rounded-lg hover:bg-white"
+                            className="bg-white/80 text-negro-fondo py-2 px-4 rounded-lg hover:bg-white"
                             disabled={isLoading}
                         >
                             Upload Keyframes (Optional)
@@ -303,7 +303,7 @@ const VideoRepurposer: React.FC = () => {
                 <button
                     onClick={handleGenerate}
                     disabled={isLoading || !transcript.trim()}
-                    className="w-full sm:w-auto bg-smw-pink text-smw-gray-dark font-bold py-2 px-6 rounded-lg flex items-center justify-center hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed"
+                    className="w-full sm:w-auto bg-rosa-principal text-negro-fondo font-bold py-2 px-6 rounded-lg flex items-center justify-center hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed"
                 >
                     {isLoading ? <Spinner /> : 'Generate Analysis Pack'}
                 </button>
@@ -313,36 +313,36 @@ const VideoRepurposer: React.FC = () => {
             <div className={`grid ${chat ? 'grid-rows-[auto_1fr_auto]' : 'grid-rows-[auto_1fr]'} bg-white/60 backdrop-blur-sm shadow-md rounded-lg min-h-0`}>
                 {/* Header Row */}
                 <div>
-                    <h3 className="text-lg font-semibold text-smw-gray-dark p-4 border-b border-smw-pink/20">Outputs</h3>
-                    {error && <div className="p-4 bg-red-900 text-smw-text rounded-md m-4">{error}</div>}
+                    <h3 className="text-lg font-semibold text-negro-fondo p-4 border-b border-rosa-principal/20">Outputs</h3>
+                    {error && <div className="p-4 bg-red-900 text-blanco-texto rounded-md m-4">{error}</div>}
                 </div>
 
                 {/* Content Row */}
                 <div ref={resultContainerRef} className="p-4 overflow-y-auto min-h-0">
                     {isLoading ? (
                         <div className="text-center pt-10">
-                            <Spinner className="w-12 h-12 text-smw-gray-dark" />
-                            <p className="mt-4 text-smw-gray-dark opacity-80">Analyzing and creating content...</p>
+                            <Spinner className="w-12 h-12 text-negro-fondo" />
+                            <p className="mt-4 text-negro-fondo opacity-80">Analyzing and creating content...</p>
                         </div>
                     ) : result ? (
                         <MarkdownRenderer content={result} />
                     ) : (
-                        <p className="text-smw-gray-dark opacity-80 text-center pt-10">Your content pack will appear here.</p>
+                        <p className="text-negro-fondo opacity-80 text-center pt-10">Your content pack will appear here.</p>
                     )}
                 </div>
 
                 {/* Footer Row */}
                 {chat && (
-                    <form onSubmit={handleFollowUp} className="p-4 border-t border-smw-pink/20 flex items-center">
+                    <form onSubmit={handleFollowUp} className="p-4 border-t border-rosa-principal/20 flex items-center">
                         <input
                             type="text"
                             value={followUp}
                             onChange={(e) => setFollowUp(e.target.value)}
                             placeholder="Ask a follow-up..."
-                            className="flex-1 bg-white/50 border-2 border-smw-pink/50 rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-gray-dark placeholder:text-smw-gray-dark/70"
+                            className="flex-1 bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo placeholder:text-negro-fondo/70"
                             disabled={isReplying}
                         />
-                         <button type="submit" className="ml-4 bg-smw-pink text-smw-gray-dark p-2 rounded-lg hover:bg-white disabled:bg-smw-pink/50" disabled={isReplying || !followUp.trim()}>
+                         <button type="submit" className="ml-4 bg-rosa-principal text-negro-fondo p-2 rounded-lg hover:bg-white disabled:bg-rosa-principal/50" disabled={isReplying || !followUp.trim()}>
                             {isReplying ? <Spinner className="w-6 h-6" /> : <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>}
                         </button>
                     </form>

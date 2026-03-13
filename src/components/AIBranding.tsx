@@ -168,10 +168,10 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Branding con IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Branding con IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Crea fotos profesionales que muestren tus activos de marca en escenas realistas con preservación absoluta de la identidad.
                 </p>
             </div>
@@ -182,7 +182,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                     <Step number={1} title="Sube Tu Foto" info="Sube un retrato claro para la referencia de identidad.">
                         <div 
                             onClick={() => personInputRef.current?.click()} 
-                            className="aspect-video bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-100 cursor-pointer hover:border-smw-pink transition-all p-4 group relative overflow-hidden"
+                            className="aspect-video bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-100 cursor-pointer hover:border-rosa-principal transition-all p-4 group relative overflow-hidden"
                         >
                             {personImage ? (
                                 <img src={personImage.preview} className="h-full object-contain rounded-xl" alt="Identidad" />
@@ -199,7 +199,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                     <Step number={2} title="Sube Tu Activo de Marca" info="Sube tu folleto, tarjeta de presentación o cuaderno de trabajo.">
                         <div 
                             onClick={() => assetInputRef.current?.click()} 
-                            className="aspect-video bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-100 cursor-pointer hover:border-smw-pink transition-all p-4 group relative overflow-hidden"
+                            className="aspect-video bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-gray-100 cursor-pointer hover:border-rosa-principal transition-all p-4 group relative overflow-hidden"
                         >
                             {assetImage ? (
                                 <img src={assetImage.preview} className="h-full object-contain rounded-xl" alt="Activo" />
@@ -218,7 +218,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                             <select 
                                 value={selectedScene.name} 
                                 onChange={e => setSelectedScene(scenes.find(s => s.name === e.target.value) || scenes[0])}
-                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm font-bold text-black focus:ring-2 focus:ring-smw-pink outline-none shadow-sm"
+                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm font-bold text-black focus:ring-2 focus:ring-rosa-principal outline-none shadow-sm"
                             >
                                 {scenes.map(s => <option key={s.name} value={s.name}>{s.name}</option>)}
                             </select>
@@ -226,7 +226,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                                 value={customPrompt}
                                 onChange={e => setCustomPrompt(e.target.value)}
                                 placeholder="Añade detalles personalizados (ej., usando un blazer azul)..."
-                                className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-3 text-sm font-medium text-black focus:ring-2 focus:ring-smw-pink outline-none resize-none placeholder:text-gray-400"
+                                className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-3 text-sm font-medium text-black focus:ring-2 focus:ring-rosa-principal outline-none resize-none placeholder:text-gray-400"
                             />
                         </div>
                     </Step>
@@ -237,7 +237,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                                 <button 
                                     key={p} 
                                     onClick={() => setPoseVariation(p)} 
-                                    className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${poseVariation === p ? 'bg-smw-pink text-black shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
+                                    className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${poseVariation === p ? 'bg-rosa-principal text-black shadow-sm' : 'text-gray-500 hover:text-gray-800'}`}
                                 >
                                     {p}
                                 </button>
@@ -263,7 +263,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                             <div key={i} className="relative aspect-square bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 overflow-hidden group shadow-inner">
                                 {isLoading && i >= generatedImages.length ? (
                                     <div className="text-center">
-                                        <Spinner className="w-10 h-10 text-smw-pink mb-2 mx-auto" />
+                                        <Spinner className="w-10 h-10 text-rosa-principal mb-2 mx-auto" />
                                         <p className="text-[10px] font-bold text-gray-400 uppercase animate-pulse">Diseñando...</p>
                                     </div>
                                 ) : generatedImages[i] ? (
@@ -284,7 +284,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
             </div>
 
             {/* Bottom Content Blocks */}
-            <div className="space-y-6 pt-16 border-t border-smw-pink/20 max-w-7xl mx-auto w-full pb-20">
+            <div className="space-y-6 pt-16 border-t border-rosa-principal/20 max-w-7xl mx-auto w-full pb-20">
                 <div className="bg-white p-10 rounded-3xl shadow-sm border border-white/50 text-center">
                     <h2 className="text-2xl font-bold text-black mb-6 uppercase tracking-widest">Introducción</h2>
                     <div className={`text-gray-600 space-y-4 text-sm leading-relaxed transition-all duration-500 overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[80px]'}`}>
@@ -292,7 +292,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                         <p>Nuestra preservación de identidad avanzada asegura que tu rostro se vea perfecto, mientras que nuestra tecnología de mapeo de activos asegura que tus materiales de marca sean claramente visibles y estén correctamente colocados en la escena. Ya sea que estés lanzando un nuevo servicio, promocionando un evento o simplemente quieras elevar tu marca personal, Branding con IA proporciona imágenes de grado comercial en segundos.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-black text-smw-pink uppercase tracking-widest border-b-2 border-smw-pink pb-0.5 hover:text-black transition-colors">
+                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-black text-rosa-principal uppercase tracking-widest border-b-2 border-rosa-principal pb-0.5 hover:text-black transition-colors">
                         {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                     </button>
                 </div>
@@ -306,7 +306,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                         <p><strong>Paso 4: Genera</strong> - Haz clic en el botón para recibir 4 imágenes de branding de alta fidelidad. Puedes elegir "4 Poses" para variedad o "Misma Pose" para un aspecto consistente.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-black text-smw-pink uppercase tracking-widest border-b-2 border-smw-pink pb-0.5 hover:text-black transition-colors">
+                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-black text-rosa-principal uppercase tracking-widest border-b-2 border-rosa-principal pb-0.5 hover:text-black transition-colors">
                         {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                     </button>
                 </div>
@@ -319,7 +319,7 @@ ${customPrompt ? `CONTEXTO ADICIONAL: ${customPrompt}.` : ''}`;
                         <p><strong>3. Contenido Social de Alta Conversión:</strong> Deja de usar fotos de stock aburridas. Muéstrate en una "Sesión de Trabajo en Café" con tus materiales de marca reales. Este tipo de contenido de estilo de vida auténtico construye una conexión más profunda con tu audiencia.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isMarketingExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-[10px] font-black text-smw-pink uppercase tracking-widest border-b-2 border-smw-pink pb-0.5 hover:text-black transition-colors">
+                    <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-[10px] font-black text-rosa-principal uppercase tracking-widest border-b-2 border-rosa-principal pb-0.5 hover:text-black transition-colors">
                         {isMarketingExpanded ? 'Leer Menos' : 'Leer Más'}
                     </button>
                 </div>

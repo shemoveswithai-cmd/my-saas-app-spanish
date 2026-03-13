@@ -385,10 +385,10 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Moda IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Moda IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Pruébate virtualmente cualquier atuendo. Sube tu foto y ropa para crear tu look perfecto con calidad de estudio profesional.
                 </p>
             </div>
@@ -396,7 +396,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                 <div className="flex flex-col space-y-4">
                     <Step number={1} title="sube tu foto">
-                         <div onClick={() => personInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-smw-pink transition-all p-4 group overflow-hidden">
+                         <div onClick={() => personInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-rosa-principal transition-all p-4 group overflow-hidden">
                             {personImage ? (
                                 <img src={personImage.preview} alt="Vista previa de la persona" className="h-full object-contain rounded-lg" />
                             ) : (
@@ -413,7 +413,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                         <div className="space-y-4">
                             <div>
                                 <label className="text-[10px] font-semibold text-gray-400 uppercase mb-2 block tracking-widest lowercase">tipo de cuerpo</label>
-                                <select value={bodyType} onChange={(e) => setBodyType(e.target.value)} className="w-full bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-smw-pink outline-none lowercase font-medium">
+                                <select value={bodyType} onChange={(e) => setBodyType(e.target.value)} className="w-full bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal outline-none lowercase font-medium">
                                     <option value="Igual que la foto">Igual que la foto</option><option value="Delgado">Delgado</option><option value="Atlético">Atlético</option><option value="Curvilíneo">Curvilíneo</option><option value="Talla grande">Talla grande</option>
                                 </select>
                             </div>
@@ -425,7 +425,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                             const flatlayFeature = features.find(f => f.id === 'flatlay-picture');
                                             if (flatlayFeature) setActiveFeature(flatlayFeature);
                                         }}
-                                        className="text-[9px] font-black text-smw-pink uppercase tracking-widest hover:underline flex items-center gap-1"
+                                        className="text-[9px] font-black text-rosa-principal uppercase tracking-widest hover:underline flex items-center gap-1"
                                     >
                                         <span>ir directamente a flat lay ai</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" className="h-2 w-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
@@ -448,7 +448,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
 
                                 <div className="grid grid-cols-3 gap-2">
                                     {clothingItems.map(item => <div key={item.id} className="relative aspect-square"><img src={item.preview} alt="Artículo" className="w-full h-full object-cover rounded-md" /><button onClick={() => removeClothingItem(item.id)} className="absolute -top-1 -right-1 bg-red-500 text-white w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">&times;</button></div>)}
-                                    {clothingItems.length < 6 && <div onClick={() => clothingInputRef.current?.click()} className="aspect-square bg-white border-2 border-dashed border-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:border-smw-pink transition-colors"><span className="text-xs font-bold text-gray-400">añadir</span></div>}
+                                    {clothingItems.length < 6 && <div onClick={() => clothingInputRef.current?.click()} className="aspect-square bg-white border-2 border-dashed border-gray-100 rounded-xl flex items-center justify-center cursor-pointer hover:border-rosa-principal transition-colors"><span className="text-xs font-bold text-gray-400">añadir</span></div>}
                                 </div>
                                 <input type="file" ref={clothingInputRef} onChange={handleClothingItemsChange} className="hidden" accept="image/*" multiple />
                             </div>
@@ -469,11 +469,11 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                 ))}
                             </div>
                             {promptMode === 'Categorías' ? (
-                                <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)} className="w-full bg-white border border-gray-200 rounded-xl p-3 text-sm font-semibold text-black focus:ring-2 focus:ring-smw-pink outline-none">
+                                <select value={selectedCategory} onChange={e => setSelectedCategory(e.target.value)} className="w-full bg-white border border-gray-200 rounded-xl p-3 text-sm font-semibold text-black focus:ring-2 focus:ring-rosa-principal outline-none">
                                     {fashionPrompts.map(p => <option key={p.category} value={p.category}>{p.category}</option>)}
                                 </select>
                             ) : (
-                                <textarea value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder="describe la escena..." className="w-full h-24 bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-smw-pink outline-none resize-none lowercase" />
+                                <textarea value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder="describe la escena..." className="w-full h-24 bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal outline-none resize-none lowercase" />
                             )}
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
@@ -488,7 +488,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                     <label className="text-xs font-semibold text-gray-400 mb-2 block tracking-widest lowercase">poses</label>
                                     <div className="flex bg-gray-50 rounded-lg p-1 border border-gray-100">
                                         {(['4 ángulos', 'ángulo fijo'] as const).map(mode => (
-                                            <button key={mode} onClick={() => setCameraAngle(mode)} className={`flex-1 py-2 rounded-md text-xs font-semibold transition-all lowercase ${cameraAngle === mode ? 'bg-smw-pink text-gray-900 shadow-sm' : 'text-gray-400'}`}>{mode}</button>
+                                            <button key={mode} onClick={() => setCameraAngle(mode)} className={`flex-1 py-2 rounded-md text-xs font-semibold transition-all lowercase ${cameraAngle === mode ? 'bg-rosa-principal text-gray-900 shadow-sm' : 'text-gray-400'}`}>{mode}</button>
                                         ))}
                                     </div>
                                 </div>
@@ -497,7 +497,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                     </Step>
 
                     <button onClick={handleGenerate} disabled={isLoading || !personImage} className="w-full bg-slate-800 text-white font-black py-5 rounded-xl shadow-lg hover:bg-slate-900 transition-all disabled:opacity-50 text-xl lowercase">
-                        {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-smw-pink" /><span>creando moda...</span></div> : 'generar fotos de moda'}
+                        {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-rosa-principal" /><span>creando moda...</span></div> : 'generar fotos de moda'}
                     </button>
                     {error && <div className="p-4 bg-red-50 text-red-700 rounded-xl text-xs font-black text-center animate-pulse lowercase">{error}</div>}
                 </div>
@@ -508,7 +508,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                     <div className="flex-1 overflow-y-auto pr-2">
                         {isLoading && generatedImages.length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center space-y-6">
-                                <Spinner className="w-12 h-12 text-smw-pink" />
+                                <Spinner className="w-12 h-12 text-rosa-principal" />
                                 <p className="text-sm font-black text-gray-400 uppercase tracking-[0.3em]">{loadingMessage}</p>
                             </div>
                         ) : generatedImages.length === 0 ? (
@@ -529,7 +529,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                                     setEditingIndex(idx);
                                                     setIsMagicEditOpen(true);
                                                 }} 
-                                                className="bg-smw-pink text-gray-900 p-1.5 sm:p-2.5 rounded-full shadow-md hover:scale-110 transition-transform"
+                                                className="bg-rosa-principal text-gray-900 p-1.5 sm:p-2.5 rounded-full shadow-md hover:scale-110 transition-transform"
                                                 title="Edición Mágica"
                                             >
                                                 <svg className="h-4 w-4 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
@@ -555,7 +555,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                         <p className="lowercase">nuestra tecnología avanzada garantiza que tu identidad facial exacta se preserve mientras mapea sin problemas las prendas sobre tu figura. construye una marca de moda de alta gama, prueba looks de temporada o crea contenido impresionante para redes sociales con calidad de grado comercial.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isIntroExpanded ? 'leer menos' : 'leer más'}</button>
+                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isIntroExpanded ? 'leer menos' : 'leer más'}</button>
                 </div>
 
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -577,7 +577,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/100 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isHowItWorksExpanded ? 'leer menos' : 'leer más'}</button>
+                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isHowItWorksExpanded ? 'leer menos' : 'leer más'}</button>
                 </div>
 
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -585,25 +585,25 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                     <div className={`text-gray-700 space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[2000px]' : 'max-h-[100px]'}`}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
                             <div className="bg-gray-50/50 p-6 rounded-2xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">1. branding de "influencer de moda"</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">1. branding de "influencer de moda"</p>
                                 <p className="lowercase">crea contenido de lookbook de alto compromiso para tus seguidores. los visuales profesionales construyen autoridad y atraen acuerdos de marca premium.</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-2xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">2. lookbooks de afiliados</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">2. lookbooks de afiliados</p>
                                 <p className="lowercase">pruébate virtualmente atuendos de tus minoristas favoritos y enlázalos a través de programas de afiliados. las fotos de alta calidad conducen a ventas significativamente mayores.</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-2xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">3. servicio de maquetas para boutiques</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">3. servicio de maquetas para boutiques</p>
                                 <p className="lowercase">si eres dueño de una boutique, usa moda ai para mostrar cómo se ve tu ropa en personas reales sin contratar modelos para cada artículo nuevo.</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-2xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">4. portafolios de estilismo personal</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">4. portafolios de estilismo personal</p>
                                 <p className="lowercase">construye un portafolio digital mostrando tu rango de estilismo. las escenas de alta fidelidad hacen que tu trabajo se vea costoso y de clase mundial.</p>
                             </div>
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isSalesTipsExpanded ? 'leer menos' : 'leer más'}</button>
+                    <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isSalesTipsExpanded ? 'leer menos' : 'leer más'}</button>
                 </div>
 
                 <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -611,25 +611,25 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                     <div className={`text-gray-700 space-y-8 leading-relaxed text-sm transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[2000px]' : 'max-h-[100px]'}`}>
                         <div className="space-y-6 text-left max-w-4xl mx-auto">
                             <div className="flex gap-6 items-start">
-                                <span className="text-3xl font-bold text-smw-pink leading-none">01</span>
+                                <span className="text-3xl font-bold text-rosa-principal leading-none">01</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">la iluminación lo es todo:</span> para obtener el resultado más creíble, sube una foto de origen con iluminación suave y natural. evita las sombras marcadas o los flashes fuertes.</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-3xl font-bold text-smw-pink leading-none">02</span>
+                                <span className="text-3xl font-bold text-rosa-principal leading-none">02</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">coincide con la vibra:</span> haz que la expresión de tu foto de origen coincida con la escena. un look profesional funciona mejor para "chic de negocios", mientras que una sonrisa encaja perfectamente con "estilo de vida".</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-3xl font-bold text-smw-pink leading-none">03</span>
+                                <span className="text-3xl font-bold text-rosa-principal leading-none">03</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">detalles personalizados:</span> en la descripción personalizada, describe texturas específicas como "seda", "cuero" o "denim" para ayudar a la ia a renderizar detalles de prendas de alta fidelidad.</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-3xl font-bold text-smw-pink leading-none">04</span>
+                                <span className="text-3xl font-bold text-rosa-principal leading-none">04</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">usa 4:5 para el feed:</span> al generar para instagram, selecciona la relación de aspecto de retrato 4:5. ocupa la mayor parte del espacio de la pantalla y se siente más premium en la plataforma.</p>
                                 </div>
@@ -637,7 +637,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isProTipsExpanded ? 'leer menos' : 'leer más'}</button>
+                    <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isProTipsExpanded ? 'leer menos' : 'leer más'}</button>
                 </div>
             </div>
 
@@ -663,7 +663,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                     value={editInstruction}
                                     onChange={(e) => setEditInstruction(e.target.value)}
                                     placeholder="ej: haz sus pantalones más largos, cambia el color de la camisa a verde esmeralda..."
-                                    className="w-full h-32 bg-gray-50 border border-gray-100 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-smw-pink outline-none resize-none lowercase font-medium"
+                                    className="w-full h-32 bg-gray-50 border border-gray-100 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal outline-none resize-none lowercase font-medium"
                                 />
                             </div>
 
@@ -672,7 +672,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
                                 disabled={isEditing || !editInstruction}
                                 className="w-full bg-slate-800 text-white font-black py-4 rounded-xl shadow-lg hover:bg-slate-900 transition-all disabled:opacity-50 text-lg lowercase flex items-center justify-center gap-2"
                             >
-                                {isEditing ? <><Spinner className="w-5 h-5 text-smw-pink" /><span>aplicando magia...</span></> : 'aplicar edición mágica'}
+                                {isEditing ? <><Spinner className="w-5 h-5 text-rosa-principal" /><span>aplicando magia...</span></> : 'aplicar edición mágica'}
                             </button>
                             
                             <p className="text-[10px] text-center text-gray-400 font-bold uppercase tracking-widest">la identidad de origen se preservará estrictamente</p>
@@ -684,7 +684,7 @@ FOTOGRAFÍA: Editorial de moda de alta gama, ultra realista, resolución 8k, ilu
             {/* Success Toast */}
             {showSuccess && (
                 <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl z-[5000] flex items-center gap-3 animate-bounce">
-                    <span className="text-smw-pink text-xl">✨</span>
+                    <span className="text-rosa-principal text-xl">✨</span>
                     <span className="text-sm font-bold uppercase tracking-widest">¡magia aplicada con éxito!</span>
                 </div>
             )}

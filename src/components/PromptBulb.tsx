@@ -6003,19 +6003,19 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
 
     if (!hasAgreed) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-full bg-smw-pink-light p-4 md:p-10">
+            <div className="flex flex-col items-center justify-center min-h-full bg-rosa-claro p-4 md:p-10">
                 <div className="bg-white/80 backdrop-blur-xl p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-white max-w-2xl w-full">
                     <div className="flex flex-col items-center text-center mb-8">
-                        <div className="bg-smw-pink/20 p-4 rounded-full mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-smw-gray-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="bg-rosa-principal/20 p-4 rounded-full mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-negro-fondo" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
-                        <h2 className="text-[11px] sm:text-base md:text-lg font-black text-smw-gray-dark uppercase tracking-tight leading-tight mx-auto max-w-[90%]">ACUERDO DE ACCESO A LA BÓVEDA DE PROMPTS</h2>
-                        <p className="text-xs font-bold text-smw-pink uppercase tracking-widest mt-2">Requerido antes de entrar</p>
+                        <h2 className="text-[11px] sm:text-base md:text-lg font-black text-negro-fondo uppercase tracking-tight leading-tight mx-auto max-w-[90%]">ACUERDO DE ACCESO A LA BÓVEDA DE PROMPTS</h2>
+                        <p className="text-xs font-bold text-rosa-principal uppercase tracking-widest mt-2">Requerido antes de entrar</p>
                     </div>
 
-                    <div className="space-y-6 text-sm text-smw-gray-dark leading-relaxed font-medium h-[400px] overflow-y-auto pr-4 mb-8 custom-scrollbar">
+                    <div className="space-y-6 text-sm text-negro-fondo leading-relaxed font-medium h-[400px] overflow-y-auto pr-4 mb-8 custom-scrollbar">
                         <p className="font-bold text-base">Antes de continuar, lea atentamente:</p>
                         
                         <p>Los prompts de IA, las bibliotecas de prompts y el contenido seleccionado dentro de la aplicación Crazy Addictive son activos exclusivos y patentados creados para su uso únicamente dentro de esta aplicación.</p>
@@ -6023,7 +6023,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                         <p>Al acceder a esta sección, usted reconoce y acepta lo siguiente:</p>
 
                         <div className="space-y-3">
-                            <h3 className="font-black uppercase tracking-widest text-xs text-smw-pink">✅ Derechos de Uso</h3>
+                            <h3 className="font-black uppercase tracking-widest text-xs text-rosa-principal">✅ Derechos de Uso</h3>
                             <ul className="list-disc list-inside space-y-1">
                                 <li>Puede copiar y usar estos prompts solo para creación personal dentro de la aplicación Crazy Addictive.</li>
                                 <li>Puede usar los resultados que genere (imágenes, avatares, visuales) para uso personal o comercial.</li>
@@ -6044,7 +6044,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                         </div>
 
                         <div className="space-y-3">
-                            <h3 className="font-black uppercase tracking-widest text-xs text-smw-pink">⚠️ Aviso de Propiedad Intelectual</h3>
+                            <h3 className="font-black uppercase tracking-widest text-xs text-rosa-principal">⚠️ Aviso de Propiedad Intelectual</h3>
                             <p>Todos los prompts, estructuras de prompts y listas seleccionadas siguen siendo propiedad intelectual de la aplicación Crazy Addictive. El uso, reventa o redistribución no autorizados es una violación de este acuerdo.</p>
                         </div>
                     </div>
@@ -6056,10 +6056,10 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                     type="checkbox" 
                                     checked={isChecked}
                                     onChange={(e) => setIsChecked(e.target.checked)}
-                                    className="w-6 h-6 rounded border-2 border-smw-pink/50 text-smw-pink focus:ring-smw-pink cursor-pointer transition-all"
+                                    className="w-6 h-6 rounded border-2 border-rosa-principal/50 text-rosa-principal focus:ring-rosa-principal cursor-pointer transition-all"
                                 />
                             </div>
-                            <span className="text-xs font-bold text-smw-gray-dark opacity-80 group-hover:opacity-100 transition-opacity">
+                            <span className="text-xs font-bold text-negro-fondo opacity-80 group-hover:opacity-100 transition-opacity">
                                 Entiendo y acepto que estos prompts son para uso personal únicamente dentro de la aplicación Crazy Addictive y que no puedo revenderlos, redistribuirlos ni reclamarlos como propios.
                             </span>
                         </label>
@@ -6069,7 +6069,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                             disabled={!isChecked}
                             className={`w-fit px-6 py-2 mx-auto block rounded-lg font-bold uppercase tracking-wider text-xs transition-all shadow-md ${
                                 isChecked 
-                                ? 'bg-smw-black text-smw-pink hover:scale-[1.02] active:scale-95' 
+                                ? 'bg-negro-fondo text-rosa-principal hover:scale-[1.02] active:scale-95' 
                                 : 'bg-gray-200 text-gray-400 cursor-not-allowed'
                             }`}
                         >
@@ -6082,17 +6082,17 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
     }
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 md:p-10 space-y-8 overflow-y-auto animate-fade-in">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 md:p-10 space-y-8 overflow-y-auto animate-fade-in">
             <header className="flex-shrink-0 flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="text-center md:text-left">
-                    <h2 className="text-2xl font-black text-smw-gray-dark tracking-tighter uppercase">BÓVEDA DE PROMPTS DE IA</h2>
-                    <p className="text-sm font-bold text-smw-gray-dark opacity-70 lowercase">Domina el arte del prompt. Utiliza estas palabras clave especializadas para obtener resultados profesionales de alta fidelidad.</p>
+                    <h2 className="text-2xl font-black text-negro-fondo tracking-tighter uppercase">BÓVEDA DE PROMPTS DE IA</h2>
+                    <p className="text-sm font-bold text-negro-fondo opacity-70 lowercase">Domina el arte del prompt. Utiliza estas palabras clave especializadas para obtener resultados profesionales de alta fidelidad.</p>
                 </div>
                 
                 {onReturn && (
                     <button 
                         onClick={onReturn}
-                        className="bg-smw-black text-white px-6 py-3 rounded-full font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-xl border border-white/10"
+                        className="bg-negro-fondo text-white px-6 py-3 rounded-full font-black text-xs uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-all shadow-xl border border-white/10"
                     >
                         Volver a {lastToolName || 'Studio'}
                         <X className="w-4 h-4 text-gray-400" />
@@ -6107,12 +6107,12 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                             onClick={() => setSelectedCategory(null)}
                             className="bg-white/80 hover:bg-white p-2 rounded-full shadow-md transition-all"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-smw-gray-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-negro-fondo" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                             </svg>
                         </button>
                         <div>
-                            <h3 className="text-lg font-black text-smw-gray-dark uppercase tracking-tight leading-none">{selectedCategory.name}</h3>
+                            <h3 className="text-lg font-black text-negro-fondo uppercase tracking-tight leading-none">{selectedCategory.name}</h3>
                             <p className="text-xs font-bold text-gray-400 uppercase tracking-widest mt-1">Copia y pega en tu próxima generación</p>
                         </div>
                     </div>
@@ -6134,7 +6134,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                                     element.scrollIntoView({ behavior: 'smooth', block: 'start' });
                                                 }
                                             }}
-                                            className="text-[10px] font-black uppercase tracking-[0.15em] text-smw-gray-dark opacity-60 hover:opacity-100 hover:text-smw-pink transition-all border-b border-transparent hover:border-smw-pink pb-0.5"
+                                            className="text-[10px] font-black uppercase tracking-[0.15em] text-negro-fondo opacity-60 hover:opacity-100 hover:text-rosa-principal transition-all border-b border-transparent hover:border-rosa-principal pb-0.5"
                                         >
                                             {title}
                                         </button>
@@ -6152,9 +6152,9 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                     <div 
                                         key={idx} 
                                         id={`section-${headerIdx}`} 
-                                        className="mt-12 mb-6 border-b-2 border-smw-pink/30 pb-2 scroll-mt-10"
+                                        className="mt-12 mb-6 border-b-2 border-rosa-principal/30 pb-2 scroll-mt-10"
                                     >
-                                        <h4 className="text-xl font-black text-smw-gray-dark uppercase tracking-widest">{prompt.substring(2)}</h4>
+                                        <h4 className="text-xl font-black text-negro-fondo uppercase tracking-widest">{prompt.substring(2)}</h4>
                                     </div>
                                 );
                             }
@@ -6171,7 +6171,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                         >
                                             <Heart className={`h-6 w-6 ${favorites.includes(prompt) ? 'fill-current' : ''}`} />
                                         </button>
-                                        <p className="text-sm md:text-base font-medium text-smw-gray-dark leading-relaxed italic">"{prompt}"</p>
+                                        <p className="text-sm md:text-base font-medium text-negro-fondo leading-relaxed italic">"{prompt}"</p>
                                     </div>
                                     <button 
                                         onClick={(e) => {
@@ -6181,7 +6181,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                         className={`flex w-auto self-center md:self-auto flex-shrink-0 px-6 py-2 rounded-full font-black uppercase text-xs tracking-widest transition-all shadow-lg md:shadow-none ${
                                             copySuccess === prompt 
                                             ? 'bg-green-500 text-white' 
-                                            : 'bg-smw-black text-smw-pink hover:scale-105 active:scale-95'
+                                            : 'bg-negro-fondo text-rosa-principal hover:scale-105 active:scale-95'
                                         }`}
                                     >
                                         {copySuccess === prompt ? '¡COPIADO!' : 'COPIAR PROMPT'}
@@ -6197,7 +6197,7 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                         <button
                             key={cat.id}
                             onClick={() => setSelectedCategory(cat)}
-                            className={`backdrop-blur-md p-10 rounded-[2.5rem] shadow-2xl border border-white/5 hover:border-smw-pink/30 transform hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden group h-full flex flex-col items-center justify-center ${cat.id === 'favorites' ? 'bg-red-500/10 border-red-500/30' : 'bg-smw-gray-dark'}`}
+                            className={`backdrop-blur-md p-10 rounded-[2.5rem] shadow-2xl border border-white/5 hover:border-rosa-principal/30 transform hover:-translate-y-2 transition-all duration-300 text-center relative overflow-hidden group h-full flex flex-col items-center justify-center ${cat.id === 'favorites' ? 'bg-red-500/10 border-red-500/30' : 'bg-negro-fondo'}`}
                         >
                             {/* Decorative background element */}
                             <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
@@ -6208,15 +6208,15 @@ const PromptBulb: React.FC<PromptBulbProps> = ({ onReturn, lastToolName }) => {
                                 {cat.icon}
                             </div>
                             
-                            <h3 className={`text-base font-black mb-2 uppercase tracking-tighter leading-tight ${cat.id === 'favorites' ? 'text-smw-gray-dark' : 'text-white'}`}>
+                            <h3 className={`text-base font-black mb-2 uppercase tracking-tighter leading-tight ${cat.id === 'favorites' ? 'text-negro-fondo' : 'text-white'}`}>
                                 {cat.name}
                             </h3>
                             
-                            <p className={`text-xs font-bold uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity ${cat.id === 'favorites' ? 'text-red-600' : 'text-smw-pink'}`}>
+                            <p className={`text-xs font-bold uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity ${cat.id === 'favorites' ? 'text-red-600' : 'text-rosa-principal'}`}>
                                 {cat.prompts.length - cat.prompts.filter(p => p.startsWith('#')).length} Prompts Maestros
                             </p>
 
-                            <div className={`mt-8 px-6 py-2 rounded-full border-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all ${cat.id === 'favorites' ? 'border-red-500/20 text-red-600 group-hover:bg-red-500 group-hover:text-white' : 'border-smw-pink/20 text-white group-hover:bg-smw-pink group-hover:text-smw-black'}`}>
+                            <div className={`mt-8 px-6 py-2 rounded-full border-2 text-[10px] font-black uppercase tracking-[0.2em] transition-all ${cat.id === 'favorites' ? 'border-red-500/20 text-red-600 group-hover:bg-red-500 group-hover:text-white' : 'border-rosa-principal/20 text-white group-hover:bg-rosa-principal group-hover:text-negro-fondo'}`}>
                                 Abrir Bóveda
                             </div>
                         </button>

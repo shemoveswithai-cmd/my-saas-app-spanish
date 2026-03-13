@@ -338,10 +338,10 @@ Iteration: ${i + 1}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-6 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">{t('AI Product Gallery', 'Galería de Productos con IA')}</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-6 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">{t('AI Product Gallery', 'Galería de Productos con IA')}</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     {t('Create professional photoshoots for your products in any scene or style, with or without a model, with high-fidelity results.', 'Crea sesiones de fotos profesionales para tus productos en cualquier escena o estilo, con o sin modelo, con resultados de alta fidelidad.')}
                 </p>
             </div>
@@ -359,9 +359,9 @@ Iteration: ${i + 1}`;
                     {productImages.length < 5 && (
                         <div 
                             onClick={() => productInputRef.current?.click()} 
-                            className="w-40 h-40 bg-white rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-smw-pink transition-colors p-4 group"
+                            className="w-40 h-40 bg-white rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-rosa-principal transition-colors p-4 group"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-300 group-hover:text-smw-pink mb-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-300 group-hover:text-rosa-principal mb-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
                             <p className="text-sm font-bold text-gray-400 group-hover:text-gray-600 text-center">{t('Click to add product', 'Haz clic para añadir producto')}</p>
                             <p className="text-[10px] text-gray-300 font-bold uppercase tracking-widest mt-1">PNG, JPG, WEBP</p>
                         </div>
@@ -382,9 +382,9 @@ Iteration: ${i + 1}`;
                     ) : (
                         <div 
                             onClick={() => personInputRef.current?.click()} 
-                            className="w-40 h-40 bg-white rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-smw-pink transition-colors p-4 group"
+                            className="w-40 h-40 bg-white rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-rosa-principal transition-colors p-4 group"
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-300 group-hover:text-smw-pink mb-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-gray-300 group-hover:text-rosa-principal mb-2 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                             <p className="text-sm font-bold text-gray-400 group-hover:text-gray-600 text-center">{t('Click to add person', 'Haz clic para añadir persona')}</p>
                             <p className="text-[10px] text-gray-300 font-bold uppercase tracking-widest mt-1">PNG, JPG, WEBP</p>
                         </div>
@@ -399,13 +399,13 @@ Iteration: ${i + 1}`;
                     <div className="flex border-b border-gray-100">
                         <button 
                             onClick={() => setActiveTab('category')} 
-                            className={`px-6 py-2 text-sm font-bold transition-all ${activeTab === 'category' ? 'border-b-2 border-smw-pink text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`px-6 py-2 text-sm font-bold transition-all ${activeTab === 'category' ? 'border-b-2 border-rosa-principal text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
                         >
                             {t('Category Prompts', 'Prompts por Categoría')}
                         </button>
                         <button 
                             onClick={() => setActiveTab('custom')} 
-                            className={`px-6 py-2 text-sm font-bold transition-all ${activeTab === 'custom' ? 'border-b-2 border-smw-pink text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
+                            className={`px-6 py-2 text-sm font-bold transition-all ${activeTab === 'custom' ? 'border-b-2 border-rosa-principal text-gray-900' : 'text-gray-400 hover:text-gray-600'}`}
                         >
                             {t('Custom Prompt', 'Prompt Personalizado')}
                         </button>
@@ -420,7 +420,7 @@ Iteration: ${i + 1}`;
                                     setSelectedCategory(cat);
                                     setSelectedPrompt(cat.prompts[0]);
                                 }}
-                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none text-gray-900 font-medium"
+                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none text-gray-900 font-medium"
                             >
                                 {sceneCategories.map(cat => (
                                     <option key={cat.name} value={cat.name}>
@@ -453,11 +453,11 @@ Iteration: ${i + 1}`;
                                     type="text" 
                                     value={selectedPrompt} 
                                     onChange={e => setSelectedPrompt(e.target.value)}
-                                    className="flex-1 bg-white border-2 border-gray-100 rounded-xl p-3 pr-12 text-sm focus:ring-2 focus:ring-smw-pink outline-none text-gray-900 font-medium"
+                                    className="flex-1 bg-white border-2 border-gray-100 rounded-xl p-3 pr-12 text-sm focus:ring-2 focus:ring-rosa-principal outline-none text-gray-900 font-medium"
                                 />
                                 <button 
                                     onClick={() => setSelectedPrompt(selectedCategory.prompts[Math.floor(Math.random() * selectedCategory.prompts.length)])} 
-                                    className="absolute right-2 bg-smw-pink p-1.5 rounded-lg text-black shadow-sm transition-transform active:scale-95"
+                                    className="absolute right-2 bg-rosa-principal p-1.5 rounded-lg text-black shadow-sm transition-transform active:scale-95"
                                     title={t('Shuffle Prompt', 'Mezclar Prompt')}
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
@@ -469,7 +469,7 @@ Iteration: ${i + 1}`;
                             value={customPrompt} 
                             onChange={e => setCustomPrompt(e.target.value)} 
                             placeholder={t('e.g., A minimalist product display on a marble table with soft morning sunlight...', 'ej., Una exhibición minimalista de productos en una mesa de mármol con luz solar suave de la mañana...')}
-                            className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none resize-none text-gray-900 font-medium"
+                            className="w-full h-24 bg-white border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none resize-none text-gray-900 font-medium"
                         />
                     )}
 
@@ -478,7 +478,7 @@ Iteration: ${i + 1}`;
                         <select 
                             value={aspectRatio} 
                             onChange={e => setAspectRatio(e.target.value)}
-                            className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm focus:ring-2 focus:ring-smw-pink outline-none text-gray-900 font-medium"
+                            className="w-full bg-white border-2 border-gray-100 rounded-xl p-3 text-sm focus:ring-2 focus:ring-rosa-principal outline-none text-gray-900 font-medium"
                         >
                             {aspectRatios.map(ar => (
                                 <option key={ar.value} value={ar.value}>
@@ -502,7 +502,7 @@ Iteration: ${i + 1}`;
                 <button 
                     onClick={handleGenerate} 
                     disabled={isLoading || productImages.length === 0} 
-                    className="w-full bg-smw-pink text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed shadow-md text-lg transition-all"
+                    className="w-full bg-rosa-principal text-black font-bold py-4 rounded-xl hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed shadow-md text-lg transition-all"
                 >
                     {isLoading ? (
                         <div className="flex items-center justify-center gap-3">
@@ -523,7 +523,7 @@ Iteration: ${i + 1}`;
                             <div key={i} className="aspect-square bg-white rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden relative shadow-inner group">
                                 {isLoading && i >= generatedImages.length ? (
                                     <div className="text-center p-4 flex flex-col items-center justify-center h-full">
-                                        <div className="w-12 h-12 bg-smw-pink rounded-lg mb-4 animate-pulse shadow-sm"></div>
+                                        <div className="w-12 h-12 bg-rosa-principal rounded-lg mb-4 animate-pulse shadow-sm"></div>
                                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] animate-pulse">{t('Photos are being generated...', 'Las fotos se están generando...')}</p>
                                     </div>
                                 ) : generatedImages[i] ? (
@@ -542,7 +542,7 @@ Iteration: ${i + 1}`;
             </div>
 
             {/* Information Boxes */}
-            <div className="space-y-6 pt-10 border-t border-smw-pink/20">
+            <div className="space-y-6 pt-10 border-t border-rosa-principal/20">
                 <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">{t('Introduction', 'Introducción')}</h2>
                     <div className={`text-gray-700 space-y-4 leading-relaxed text-base transition-all duration-500 overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
@@ -551,7 +551,7 @@ Iteration: ${i + 1}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isIntroExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -567,7 +567,7 @@ Iteration: ${i + 1}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isHowItWorksExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -584,7 +584,7 @@ Iteration: ${i + 1}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesMonetizationExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesMonetizationExpanded(!isSalesMonetizationExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsSalesMonetizationExpanded(!isSalesMonetizationExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isSalesMonetizationExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -600,7 +600,7 @@ Iteration: ${i + 1}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isProTipsExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>

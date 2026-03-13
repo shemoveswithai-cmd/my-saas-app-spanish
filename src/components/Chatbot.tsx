@@ -57,7 +57,7 @@ const MarkdownRenderer: React.FC<{ text: string }> = ({ text }) => {
 
     flushListBuffer(); // Flush any remaining list at the end
 
-    return <div className="text-smw-gray-dark leading-relaxed">{elements}</div>;
+    return <div className="text-negro-fondo leading-relaxed">{elements}</div>;
 };
 
 
@@ -253,12 +253,12 @@ const Chatbot: React.FC = () => {
 
     return (
         <div className="flex flex-col h-full bg-white/60 backdrop-blur-sm shadow-xl rounded-lg">
-            <h2 className="text-2xl font-bold p-4 border-b border-smw-pink/20 text-smw-gray-dark">Chatea con tu Gemelo IA</h2>
-            {error && <div className="p-4 bg-red-900 text-smw-text rounded-md m-4">{error}</div>}
+            <h2 className="text-2xl font-bold p-4 border-b border-rosa-principal/20 text-negro-fondo">Chatea con tu Gemelo IA</h2>
+            {error && <div className="p-4 bg-red-900 text-blanco-texto rounded-md m-4">{error}</div>}
             <div ref={chatContainerRef} className="flex-1 p-4 overflow-y-auto space-y-4">
                 {history.map((msg, index) => (
                     <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                        <div className={`max-w-xl px-4 py-2 rounded-lg ${msg.role === 'user' ? 'bg-smw-pink text-smw-gray-dark font-semibold' : 'bg-white/80'}`}>
+                        <div className={`max-w-xl px-4 py-2 rounded-lg ${msg.role === 'user' ? 'bg-rosa-principal text-negro-fondo font-semibold' : 'bg-white/80'}`}>
                            {msg.role === 'model' 
                              ? <MarkdownRenderer text={msg.parts[0].text} />
                              : msg.parts[0].text
@@ -269,16 +269,16 @@ const Chatbot: React.FC = () => {
                 {isLoading && (
                     <div className="flex justify-start">
                         <div className="max-w-xl px-4 py-2 rounded-lg bg-white/80">
-                            <Spinner className="w-5 h-5 text-smw-gray-dark" />
+                            <Spinner className="w-5 h-5 text-negro-fondo" />
                         </div>
                     </div>
                 )}
             </div>
-            <form onSubmit={handleSendMessage} className="p-4 border-t-2 border-smw-pink/20 flex items-center gap-2">
+            <form onSubmit={handleSendMessage} className="p-4 border-t-2 border-rosa-principal/20 flex items-center gap-2">
                 <button
                     type="button"
                     onClick={handleMicClick}
-                    className={`p-2 rounded-full hover:bg-white/50 disabled:bg-transparent disabled:cursor-not-allowed transition-colors ${isRecording ? 'text-red-500' : 'text-smw-gray-dark'}`}
+                    className={`p-2 rounded-full hover:bg-white/50 disabled:bg-transparent disabled:cursor-not-allowed transition-colors ${isRecording ? 'text-red-500' : 'text-negro-fondo'}`}
                     disabled={isLoading}
                     aria-label={isRecording ? 'Stop recording' : 'Start recording'}
                 >
@@ -289,10 +289,10 @@ const Chatbot: React.FC = () => {
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                     placeholder={isRecording ? "Escuchando..." : "Pregúntale cualquier cosa a tu Gemelo IA..."}
-                    className="flex-1 bg-white/50 border-2 border-smw-pink/50 rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-gray-dark placeholder:text-smw-gray-dark/70"
+                    className="flex-1 bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo placeholder:text-negro-fondo/70"
                     disabled={isLoading}
                 />
-                <button type="submit" className="bg-smw-pink text-smw-gray-dark p-2 rounded-lg hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed" disabled={isLoading || !userInput.trim()}>
+                <button type="submit" className="bg-rosa-principal text-negro-fondo p-2 rounded-lg hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed" disabled={isLoading || !userInput.trim()}>
                     {isLoading ? <Spinner /> : 
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" /></svg>
                     }

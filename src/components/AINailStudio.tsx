@@ -65,7 +65,7 @@ const nailColors = [
 
 const Step: React.FC<{ number: number; title: string; children: React.ReactNode }> = ({ number, title, children }) => (
     <div className="bg-white shadow-sm p-6 rounded-xl border border-white/50 mb-4">
-        <h3 className="text-xl font-bold text-smw-gray-dark mb-4">Paso {number}: {title}</h3>
+        <h3 className="text-xl font-bold text-negro-fondo mb-4">Paso {number}: {title}</h3>
         {children}
     </div>
 );
@@ -193,10 +193,10 @@ Seed: ${Math.random()}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-8 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Estudio de Uñas IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-8 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Estudio de Uñas IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Diseña las uñas de tus sueños y mira cómo cobran vida en tus propias manos con resultados profesionales de alta fidelidad.
                 </p>
             </div>
@@ -206,14 +206,14 @@ Seed: ${Math.random()}`;
                     <Step number={1} title="Sube tu Foto">
                         <div 
                             onClick={() => personInputRef.current?.click()} 
-                            className="w-full h-56 bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-smw-pink transition-all p-4 relative group overflow-hidden"
+                            className="w-full h-56 bg-white rounded-2xl flex items-center justify-center border-2 border-dashed border-pink-200 cursor-pointer hover:border-rosa-principal transition-all p-4 relative group overflow-hidden"
                         >
                             {personImage ? (
                                 <img src={personImage.preview} className="max-h-full rounded-xl shadow-md object-contain" alt="Vista previa" />
                             ) : (
                                 <div className="text-center space-y-2 opacity-50">
                                     <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
-                                    <p className="font-bold text-smw-black">Haz clic para subir foto de mano/retrato</p>
+                                    <p className="font-bold text-negro-fondo">Haz clic para subir foto de mano/retrato</p>
                                 </div>
                             )}
                         </div>
@@ -223,13 +223,13 @@ Seed: ${Math.random()}`;
                     <Step number={2} title="Diseño de Uñas">
                         <div className="space-y-6">
                             <div>
-                                <p className="text-xs font-black uppercase text-smw-gray-dark tracking-widest mb-3">Forma</p>
+                                <p className="text-xs font-black uppercase text-negro-fondo tracking-widest mb-3">Forma</p>
                                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-2">
                                     {nailShapes.map(s => (
                                         <button 
                                             key={s} 
                                             onClick={() => { setSelectedShape(s); setCustomNailPrompt(''); }} 
-                                            className={`px-2 py-2 rounded-lg text-xs font-black transition-all ${selectedShape === s && !customNailPrompt ? 'bg-smw-pink text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                                            className={`px-2 py-2 rounded-lg text-xs font-black transition-all ${selectedShape === s && !customNailPrompt ? 'bg-rosa-principal text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
                                         >
                                             {s}
                                         </button>
@@ -238,13 +238,13 @@ Seed: ${Math.random()}`;
                             </div>
 
                             <div>
-                                <p className="text-xs font-black uppercase text-smw-gray-dark tracking-widest mb-3">Longitud</p>
+                                <p className="text-xs font-black uppercase text-negro-fondo tracking-widest mb-3">Longitud</p>
                                 <div className="grid grid-cols-4 gap-2">
                                     {nailLengths.map(l => (
                                         <button 
                                             key={l} 
                                             onClick={() => { setSelectedLength(l); setCustomNailPrompt(''); }} 
-                                            className={`px-2 py-2 rounded-lg text-xs font-black transition-all ${selectedLength === l && !customNailPrompt ? 'bg-smw-pink text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                                            className={`px-2 py-2 rounded-lg text-xs font-black transition-all ${selectedLength === l && !customNailPrompt ? 'bg-rosa-principal text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
                                         >
                                             {l}
                                         </button>
@@ -253,13 +253,13 @@ Seed: ${Math.random()}`;
                             </div>
 
                             <div>
-                                <p className="text-xs font-black uppercase text-smw-gray-dark tracking-widest mb-3">Diseño</p>
+                                <p className="text-xs font-black uppercase text-negro-fondo tracking-widest mb-3">Diseño</p>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                     {nailDesigns.map(d => (
                                         <button 
                                             key={d.name} 
                                             onClick={() => { setSelectedDesign(d); setCustomNailPrompt(''); }} 
-                                            className={`px-2 py-2 rounded-lg text-[10px] font-black transition-all ${selectedDesign.name === d.name && !customNailPrompt ? 'bg-smw-pink text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                                            className={`px-2 py-2 rounded-lg text-[10px] font-black transition-all ${selectedDesign.name === d.name && !customNailPrompt ? 'bg-rosa-principal text-black shadow-md' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
                                         >
                                             {d.name}
                                         </button>
@@ -268,13 +268,13 @@ Seed: ${Math.random()}`;
                             </div>
 
                             <div>
-                                <p className="text-xs font-black uppercase text-smw-gray-dark tracking-widest mb-3">Color</p>
+                                <p className="text-xs font-black uppercase text-negro-fondo tracking-widest mb-3">Color</p>
                                 <div className="flex flex-wrap gap-2">
                                     {nailColors.map(c => (
                                         <button 
                                             key={c.name} 
                                             onClick={() => { setSelectedColor(c); setCustomNailPrompt(''); }} 
-                                            className={`w-8 h-8 rounded-full border-2 transition-all ${selectedColor.name === c.name && !customNailPrompt ? 'border-smw-pink ring-2 ring-smw-pink ring-offset-1' : 'border-white shadow-sm'}`}
+                                            className={`w-8 h-8 rounded-full border-2 transition-all ${selectedColor.name === c.name && !customNailPrompt ? 'border-rosa-principal ring-2 ring-rosa-principal ring-offset-1' : 'border-white shadow-sm'}`}
                                             style={{ background: c.hex }}
                                             title={c.name}
                                         />
@@ -283,12 +283,12 @@ Seed: ${Math.random()}`;
                             </div>
 
                             <div>
-                                <p className="text-xs font-black uppercase text-smw-gray-dark tracking-widest mb-3">Prompt Personalizado (Opcional)</p>
+                                <p className="text-xs font-black uppercase text-negro-fondo tracking-widest mb-3">Prompt Personalizado (Opcional)</p>
                                 <textarea
                                     value={customNailPrompt}
                                     onChange={(e) => setCustomNailPrompt(e.target.value)}
                                     placeholder="ej: uñas stiletto largas de color rosa con pequeñas flores blancas"
-                                    className="w-full h-24 bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-1 focus:ring-smw-pink outline-none resize-none text-black font-medium"
+                                    className="w-full h-24 bg-white border border-gray-200 rounded-xl p-3 text-sm focus:ring-1 focus:ring-rosa-principal outline-none resize-none text-black font-medium"
                                 />
                             </div>
                         </div>
@@ -296,7 +296,7 @@ Seed: ${Math.random()}`;
                         <button 
                             onClick={handleGenerate} 
                             disabled={isLoading || !personImage} 
-                            className="w-full mt-4 bg-smw-pink text-black font-bold py-4 rounded-xl hover:opacity-95 disabled:opacity-50 transition-all text-lg shadow-sm"
+                            className="w-full mt-4 bg-rosa-principal text-black font-bold py-4 rounded-xl hover:opacity-95 disabled:opacity-50 transition-all text-lg shadow-sm"
                         >
                             {isLoading ? <Spinner className="mx-auto" /> : 'Generar Sesión de Uñas'}
                         </button>
@@ -304,11 +304,11 @@ Seed: ${Math.random()}`;
                 </div>
 
                 <div className="bg-white shadow-md p-6 rounded-3xl border border-white min-h-[450px] flex flex-col">
-                    <h3 className="text-base font-bold text-center text-smw-gray-dark mb-6 opacity-20 uppercase tracking-widest">Galería de Uñas</h3>
+                    <h3 className="text-base font-bold text-center text-negro-fondo mb-6 opacity-20 uppercase tracking-widest">Galería de Uñas</h3>
                     <div className="flex-1">
                         {isLoading && generatedImages.length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center space-y-3">
-                                <Spinner className="w-10 h-10 text-smw-pink" />
+                                <Spinner className="w-10 h-10 text-rosa-principal" />
                                 <p className="text-gray-400 font-bold animate-pulse text-sm text-center">{loadingMessage}</p>
                             </div>
                         ) : generatedImages.length === 0 ? (
@@ -325,8 +325,8 @@ Seed: ${Math.random()}`;
                                     <div key={idx} className="relative group aspect-square rounded-2xl overflow-hidden shadow-md bg-gray-50 border-2 border-white">
                                         <img src={img} className="w-full h-full object-cover cursor-zoom-in transition-transform duration-700 group-hover:scale-110" alt="Resultado de Uñas" onClick={() => setZoomedImage(img)} />
                                         <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
-                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-smw-black p-2 rounded-full hover:scale-110 shadow-lg active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
-                                            <a href={img} download={`resultado-uñas-${idx + 1}.png`} className="bg-white text-smw-black p-2 rounded-full hover:scale-110 shadow-lg active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
+                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-negro-fondo p-2 rounded-full hover:scale-110 shadow-lg active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg></button>
+                                            <a href={img} download={`resultado-uñas-${idx + 1}.png`} className="bg-white text-negro-fondo p-2 rounded-full hover:scale-110 shadow-lg active:scale-95"><svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg></a>
                                         </div>
                                     </div>
                                 ))}
@@ -336,7 +336,7 @@ Seed: ${Math.random()}`;
                 </div>
             </div>
 
-            <div className="space-y-6 pt-10 border-t border-smw-pink/20 pb-20">
+            <div className="space-y-6 pt-10 border-t border-rosa-principal/20 pb-20">
                 <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase tracking-widest">Introducción</h2>
                     <div className={`text-gray-700 space-y-4 leading-relaxed text-base transition-all duration-500 overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
@@ -345,7 +345,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-2 font-bold text-smw-pink uppercase tracking-widest hover:underline">{isIntroExpanded ? 'Leer menos' : 'Leer más'}</button>
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-2 font-bold text-rosa-principal uppercase tracking-widest hover:underline">{isIntroExpanded ? 'Leer menos' : 'Leer más'}</button>
                     </div>
                 </div>
 
@@ -361,7 +361,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-2 font-bold text-smw-pink uppercase tracking-widest hover:underline">{isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}</button>
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-2 font-bold text-rosa-principal uppercase tracking-widest hover:underline">{isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}</button>
                     </div>
                 </div>
 
@@ -389,7 +389,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-2 font-bold text-smw-pink uppercase tracking-widest hover:underline">{isSalesTipsExpanded ? 'Leer menos' : 'Leer más'}</button>
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-2 font-bold text-rosa-principal uppercase tracking-widest hover:underline">{isSalesTipsExpanded ? 'Leer menos' : 'Leer más'}</button>
                     </div>
                 </div>
 
@@ -397,14 +397,14 @@ Seed: ${Math.random()}`;
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center uppercase tracking-widest">Consejos Profesionales</h2>
                     <div className={`text-gray-700 space-y-4 leading-relaxed text-base transition-all duration-500 overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <div className="space-y-4 text-left">
-                            <p><span className="font-bold text-smw-pink">consejo 1:</span> para obtener los resultados más realistas, utiliza una foto con iluminación clara y uniforme. las sombras en los dedos a veces pueden confundir la colocación de las uñas por parte de la ia.</p>
-                            <p><span className="font-bold text-smw-pink">consejo 2:</span> utiliza el cuadro de "prompt personalizado" para añadir detalles específicos como "acabado mate con papel de oro" o "pequeñas perlas blancas en el dedo anular".</p>
-                            <p><span className="font-bold text-smw-pink">consejo 3:</span> si la ia no coincide perfectamente con tu mano, intenta con una foto más alejada que muestre toda tu mano y muñeca para un mejor contexto.</p>
+                            <p><span className="font-bold text-rosa-principal">consejo 1:</span> para obtener los resultados más realistas, utiliza una foto con iluminación clara y uniforme. las sombras en los dedos a veces pueden confundir la colocación de las uñas por parte de la ia.</p>
+                            <p><span className="font-bold text-rosa-principal">consejo 2:</span> utiliza el cuadro de "prompt personalizado" para añadir detalles específicos como "acabado mate con papel de oro" o "pequeñas perlas blancas en el dedo anular".</p>
+                            <p><span className="font-bold text-rosa-principal">consejo 3:</span> si la ia no coincide perfectamente con tu mano, intenta con una foto más alejada que muestre toda tu mano y muñeca para un mejor contexto.</p>
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-2 font-bold text-smw-pink uppercase tracking-widest hover:underline">{isProTipsExpanded ? 'Leer menos' : 'Leer más'}</button>
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-2 font-bold text-rosa-principal uppercase tracking-widest hover:underline">{isProTipsExpanded ? 'Leer menos' : 'Leer más'}</button>
                     </div>
                 </div>
             </div>

@@ -58,8 +58,8 @@ const PROPS = [
 
 const Step: React.FC<{ number: number | string; title: string; children: React.ReactNode; description?: string }> = ({ number, title, children, description }) => (
     <div className="bg-white/60 backdrop-blur-sm shadow-md p-5 rounded-lg border border-white/20">
-        <h3 className="text-lg font-bold text-smw-gray-dark">Paso {number}: {title}</h3>
-        {description && <p className="text-sm text-smw-gray-dark opacity-80 mt-1 mb-3">{description}</p>}
+        <h3 className="text-lg font-bold text-negro-fondo">Paso {number}: {title}</h3>
+        {description && <p className="text-sm text-negro-fondo opacity-80 mt-1 mb-3">{description}</p>}
         <div className="mt-4">{children}</div>
     </div>
 );
@@ -178,10 +178,10 @@ Semilla de singularidad: ${Math.random()}`;
   };
 
   return (
-    <div className="flex flex-col h-full bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-8 space-y-6 overflow-y-auto">
-      <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-          <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Sesiones IA de los 90</h1>
-          <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+    <div className="flex flex-col h-full bg-rosa-claro rounded-lg shadow-xl p-4 md:p-8 space-y-6 overflow-y-auto">
+      <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+          <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Sesiones IA de los 90</h1>
+          <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
               Recrea las icónicas fotos de glamour de los 90 con fondos retro, accesorios y un estilo retocado.
           </p>
       </div>
@@ -195,14 +195,14 @@ Semilla de singularidad: ${Math.random()}`;
           >
               <div 
                   onClick={() => fileInputRef.current?.click()}
-                  className="min-h-[140px] bg-white/40 rounded-lg flex flex-wrap items-center justify-center border-2 border-dashed border-smw-pink/30 cursor-pointer hover:bg-white transition-colors p-6"
+                  className="min-h-[140px] bg-white/40 rounded-lg flex flex-wrap items-center justify-center border-2 border-dashed border-rosa-principal/30 cursor-pointer hover:bg-white transition-colors p-6"
               >
                   {previews.length > 0 ? (
                       <div className="flex gap-3">
                         {previews.map((p, idx) => <img key={idx} src={p} className="h-24 w-24 object-cover rounded shadow-md border-2 border-white" />)}
                       </div>
                   ) : (
-                      <p className="text-sm text-smw-gray-dark opacity-60">Suelta hasta 3 fotos aquí o haz clic para subir</p>
+                      <p className="text-sm text-negro-fondo opacity-60">Suelta hasta 3 fotos aquí o haz clic para subir</p>
                   )}
               </div>
               <input type="file" ref={fileInputRef} multiple onChange={e => e.target.files && setFiles(Array.from(e.target.files).slice(0, 3))} className="hidden" accept="image/*" />
@@ -211,13 +211,13 @@ Semilla de singularidad: ${Math.random()}`;
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {/* Step 2 */}
               <Step number={2} title="Personaliza Tu Sesión">
-                  <p className="text-sm text-smw-gray-dark font-bold mb-3">Fondo</p>
+                  <p className="text-sm text-negro-fondo font-bold mb-3">Fondo</p>
                   <div className="grid grid-cols-4 gap-2">
                       {BACKDROPS.map(b => (
                           <button 
                               key={b.id} 
                               onClick={() => setBackdropId(b.id)}
-                              className={`aspect-square rounded-md overflow-hidden border-2 transition-all relative group ${backdropId === b.id ? 'border-smw-pink scale-105 shadow-md' : 'border-transparent'}`}
+                              className={`aspect-square rounded-md overflow-hidden border-2 transition-all relative group ${backdropId === b.id ? 'border-rosa-principal scale-105 shadow-md' : 'border-transparent'}`}
                           >
                               <div style={{ background: b.thumb }} className="w-full h-full" />
                               <div className="absolute inset-x-0 bottom-0 bg-[#1C1C1C] py-1.5 px-0.5">
@@ -232,13 +232,13 @@ Semilla de singularidad: ${Math.random()}`;
               <Step number={3} title="Ajustes de Salida">
                   <div className="space-y-6">
                     <div>
-                        <p className="text-sm text-smw-gray-dark font-bold mb-3">Relación de Aspecto</p>
+                        <p className="text-sm text-negro-fondo font-bold mb-3">Relación de Aspecto</p>
                         <div className="grid grid-cols-2 gap-2">
                             {RATIOS.map(r => (
                                 <button 
                                     key={r.id} 
                                     onClick={() => setRatioId(r.id)}
-                                    className={`py-2.5 px-3 text-sm font-regular rounded-md border transition-all ${ratioId === r.id ? 'bg-smw-pink text-smw-gray-dark border-smw-pink' : 'bg-white text-smw-gray-dark border-gray-200 hover:bg-gray-50'}`}
+                                    className={`py-2.5 px-3 text-sm font-regular rounded-md border transition-all ${ratioId === r.id ? 'bg-rosa-principal text-negro-fondo border-rosa-principal' : 'bg-white text-negro-fondo border-gray-200 hover:bg-gray-50'}`}
                                 >
                                     {r.label}
                                 </button>
@@ -247,14 +247,14 @@ Semilla de singularidad: ${Math.random()}`;
                     </div>
 
                     <div>
-                        <p className="text-sm text-smw-gray-dark font-bold mb-3">Accesorios</p>
+                        <p className="text-sm text-negro-fondo font-bold mb-3">Accesorios</p>
                         <button 
                             onClick={() => setIsPropsModalOpen(true)}
-                            className="w-full flex items-center justify-between bg-white border border-gray-200 rounded-lg p-4 text-sm text-smw-gray-dark hover:border-smw-pink/50 transition-all group shadow-sm"
+                            className="w-full flex items-center justify-between bg-white border border-gray-200 rounded-lg p-4 text-sm text-negro-fondo hover:border-rosa-principal/50 transition-all group shadow-sm"
                         >
                             <div className="flex items-center gap-3">
-                                <div className="bg-smw-pink/20 p-2 rounded-lg group-hover:bg-smw-pink transition-colors">
-                                    <svg className="h-5 w-5 text-smw-gray-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
+                                <div className="bg-rosa-principal/20 p-2 rounded-lg group-hover:bg-rosa-principal transition-colors">
+                                    <svg className="h-5 w-5 text-negro-fondo" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" /></svg>
                                 </div>
                                 <span className="font-bold">
                                     {Object.values(props).filter(Boolean).length === 0 
@@ -262,18 +262,18 @@ Semilla de singularidad: ${Math.random()}`;
                                         : `${Object.values(props).filter(Boolean).length} accesorios seleccionados`}
                                 </span>
                             </div>
-                            <svg className="h-5 w-5 text-smw-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                            <svg className="h-5 w-5 text-rosa-principal" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                         </button>
                     </div>
 
                     <div>
-                        <p className="text-sm text-smw-gray-dark font-bold mb-2">Añadir Detalles Personalizados (Opcional)</p>
+                        <p className="text-sm text-negro-fondo font-bold mb-2">Añadir Detalles Personalizados (Opcional)</p>
                         <input 
                             type="text"
                             value={customDetails}
                             onChange={(e) => setCustomDetails(e.target.value)}
                             placeholder="ej., usando una chaqueta de cuero, sosteniendo una guitarra"
-                            className="w-full bg-white border border-gray-200 rounded-md p-3 text-sm text-smw-gray-dark focus:ring-2 focus:ring-smw-pink focus:outline-none placeholder:text-smw-gray-dark/40"
+                            className="w-full bg-white border border-gray-200 rounded-md p-3 text-sm text-negro-fondo focus:ring-2 focus:ring-rosa-principal focus:outline-none placeholder:text-negro-fondo/40"
                         />
                     </div>
                   </div>
@@ -284,13 +284,13 @@ Semilla de singularidad: ${Math.random()}`;
               <button 
                   onClick={handleGenerate} 
                   disabled={loading || files.length < 1} 
-                  className="px-8 bg-smw-pink text-smw-gray-dark font-bold py-3 rounded-md hover:opacity-90 disabled:opacity-50 transition-all shadow-md"
+                  className="px-8 bg-rosa-principal text-negro-fondo font-bold py-3 rounded-md hover:opacity-90 disabled:opacity-50 transition-all shadow-md"
               >
                   {loading ? <Spinner className="mx-auto" /> : 'Generar 4 Fotos'}
               </button>
               <button 
                   onClick={handleClear}
-                  className="px-8 bg-white text-smw-gray-dark font-bold py-3 rounded-md border border-gray-200 hover:bg-gray-50 transition-all shadow-sm"
+                  className="px-8 bg-white text-negro-fondo font-bold py-3 rounded-md border border-gray-200 hover:bg-gray-50 transition-all shadow-sm"
               >
                   Limpiar
               </button>
@@ -300,7 +300,7 @@ Semilla de singularidad: ${Math.random()}`;
 
           {/* Results Area */}
           <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg border border-white/20 min-h-[400px]">
-              <h3 className="text-lg font-bold text-smw-gray-dark mb-6">Resultados</h3>
+              <h3 className="text-lg font-bold text-negro-fondo mb-6">Resultados</h3>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {results.length > 0 ? results.map((res, i) => (
                       <div key={i} className="relative aspect-square group">
@@ -317,39 +317,39 @@ Semilla de singularidad: ${Math.random()}`;
                       </div>
                   )) : (
                       <div className="col-span-full h-64 flex items-center justify-center">
-                        <p className="text-smw-gray-dark opacity-60 text-center font-medium">Tus fotos generadas aparecerán aquí.</p>
+                        <p className="text-negro-fondo opacity-60 text-center font-medium">Tus fotos generadas aparecerán aquí.</p>
                       </div>
                   )}
                   {loading && results.length < 4 && [...Array(4 - results.length)].map((_, i) => (
                     <div key={i} className="aspect-square bg-white/40 rounded flex flex-col items-center justify-center">
-                        <Spinner className="w-8 h-8 text-smw-gray-dark opacity-40" />
-                        <p className="text-[10px] font-bold text-smw-gray-dark opacity-40 mt-2 uppercase tracking-widest">Retocando...</p>
+                        <Spinner className="w-8 h-8 text-negro-fondo opacity-40" />
+                        <p className="text-[10px] font-bold text-negro-fondo opacity-40 mt-2 uppercase tracking-widest">Retocando...</p>
                     </div>
                   ))}
               </div>
           </div>
       </div>
 
-      <div className="space-y-6 mt-12 border-t border-smw-pink/20 pt-10">
+      <div className="space-y-6 mt-12 border-t border-rosa-principal/20 pt-10">
           {/* Introduction Box */}
           <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-              <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-              <div className={`text-smw-gray-dark space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+              <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+              <div className={`text-negro-fondo space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                   <p>El Estudio de Glamour de los 90 trae de vuelta la icónica experiencia de los estudios fotográficos retro: ediciones suaves con aerógrafo, fondos de neón de ensueño, efectos de brillantina y las clásicas vibras de retratos de centros comerciales.</p>
                   <p>Sube tus fotos, elige tu fondo, añade accesorios opcionales y el sistema convertirá instantáneamente tu imagen en un retrato vintage estilo años 90 con esa estética nostálgica que todos recuerdan.</p>
                   <p>Es una forma divertida y creativa de recrear vibras de fotos escolares, tomas de estudio glamurosas, retratos del pasado o fotos grupales con un toque retro.</p>
                   <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
               </div>
               <div className="text-center">
-                  <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink hover:text-smw-pink-dark font-bold uppercase tracking-widest">
+                  <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal hover:text-rosa-principal-dark font-bold uppercase tracking-widest">
                       {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                   </button>
               </div>
           </div>
 
           <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-              <h2 className="text-2xl font-bold text-smw-gray-dark mb-8 text-center uppercase tracking-widest">Cómo Funciona</h2>
-              <div className={`text-smw-gray-dark space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[3000px]' : 'max-h-[300px]'}`}>
+              <h2 className="text-2xl font-bold text-negro-fondo mb-8 text-center uppercase tracking-widest">Cómo Funciona</h2>
+              <div className={`text-negro-fondo space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[3000px]' : 'max-h-[300px]'}`}>
                   <section>
                       <h3 className="font-bold text-base mb-2">Paso 1 – Sube Tus Fotos</h3>
                       <ul className="list-disc list-inside space-y-1 ml-4">
@@ -408,7 +408,7 @@ Semilla de singularidad: ${Math.random()}`;
                   <div className={`absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
               </div>
               <div className="text-center">
-                  <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink hover:text-smw-pink-dark font-bold uppercase tracking-widest">
+                  <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal hover:text-rosa-principal-dark font-bold uppercase tracking-widest">
                       {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                   </button>
               </div>
@@ -416,8 +416,8 @@ Semilla de singularidad: ${Math.random()}`;
 
           {/* Sales Tips Box */}
           <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/20">
-              <h2 className="text-2xl font-bold text-smw-gray-dark mb-8 text-center">✨ Consejos de Venta: Cómo Usar Tus Fotos de los 90</h2>
-              <div className={`text-smw-gray-dark space-y-6 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[2000px]' : 'max-h-[300px]'}`}>
+              <h2 className="text-2xl font-bold text-negro-fondo mb-8 text-center">✨ Consejos de Venta: Cómo Usar Tus Fotos de los 90</h2>
+              <div className={`text-negro-fondo space-y-6 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[2000px]' : 'max-h-[300px]'}`}>
                   <section>
                       <h3 className="font-bold text-base">Vende Sesiones Fotográficas de Nostalgia</h3>
                       <p>Ofrece sesiones virtuales estilo años 90 como un servicio. Tus clientes suben sus fotos y tú entregas un set de retratos retro. Esto puede convertirse en un complemento divertido para cumpleaños, vacaciones o eventos temáticos.</p>
@@ -456,7 +456,7 @@ Semilla de singularidad: ${Math.random()}`;
                   <div className={`absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-white/60 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
               </div>
               <div className="text-center">
-                  <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-smw-pink hover:text-smw-pink-dark font-bold uppercase tracking-widest">
+                  <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-rosa-principal hover:text-rosa-principal-dark font-bold uppercase tracking-widest">
                       {isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                   </button>
               </div>
@@ -476,22 +476,22 @@ Semilla de singularidad: ${Math.random()}`;
           <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[110] p-4" onClick={() => setIsPropsModalOpen(false)}>
               <div className="bg-white rounded-[2rem] shadow-2xl w-full max-w-md overflow-hidden animate-in fade-in zoom-in duration-200" onClick={e => e.stopPropagation()}>
                   <div className="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50/50">
-                      <h3 className="text-xl font-black text-smw-gray-dark uppercase tracking-tight">Accesorios</h3>
-                      <button onClick={() => setIsPropsModalOpen(false)} className="text-gray-400 hover:text-smw-pink transition-colors">
+                      <h3 className="text-xl font-black text-negro-fondo uppercase tracking-tight">Accesorios</h3>
+                      <button onClick={() => setIsPropsModalOpen(false)} className="text-gray-400 hover:text-rosa-principal transition-colors">
                           <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                       </button>
                   </div>
                   <div className="p-6 max-h-[60vh] overflow-y-auto">
                       <div className="grid grid-cols-1 gap-3">
                           {PROPS.map(p => (
-                              <label key={p.id} className={`flex items-center justify-between p-4 rounded-2xl border transition-all cursor-pointer group ${props[p.id] ? 'border-smw-pink bg-smw-pink/5 shadow-sm' : 'border-gray-100 hover:border-smw-pink/30 hover:bg-gray-50'}`}>
-                                  <span className={`text-base font-bold transition-colors ${props[p.id] ? 'text-smw-gray-dark' : 'text-smw-gray-dark/70'}`}>{p.label}</span>
+                              <label key={p.id} className={`flex items-center justify-between p-4 rounded-2xl border transition-all cursor-pointer group ${props[p.id] ? 'border-rosa-principal bg-rosa-principal/5 shadow-sm' : 'border-gray-100 hover:border-rosa-principal/30 hover:bg-gray-50'}`}>
+                                  <span className={`text-base font-bold transition-colors ${props[p.id] ? 'text-negro-fondo' : 'text-negro-fondo/70'}`}>{p.label}</span>
                                   <div className="relative flex items-center">
                                       <input 
                                           type="checkbox" 
                                           checked={!!props[p.id]} 
                                           onChange={() => setProps(prev => ({...prev, [p.id]: !prev[p.id]}))} 
-                                          className="w-6 h-6 rounded-full border-gray-300 text-smw-pink focus:ring-smw-pink transition-all cursor-pointer" 
+                                          className="w-6 h-6 rounded-full border-gray-300 text-rosa-principal focus:ring-rosa-principal transition-all cursor-pointer" 
                                       />
                                   </div>
                               </label>
@@ -499,12 +499,12 @@ Semilla de singularidad: ${Math.random()}`;
                       </div>
                   </div>
                   <div className="p-6 bg-gray-50 border-t border-gray-100 flex flex-col gap-3">
-                      <p className="text-xs text-center text-smw-gray-dark opacity-50 font-bold uppercase tracking-widest">
+                      <p className="text-xs text-center text-negro-fondo opacity-50 font-bold uppercase tracking-widest">
                         {Object.values(props).filter(Boolean).length} seleccionados
                       </p>
                       <button 
                           onClick={() => setIsPropsModalOpen(false)}
-                          className="w-full py-4 bg-smw-pink text-smw-gray-dark font-black uppercase tracking-widest rounded-xl hover:opacity-90 transition-all shadow-md"
+                          className="w-full py-4 bg-rosa-principal text-negro-fondo font-black uppercase tracking-widest rounded-xl hover:opacity-90 transition-all shadow-md"
                       >
                           Confirmar Selección
                       </button>

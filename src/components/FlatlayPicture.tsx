@@ -9,7 +9,7 @@ interface FlatlayPictureProps {
 
 const Step: React.FC<{ number: number | string, title: string, children: React.ReactNode, isCompleted?: boolean }> = ({ number, title, children, isCompleted }) => (
     <div className={`bg-white/60 backdrop-blur-sm shadow-md p-4 rounded-lg transition-opacity ${isCompleted ? 'opacity-50' : 'opacity-100'}`}>
-        <h3 className="text-md font-bold text-smw-gray-dark mb-3">Paso {number}: {title}</h3>
+        <h3 className="text-md font-bold text-negro-fondo mb-3">Paso {number}: {title}</h3>
         {children}
     </div>
 );
@@ -46,10 +46,10 @@ const BackgroundSelector: React.FC<{
                 <button
                     onClick={() => onSelect(option)}
                     disabled={disabled}
-                    className={`w-10 h-10 rounded-full border-2 transition-all ${selectedBackground.name === option.name ? 'border-smw-pink ring-2 ring-smw-pink ring-offset-2 ring-offset-white' : 'border-white/50'}`}
+                    className={`w-10 h-10 rounded-full border-2 transition-all ${selectedBackground.name === option.name ? 'border-rosa-principal ring-2 ring-rosa-principal ring-offset-2 ring-offset-white' : 'border-white/50'}`}
                     style={{ background: option.preview || option.value }}
                 />
-                <p className="text-[10px] text-smw-gray-dark opacity-80 uppercase font-bold">{option.name}</p>
+                <p className="text-[10px] text-negro-fondo opacity-80 uppercase font-bold">{option.name}</p>
             </div>
         ))}
     </div>
@@ -267,10 +267,10 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light rounded-lg shadow-xl p-4 md:p-6 space-y-4 h-full overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Flatlay IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro rounded-lg shadow-xl p-4 md:p-6 space-y-4 h-full overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Flatlay IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Crea composiciones flatlay profesionales para tus productos. Sube tus artículos y los organizaremos en una escena elegante y de alta gama.
                 </p>
             </div>
@@ -280,18 +280,18 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                     {!canvasImage ? (
                         <>
                             <Step number={1} title="Subir Artículos">
-                                <p className="text-sm text-smw-gray-dark opacity-80 mb-3">Sube de 1 a 6 fotos de alta calidad de ropa, accesorios o productos. Los organizaremos en una composición flatlay elegante.</p>
+                                <p className="text-sm text-negro-fondo opacity-80 mb-3">Sube de 1 a 6 fotos de alta calidad de ropa, accesorios o productos. Los organizaremos en una composición flatlay elegante.</p>
                                 <div className="grid grid-cols-3 gap-2">
                                     {productItems.map(item => (
                                         <div key={item.id} className="relative aspect-square">
-                                            <img src={item.preview} className="w-full h-full object-cover rounded-md border border-smw-pink/20" />
+                                            <img src={item.preview} className="w-full h-full object-cover rounded-md border border-rosa-principal/20" />
                                             <button onClick={() => setProductItems(p => p.filter(x => x.id !== item.id))} className="absolute -top-1 -right-1 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold hover:bg-red-700 shadow-md">&times;</button>
                                         </div>
                                     ))}
                                     {productItems.length < 6 && (
                                         <div 
                                             onClick={() => productInputRef.current?.click()} 
-                                            className="aspect-square bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-smw-pink/50 cursor-pointer text-smw-gray-dark hover:bg-white transition-colors"
+                                            className="aspect-square bg-white/50 rounded-lg flex items-center justify-center border-2 border-dashed border-rosa-principal/50 cursor-pointer text-negro-fondo hover:bg-white transition-colors"
                                         >
                                             <span className="text-2xl font-light">+</span>
                                         </div>
@@ -307,13 +307,13 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                                 />
                             </Step>
                             <Step number={2} title="Elegir Fondo">
-                                <p className="text-sm text-smw-gray-dark opacity-80 mb-3">Selecciona la superficie sobre la que se colocarán tus artículos. El mármol y la madera son ideales para vibras de alta gama.</p>
+                                <p className="text-sm text-negro-fondo opacity-80 mb-3">Selecciona la superficie sobre la que se colocarán tus artículos. El mármol y la madera son ideales para vibras de alta gama.</p>
                                 <BackgroundSelector selectedBackground={selectedBackground} onSelect={setSelectedBackground} disabled={isLoading} />
                             </Step>
-                            <button onClick={handleGenerateInitialFlatlay} disabled={isLoading || productItems.length === 0} className="w-full bg-smw-pink text-smw-gray-dark font-bold py-3 rounded-lg hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed shadow-md transition-all flex items-center justify-center gap-2">
+                            <button onClick={handleGenerateInitialFlatlay} disabled={isLoading || productItems.length === 0} className="w-full bg-rosa-principal text-negro-fondo font-bold py-3 rounded-lg hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed shadow-md transition-all flex items-center justify-center gap-2">
                                 {isLoading ? (
                                     <>
-                                        <Spinner className="w-5 h-5 text-smw-gray-dark" />
+                                        <Spinner className="w-5 h-5 text-negro-fondo" />
                                         <span>Generando...</span>
                                     </>
                                 ) : 'Crear Flatlay'}
@@ -330,19 +330,19 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                     ) : (
                         <div className="space-y-4">
                             <Step number="✓" title="Creación Lista" isCompleted>
-                                <p className="text-sm text-smw-gray-dark">Tu flatlay profesional ha sido generado. Usa el botón de descarga en la imagen para guardarlo para tus materiales de marketing.</p>
+                                <p className="text-sm text-negro-fondo">Tu flatlay profesional ha sido generado. Usa el botón de descarga en la imagen para guardarlo para tus materiales de marketing.</p>
                             </Step>
-                            <button onClick={() => {setCanvasImage(null); setProductItems([]);}} className="w-full bg-white/60 border border-smw-pink text-smw-gray-dark font-bold py-3 rounded-lg hover:bg-white transition-all shadow-sm">Crear Otro</button>
+                            <button onClick={() => {setCanvasImage(null); setProductItems([]);}} className="w-full bg-white/60 border border-rosa-principal text-negro-fondo font-bold py-3 rounded-lg hover:bg-white transition-all shadow-sm">Crear Otro</button>
                         </div>
                     )}
                 </div>
 
                 <div className="flex flex-col bg-white/60 backdrop-blur-sm shadow-md rounded-lg min-h-[400px]">
-                    <h3 className="text-lg font-bold text-center text-smw-gray-dark p-4 border-b border-smw-pink/20">Vista Previa del Resultado</h3>
+                    <h3 className="text-lg font-bold text-center text-negro-fondo p-4 border-b border-rosa-principal/20">Vista Previa del Resultado</h3>
                     <div className="w-full flex-1 flex items-center justify-center relative p-4">
                         {isLoading && (
                             <div className="absolute inset-0 bg-white/95 flex flex-col items-center justify-center z-10">
-                                <p className="text-[10px] text-smw-gray-dark font-black uppercase tracking-widest animate-pulse text-center px-6">Tu flat lay se está generando</p>
+                                <p className="text-[10px] text-negro-fondo font-black uppercase tracking-widest animate-pulse text-center px-6">Tu flat lay se está generando</p>
                             </div>
                         )}
                         {canvasImage ? (
@@ -353,16 +353,16 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                                         <button onClick={() => setZoomedImage(canvasImage)} className="bg-black/60 text-white p-2.5 rounded-full hover:bg-black/80 transition-colors shadow-lg border border-white/20" title="Ver en Pantalla Completa">
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                         </button>
-                                        <button onClick={() => setIsMagicEditOpen(true)} className="bg-smw-pink text-smw-gray-dark p-2.5 rounded-full hover:bg-white transition-colors shadow-lg border border-white/20" title="Edición Mágica">
+                                        <button onClick={() => setIsMagicEditOpen(true)} className="bg-rosa-principal text-negro-fondo p-2.5 rounded-full hover:bg-white transition-colors shadow-lg border border-white/20" title="Edición Mágica">
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" /></svg>
                                         </button>
-                                        <a href={canvasImage} download="foto-flatlay-ai.png" className="bg-white text-smw-gray-dark p-2.5 rounded-full hover:bg-gray-100 transition-colors shadow-lg border border-white/20" onClick={e => e.stopPropagation()} title="Descargar Imagen">
+                                        <a href={canvasImage} download="foto-flatlay-ai.png" className="bg-white text-negro-fondo p-2.5 rounded-full hover:bg-gray-100 transition-colors shadow-lg border border-white/20" onClick={e => e.stopPropagation()} title="Descargar Imagen">
                                             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                         </a>
                                     </div>
                                     {showSuccess && (
-                                        <div className="bg-smw-gray-dark text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 animate-bounce border border-white/10">
-                                            <span className="text-smw-pink text-sm">✨</span>
+                                        <div className="bg-negro-fondo text-white px-4 py-2 rounded-full shadow-2xl flex items-center gap-2 animate-bounce border border-white/10">
+                                            <span className="text-rosa-principal text-sm">✨</span>
                                             <span className="text-[10px] font-bold uppercase tracking-widest">Magia Aplicada con Éxito.</span>
                                         </div>
                                     )}
@@ -370,8 +370,8 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                             </div>
                         ) : !isLoading && (
                             <div className="text-center space-y-2 opacity-50">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-smw-gray-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16l4.586-4.586a2 2 0 012.828L16 16m-2-2l1.586 1.586a2 2 0 010 2.828L12 20M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-2-2m0 0l-2 2m2-2v12" /></svg>
-                                <p className="text-smw-gray-dark font-medium">El resultado aparecerá aquí</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16 mx-auto text-negro-fondo" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}><path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16l4.586-4.586a2 2 0 012.828L16 16m-2-2l1.586 1.586a2 2 0 010 2.828L12 20M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-2-2m0 0l-2 2m2-2v12" /></svg>
+                                <p className="text-negro-fondo font-medium">El resultado aparecerá aquí</p>
                             </div>
                         )}
                     </div>
@@ -382,13 +382,13 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
             <div className="space-y-6 mt-8">
                 {/* Introduction Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p>La función Flatlay IA te permite organizar múltiples artículos en una toma flatlay limpia y organizada que parece un tablero de moda profesional. Esta herramienta es perfecta para ropa, zapatos, accesorios, pelucas, productos de belleza o cualquier cosa que quieras mostrar. Todo lo que necesitas hacer es subir hasta seis artículos, elegir tu fondo y el sistema generará un flatlay pulido que parece hecho en un estudio. Esto es ideal para creadores, dueños de boutiques, influencers, estilistas o cualquier persona que quiera construir hermosos diseños de productos sin necesidad de equipo de fotografía o habilidades de edición.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -396,8 +396,8 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
 
                 {/* How It Works Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo Funciona</h2>
-                    <div className={`text-smw-gray-dark space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[2000px] overflow-y-auto' : 'max-h-[250px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo Funciona</h2>
+                    <div className={`text-negro-fondo space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[2000px] overflow-y-auto' : 'max-h-[250px]'}`}>
                         <section>
                             <h3 className="font-bold text-base mb-2">Paso 1 – Sube Imágenes de Productos (hasta 6)</h3>
                             <p className="mb-2">Toca el cuadro de carga y selecciona cada producto que quieras incluir en tu flatlay. Asegúrate de que cada imagen se centre solo en el artículo en sí. Si es una camisa, sube solo la camisa. Si es cabello, sube solo el cabello. Si son zapatos, sube solo los zapatos. Evita subir modelos de cuerpo completo aquí, porque el sistema intentará generar el look completo exactamente como se muestra. Mantener cada artículo por separado te da un flatlay más limpio y preciso y te permite construir un tablero de atuendo completo desde cero.</p>
@@ -421,7 +421,7 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -429,8 +429,8 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
 
                 {/* Sales and Marketing Strategy Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Estrategia de Ventas y Marketing</h2>
-                    <div className={`text-smw-gray-dark space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isMarketingExpanded ? 'max-h-[2000px] overflow-y-auto' : 'max-h-[250px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Estrategia de Ventas y Marketing</h2>
+                    <div className={`text-negro-fondo space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isMarketingExpanded ? 'max-h-[2000px] overflow-y-auto' : 'max-h-[250px]'}`}>
                         <p>Tus flatlays no son solo para fines estéticos; son herramientas poderosas que pueden ayudarte a construir tu marca, aumentar el compromiso y ganar dinero en línea. Después de generar tu flatlay, piénsalo como un tablero de atuendo digital que puedes usar en todas tus plataformas.</p>
                         <p>Usa tus flatlays para crear publicaciones en Pinterest con tus enlaces de productos adjuntos. La gente busca en Pinterest todos los días ideas de atuendos, inspiración para el armario, looks de viaje, atuendos de temporada y tableros de estilo. Publicar tus flatlays con enlaces de afiliados puede generar tráfico constante e ingresos pasivos.</p>
                         <p>También puedes subir tus flatlays en Instagram, Facebook o TikTok como parte de tu contenido de moda. Hacen publicaciones de carrusel increíbles, historias, tableros de humor e incluso transiciones de video. Crea un video corto usando tus flatlays, añade tus enlaces de afiliados en la descripción o biografía, y guía a tu audiencia a comprar tus artículos.</p>
@@ -440,7 +440,7 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isMarketingExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isMarketingExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -448,15 +448,15 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
 
                 {/* Pro Tip Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-6 rounded-lg">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejo Pro</h2>
-                    <div className={`text-smw-gray-dark space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejo Pro</h2>
+                    <div className={`text-negro-fondo space-y-4 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
                         <p>Una vez que se haya generado tu flatlay, puedes añadir más artículos al instante tocando la opción “Añadir Más Artículos”. Así que si olvidaste subir un bolso, una chaqueta, gafas de sol o zapatos, no tienes que empezar de nuevo. Simplemente añádelos y regenera tu flatlay hasta que se ajuste perfectamente a tu visión.</p>
                         <p>También puedes eliminar artículos usando el prompt negativo. Por ejemplo, puedes escribir cosas como “eliminar bolso”, “eliminar zapatos” o “eliminar chaqueta”, y el sistema lo limpiará por ti. Esto te da un control total sobre el look final.</p>
                         <p>Otro consejo importante es subir siempre fotos limpias de un solo artículo. No subas una foto de un modelo completo usando múltiples piezas. La IA intentará recrear el atuendo completo exactamente como se muestra y no separará los artículos. Subir fotos de productos individuales limpias hace que tu tablero de lienzo sea más preciso y te ayuda a mezclar y combinar sin esfuerzo.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isProTipExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipExpanded(!isProTipExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsProTipExpanded(!isProTipExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isProTipExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -478,7 +478,7 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                     <div className="bg-white rounded-[2rem] w-full max-w-lg overflow-hidden shadow-2xl border border-white/20" onClick={e => e.stopPropagation()}>
                         <div className="p-6 md:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
                             <div className="flex justify-between items-center">
-                                <h3 className="text-xl font-black text-smw-gray-dark uppercase tracking-tighter">✨ Edición Mágica y Cambio</h3>
+                                <h3 className="text-xl font-black text-negro-fondo uppercase tracking-tighter">✨ Edición Mágica y Cambio</h3>
                                 <button onClick={() => setIsMagicEditOpen(false)} className="text-gray-400 hover:text-black transition-colors">
                                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                                 </button>
@@ -494,7 +494,7 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                                 {swapItemPreview && (
                                     <div className="flex flex-col items-center gap-1">
                                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Nuevo Artículo</p>
-                                        <div className="aspect-square w-24 rounded-xl overflow-hidden border-2 border-smw-pink/30 shadow-inner relative group">
+                                        <div className="aspect-square w-24 rounded-xl overflow-hidden border-2 border-rosa-principal/30 shadow-inner relative group">
                                             <img src={swapItemPreview} alt="Nuevo artículo" className="w-full h-full object-cover" />
                                             <button 
                                                 onClick={() => {setSwapItemFile(null); setSwapItemPreview(null);}}
@@ -514,7 +514,7 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                                         value={editInstruction}
                                         onChange={(e) => setEditInstruction(e.target.value)}
                                         placeholder="ej: quita el bolso y añade el nuevo..."
-                                        className="w-full h-24 bg-gray-50 border border-gray-100 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-smw-pink outline-none resize-none font-medium text-smw-gray-dark"
+                                        className="w-full h-24 bg-gray-50 border border-gray-100 rounded-2xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal outline-none resize-none font-medium text-negro-fondo"
                                     />
                                 </div>
 
@@ -522,10 +522,10 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                                     <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">2. Añadir Nuevo Artículo (Opcional)</label>
                                     <div 
                                         onClick={() => swapItemInputRef.current?.click()}
-                                        className="w-full py-4 border-2 border-dashed border-smw-pink/30 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-smw-pink/5 transition-colors"
+                                        className="w-full py-4 border-2 border-dashed border-rosa-principal/30 rounded-2xl flex flex-col items-center justify-center cursor-pointer hover:bg-rosa-principal/5 transition-colors"
                                     >
-                                        <svg className="w-6 h-6 text-smw-pink mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
-                                        <p className="text-xs font-bold text-smw-gray-dark">Subir artículo para añadir/cambiar</p>
+                                        <svg className="w-6 h-6 text-rosa-principal mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" /></svg>
+                                        <p className="text-xs font-bold text-negro-fondo">Subir artículo para añadir/cambiar</p>
                                     </div>
                                     <input 
                                         type="file" 
@@ -546,9 +546,9 @@ const FlatlayPicture: React.FC<FlatlayPictureProps> = ({ addCreations }) => {
                             <button 
                                 onClick={handleMagicEdit}
                                 disabled={isEditing || !editInstruction}
-                                className="w-full bg-smw-pink text-smw-gray-dark font-black py-4 rounded-xl shadow-lg hover:bg-white transition-all disabled:opacity-50 text-lg uppercase flex items-center justify-center gap-2"
+                                className="w-full bg-rosa-principal text-negro-fondo font-black py-4 rounded-xl shadow-lg hover:bg-white transition-all disabled:opacity-50 text-lg uppercase flex items-center justify-center gap-2"
                             >
-                                {isEditing ? <><Spinner className="w-5 h-5 text-smw-gray-dark" /><span>Aplicando Magia...</span></> : 'Aplicar Edición Mágica'}
+                                {isEditing ? <><Spinner className="w-5 h-5 text-negro-fondo" /><span>Aplicando Magia...</span></> : 'Aplicar Edición Mágica'}
                             </button>
                             
                             <p className="text-[10px] text-center text-gray-400 font-bold uppercase tracking-widest">El resto de tus artículos se preservarán</p>

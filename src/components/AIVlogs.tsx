@@ -87,7 +87,7 @@ const aspectRatios = [
 
 const Step: React.FC<{ number: number | string; title: string; children: React.ReactNode }> = ({ number, title, children }) => (
     <div className="bg-white/70 backdrop-blur-md p-6 rounded-2xl shadow-sm border border-white/50 mb-4">
-        <h3 className="text-lg font-bold text-smw-gray-dark mb-4 uppercase tracking-tight">Paso {number}: {title}</h3>
+        <h3 className="text-lg font-bold text-negro-fondo mb-4 uppercase tracking-tight">Paso {number}: {title}</h3>
         {children}
     </div>
 );
@@ -308,10 +308,10 @@ Semilla de Unicidad: ${Math.random()}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light h-full p-4 md:p-10 space-y-8 overflow-y-auto">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Vlogs con IA</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro h-full p-4 md:p-10 space-y-8 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Vlogs con IA</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     Construye tu marca de rutina diaria con escenas profesionales de estilo vlog. Transforma tu identidad en cualquier entorno de estilo de vida con precisión cinematográfica.
                 </p>
             </div>
@@ -322,16 +322,16 @@ Semilla de Unicidad: ${Math.random()}`;
                     
                     {/* Saved Looks Library */}
                     {savedLooks.length > 0 && (
-                        <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border-2 border-smw-pink/30">
+                        <div className="bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-lg border-2 border-rosa-principal/30">
                             <div className="flex justify-between items-center mb-4">
                                 <div className="flex items-center gap-2">
-                                    <h3 className="text-sm font-black text-smw-gray-dark uppercase tracking-widest">Mis Looks Guardados</h3>
-                                    {selectedLook && <span className="bg-smw-pink text-smw-black text-[9px] px-2 py-0.5 rounded-full font-black uppercase animate-pulse">Atuendo Activo</span>}
+                                    <h3 className="text-sm font-black text-negro-fondo uppercase tracking-widest">Mis Looks Guardados</h3>
+                                    {selectedLook && <span className="bg-rosa-principal text-negro-fondo text-[9px] px-2 py-0.5 rounded-full font-black uppercase animate-pulse">Atuendo Activo</span>}
                                 </div>
                                 {selectedLook && (
                                     <button 
                                         onClick={() => setSelectedLook(null)}
-                                        className="text-[10px] font-black text-smw-pink uppercase border-b-2 border-smw-pink"
+                                        className="text-[10px] font-black text-rosa-principal uppercase border-b-2 border-rosa-principal"
                                     >
                                         Limpiar Bloqueo
                                     </button>
@@ -342,13 +342,13 @@ Semilla de Unicidad: ${Math.random()}`;
                                     <div key={idx} className="relative flex-shrink-0 group">
                                         <div 
                                             onClick={() => setSelectedLook(look)}
-                                            className={`w-20 h-20 rounded-xl overflow-hidden cursor-pointer border-4 transition-all ${selectedLook === look ? 'border-smw-pink scale-110 shadow-xl' : 'border-white hover:border-smw-pink/50'}`}
+                                            className={`w-20 h-20 rounded-xl overflow-hidden cursor-pointer border-4 transition-all ${selectedLook === look ? 'border-rosa-principal scale-110 shadow-xl' : 'border-white hover:border-rosa-principal/50'}`}
                                             title="Usa este atuendo en cada escena"
                                         >
                                             <img src={look} className="w-full h-full object-cover" alt="Look Guardado" />
                                             {selectedLook === look && (
-                                                <div className="absolute inset-0 bg-smw-pink/10 flex items-center justify-center">
-                                                    <div className="bg-smw-pink text-smw-black p-1 rounded-full shadow-sm">
+                                                <div className="absolute inset-0 bg-rosa-principal/10 flex items-center justify-center">
+                                                    <div className="bg-rosa-principal text-negro-fondo p-1 rounded-full shadow-sm">
                                                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg>
                                                     </div>
                                                 </div>
@@ -369,14 +369,14 @@ Semilla de Unicidad: ${Math.random()}`;
                     <Step number={1} title="Sube Tu Identidad">
                         <div 
                             onClick={() => personInputRef.current?.click()}
-                            className="aspect-video bg-white/60 rounded-2xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/50 hover:border-smw-pink transition-colors p-4 group relative overflow-hidden"
+                            className="aspect-video bg-white/60 rounded-2xl flex flex-col items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/50 hover:border-rosa-principal transition-colors p-4 group relative overflow-hidden"
                         >
                             {personImage ? (
                                 <img src={personImage.preview} className="h-full object-contain rounded-lg shadow-sm" alt="Vista previa de identidad" />
                             ) : (
                                 <>
-                                    <svg className="w-12 h-12 text-smw-pink opacity-40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-                                    <p className="text-sm font-black text-gray-400 group-hover:text-smw-gray-dark text-center uppercase tracking-widest">Haz clic para subir tu retrato</p>
+                                    <svg className="w-12 h-12 text-rosa-principal opacity-40 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                    <p className="text-sm font-black text-gray-400 group-hover:text-negro-fondo text-center uppercase tracking-widest">Haz clic para subir tu retrato</p>
                                 </>
                             )}
                         </div>
@@ -384,8 +384,8 @@ Semilla de Unicidad: ${Math.random()}`;
                     </Step>
 
                     <Step number={2} title="Biblioteca de Prompts de Vlog">
-                        <div className="bg-smw-black rounded-xl p-4 h-[350px] overflow-y-auto border-2 border-smw-pink/20 scrollbar-hide">
-                            <p className="text-[10px] font-black text-smw-pink uppercase tracking-[0.2em] mb-4 text-center">Selecciona una rutina a continuación</p>
+                        <div className="bg-negro-fondo rounded-xl p-4 h-[350px] overflow-y-auto border-2 border-rosa-principal/20 scrollbar-hide">
+                            <p className="text-[10px] font-black text-rosa-principal uppercase tracking-[0.2em] mb-4 text-center">Selecciona una rutina a continuación</p>
                             {vlogRoutineCategories.map((cat) => (
                                 <div key={cat.name} className="mb-6">
                                     <h4 className="text-xs font-black text-white uppercase tracking-widest mb-3 border-b border-white/10 pb-1">{cat.name}</h4>
@@ -394,7 +394,7 @@ Semilla de Unicidad: ${Math.random()}`;
                                             <button
                                                 key={idx}
                                                 onClick={() => copyToClipboard(p)}
-                                                className={`w-full text-left p-3 rounded-lg text-xs font-medium transition-all border ${selectedRoutine === p || customPrompt === p ? 'bg-smw-pink text-smw-black border-smw-pink' : 'bg-white/5 text-gray-400 border-white/5 hover:bg-white/10'}`}
+                                                className={`w-full text-left p-3 rounded-lg text-xs font-medium transition-all border ${selectedRoutine === p || customPrompt === p ? 'bg-rosa-principal text-negro-fondo border-rosa-principal' : 'bg-white/5 text-gray-400 border-white/5 hover:bg-white/10'}`}
                                             >
                                                 {p}
                                             </button>
@@ -414,7 +414,7 @@ Semilla de Unicidad: ${Math.random()}`;
                                         <button
                                             key={ar.value}
                                             onClick={() => setSelectedAspectRatio(ar.value)}
-                                            className={`py-2 rounded-lg text-[10px] font-bold transition-all border ${selectedAspectRatio === ar.value ? 'bg-smw-gray-dark text-white border-smw-gray-dark' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
+                                            className={`py-2 rounded-lg text-[10px] font-bold transition-all border ${selectedAspectRatio === ar.value ? 'bg-negro-fondo text-white border-negro-fondo' : 'bg-white text-gray-500 border-gray-100 hover:bg-gray-50'}`}
                                         >
                                             {ar.label}
                                         </button>
@@ -427,7 +427,7 @@ Semilla de Unicidad: ${Math.random()}`;
                                     value={customPrompt}
                                     onChange={(e) => setCustomPrompt(e.target.value)}
                                     placeholder="Describe tu momento único de vlog..."
-                                    className="w-full h-32 bg-white/50 border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none resize-none text-smw-gray-dark font-medium"
+                                    className="w-full h-32 bg-white/50 border-2 border-gray-100 rounded-xl p-4 text-sm focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none resize-none text-negro-fondo font-medium"
                                 />
                             </div>
                         </div>
@@ -436,9 +436,9 @@ Semilla de Unicidad: ${Math.random()}`;
                     <button
                         onClick={handleGenerate}
                         disabled={isLoading || !personImage}
-                        className="w-full bg-smw-gray-dark text-smw-pink font-black py-4 rounded-2xl hover:bg-black hover:text-white disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed shadow-xl transition-all text-xl uppercase tracking-tight"
+                        className="w-full bg-negro-fondo text-rosa-principal font-black py-4 rounded-2xl hover:bg-black hover:text-white disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed shadow-xl transition-all text-xl uppercase tracking-tight"
                     >
-                        {isLoading ? <Spinner className="w-6 h-6 text-smw-pink" /> : 'Generar Clip de Vlog'}
+                        {isLoading ? <Spinner className="w-6 h-6 text-rosa-principal" /> : 'Generar Clip de Vlog'}
                     </button>
                     {error && <div className="p-3 bg-red-900 text-white rounded-xl text-center font-bold shadow-lg animate-pulse">{error}</div>}
                 </div>
@@ -447,22 +447,22 @@ Semilla de Unicidad: ${Math.random()}`;
                 <div className="bg-white/80 backdrop-blur-xl shadow-2xl p-8 rounded-[2rem] border border-white/50 flex flex-col min-h-[500px]">
                     <div className="flex justify-between items-center mb-6">
                         <div className="flex flex-col">
-                            <h3 className="text-xl font-black text-smw-gray-dark uppercase tracking-tighter">Tus Resultados</h3>
+                            <h3 className="text-xl font-black text-negro-fondo uppercase tracking-tighter">Tus Resultados</h3>
                             <div className="flex gap-2 items-center mt-1">
-                                {selectedLook && <span className="text-[10px] text-smw-pink font-black uppercase tracking-widest">Atuendo Activo</span>}
+                                {selectedLook && <span className="text-[10px] text-rosa-principal font-black uppercase tracking-widest">Atuendo Activo</span>}
                             </div>
                         </div>
                         {generatedImages.length > 0 && (
-                            <button onClick={() => setGeneratedImages([])} className="text-xs font-black text-smw-pink uppercase tracking-widest hover:text-smw-gray-dark transition-colors">Limpiar</button>
+                            <button onClick={() => setGeneratedImages([])} className="text-xs font-black text-rosa-principal uppercase tracking-widest hover:text-negro-fondo transition-colors">Limpiar</button>
                         )}
                     </div>
                     
                     <div className="flex-1">
                         {isLoading && generatedImages.length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center space-y-4">
-                                <Spinner className="w-12 h-12 text-smw-pink" />
-                                <p className="text-smw-gray-dark font-black animate-pulse uppercase tracking-widest text-center">{loadingMessage}</p>
-                                {selectedLook && <p className="text-[10px] text-smw-pink font-bold uppercase tracking-widest">Aplicando Look Guardado...</p>}
+                                <Spinner className="w-12 h-12 text-rosa-principal" />
+                                <p className="text-negro-fondo font-black animate-pulse uppercase tracking-widest text-center">{loadingMessage}</p>
+                                {selectedLook && <p className="text-[10px] text-rosa-principal font-bold uppercase tracking-widest">Aplicando Look Guardado...</p>}
                             </div>
                         ) : generatedImages.length === 0 ? (
                             <div className="grid grid-cols-2 gap-4 h-full">
@@ -480,15 +480,15 @@ Semilla de Unicidad: ${Math.random()}`;
                                         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-3 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                                             <button 
                                                 onClick={() => handleSaveLook(img)}
-                                                className="bg-smw-pink text-smw-black p-1.5 sm:p-2 rounded-full hover:scale-110 transition-transform active:scale-95 shadow-md"
+                                                className="bg-rosa-principal text-negro-fondo p-1.5 sm:p-2 rounded-full hover:scale-110 transition-transform active:scale-95 shadow-md"
                                                 title="Guardar Atuendo"
                                             >
                                                 <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" /></svg>
                                             </button>
-                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-smw-black p-1.5 sm:p-2 rounded-full hover:scale-110 shadow-md">
+                                            <button onClick={() => setZoomedImage(img)} className="bg-white text-negro-fondo p-1.5 sm:p-2 rounded-full hover:scale-110 shadow-md">
                                                 <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                             </button>
-                                            <a href={img} download={`ai-vlog-${idx + 1}.png`} className="bg-white text-smw-black p-1.5 sm:p-2 rounded-full hover:scale-110 shadow-md">
+                                            <a href={img} download={`ai-vlog-${idx + 1}.png`} className="bg-white text-negro-fondo p-1.5 sm:p-2 rounded-full hover:scale-110 shadow-md">
                                                 <svg className="h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                                             </a>
                                         </div>
@@ -501,17 +501,17 @@ Semilla de Unicidad: ${Math.random()}`;
             </div>
 
             {/* Informational Sections */}
-            <div className="space-y-6 mt-12 border-t border-smw-pink/30 pt-16 max-w-6xl mx-auto w-full">
+            <div className="space-y-6 mt-12 border-t border-rosa-principal/30 pt-16 max-w-6xl mx-auto w-full">
                 {/* Introduction Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2.5rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p>El estudio de **Vlogs con IA** es tu suite personal de producción de estilo de vida. En un mundo donde la marca personal lo es todo, pero filmar tu vida diaria es agotador y consume mucho tiempo, esta herramienta ofrece una solución revolucionaria. Ahora puedes situarte en escenas estéticas de "rutina diaria" de alta gama, desde desempacar artículos de lujo hasta trabajar desde un ático en la ciudad, sin necesidad de una cámara.</p>
                         <p>Nuestro mapeo de identidad avanzado asegura que cada imagen mantenga tu parecido al 100%, mientras que nuestra tecnología de "Bloqueo de Atuendo" te permite mantener el mismo vestuario en diferentes escenas para una continuidad de marca perfecta. Esta es la herramienta definitiva para influencers, especialistas en marketing y profesionales ocupados que desean mantener una presencia digital de alto valor sin esfuerzo.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isIntroExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -519,8 +519,8 @@ Semilla de Unicidad: ${Math.random()}`;
 
                 {/* How It Works Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2.5rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Cómo Funciona</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">Cómo Funciona</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <div className="grid md:grid-cols-2 gap-8">
                             <div className="space-y-4">
                                 <p><strong>Paso 1: Sube Tu Identidad</strong> - Proporciona un retrato o selfie claro. Esto actúa como el "ancla" para tu rostro, asegurando que cada escena de vlog generada se vea exactamente como tú.</p>
@@ -534,7 +534,7 @@ Semilla de Unicidad: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItExpanded(!isHowItWorksExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsHowItExpanded(!isHowItWorksExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isHowItWorksExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -542,30 +542,30 @@ Semilla de Unicidad: ${Math.random()}`;
 
                 {/* Sales Tips & Monetization Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2.5rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Ventas e Ideas de Monetización</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">Ventas e Ideas de Monetización</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <div className="grid md:grid-cols-2 gap-6">
                             <div className="bg-white/40 p-5 rounded-2xl border border-white/20">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">1. Servicio "Un Día en la Vida"</h4>
-                                <p className="text-sm text-smw-gray-dark">Ofrece un servicio de alta gama para emprendedores donde les construyes una "Semana Virtual" de contenido. Genera más de 30 fotos de estilo de vida para su calendario de contenido mensual.</p>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">1. Servicio "Un Día en la Vida"</h4>
+                                <p className="text-sm text-negro-fondo">Ofrece un servicio de alta gama para emprendedores donde les construyes una "Semana Virtual" de contenido. Genera más de 30 fotos de estilo de vida para su calendario de contenido mensual.</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl border border-white/20">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">2. Packs de Influencer Sin Rostro</h4>
-                                <p className="text-sm text-smw-gray-dark">Crea packs de fotos de "Estética de Estilo de Vida" para personas que desean manejar páginas temáticas o cuentas sin rostro, pero que necesitan un elemento humano.</p>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">2. Packs de Influencer Sin Rostro</h4>
+                                <p className="text-sm text-negro-fondo">Crea packs de fotos de "Estética de Estilo de Vida" para personas que desean manejar páginas temáticas o cuentas sin rostro, pero que necesitan un elemento humano.</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl border border-white/20">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">3. Marketing de Afiliados de Lujo</h4>
-                                <p className="text-sm text-smw-gray-dark">Promociona productos de lujo, jets privados o hoteles de alta gama usando estos visuales como fondos para tus enlaces de afiliados. El contenido aspiracional impulsa las mayores conversiones.</p>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">3. Marketing de Afiliados de Lujo</h4>
+                                <p className="text-sm text-negro-fondo">Promociona productos de lujo, jets privados o hoteles de alta gama usando estos visuales como fondos para tus enlaces de afiliados. El contenido aspiracional impulsa las mayores conversiones.</p>
                             </div>
                             <div className="bg-white/40 p-5 rounded-2xl border border-white/20">
-                                <h4 className="font-black text-sm uppercase mb-2 text-smw-pink">4. Imágenes para Cursos y Productos Digitales</h4>
-                                <p className="text-sm text-smw-gray-dark">Usa estas imágenes como fotos de stock de alta gama para tus propios cursos, eBooks o sitios web. Añaden un nivel de "Prueba de Éxito" a tus materiales de marca.</p>
+                                <h4 className="font-black text-sm uppercase mb-2 text-rosa-principal">4. Imágenes para Cursos y Productos Digitales</h4>
+                                <p className="text-sm text-negro-fondo">Usa estas imágenes como fotos de stock de alta gama para tus propios cursos, eBooks o sitios web. Añaden un nivel de "Prueba de Éxito" a tus materiales de marca.</p>
                             </div>
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isSalesTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>
@@ -573,30 +573,30 @@ Semilla de Unicidad: ${Math.random()}`;
 
                 {/* Pro Tips Box */}
                 <div className="bg-white/70 backdrop-blur-xl shadow-xl p-10 rounded-[2.5rem] border border-white/50 group transition-all hover:shadow-2xl">
-                    <h2 className="text-2xl font-black text-smw-gray-dark mb-6 text-center uppercase tracking-widest">Consejos Pro</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-black text-negro-fondo mb-6 text-center uppercase tracking-widest">Consejos Pro</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <ul className="space-y-4">
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black text-lg">01</span>
+                                <span className="text-rosa-principal font-black text-lg">01</span>
                                 <p><strong>Domina el "Bloqueo de Atuendo":</strong> Para una serie de vlogs más creíble, genera una imagen que te encante, guarda el look y bloquéalo. Luego genera 10 escenas más. La consistencia de tu ropa hace que la historia se sienta real.</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black text-lg">02</span>
+                                <span className="text-rosa-principal font-black text-lg">02</span>
                                 <p><strong>Truco de Fotorrealismo:</strong> Sube una foto de origen que tenga luz natural golpeando tu rostro. Esto ayuda a la IA a coincidir con la iluminación de escenas al aire libre o iluminadas por el sol de "Rutina Matutina" de manera mucho más efectiva.</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black text-lg">03</span>
+                                <span className="text-rosa-principal font-black text-lg">03</span>
                                 <p><strong>Especificidad en Prompts Personalizados:</strong> En lugar de "bebiendo café", intenta "sentado en un sofá de terciopelo verde esmeralda bebiendo un latte con arte de corazón". Cuantos más detalles, más "personalizado" se verá el vlog.</p>
                             </li>
                             <li className="flex gap-4">
-                                <span className="text-smw-pink font-black text-lg">04</span>
+                                <span className="text-rosa-principal font-black text-lg">04</span>
                                 <p><strong>Mezcla tu Rutina:</strong> No solo publiques 5 fotos de unboxing. Mezcla una "Rutina Matutina" con una "Sesión de Trabajo" y una "Vibra de Viaje" para mostrar un estilo de vida completo y aspiracional a tu audiencia.</p>
                             </li>
                         </ul>
                         <div className={`absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white/80 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-6 text-xs text-smw-pink font-black uppercase tracking-[0.3em] hover:text-smw-gray-dark transition-colors border-b-2 border-smw-pink">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-6 text-xs text-rosa-principal font-black uppercase tracking-[0.3em] hover:text-negro-fondo transition-colors border-b-2 border-rosa-principal">
                             {isProTipsExpanded ? 'Leer Menos' : 'Leer Más'}
                         </button>
                     </div>

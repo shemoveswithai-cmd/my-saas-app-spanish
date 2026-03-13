@@ -158,10 +158,10 @@ Seed: ${Math.random()}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">{t('AI Real Estate Photoshoot', 'Sesión de Fotos de Bienes Raíces con IA')}</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro min-h-full p-4 md:p-8 space-y-6 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">{t('AI Real Estate Photoshoot', 'Sesión de Fotos de Bienes Raíces con IA')}</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     {t('Create professional real estate photos of yourself in various property settings or your own listings with absolute identity preservation.', 'Crea fotos profesionales de bienes raíces de ti mismo en diversos entornos de propiedad o en tus propios listados con preservación absoluta de la identidad.')}
                 </p>
             </div>
@@ -170,7 +170,7 @@ Seed: ${Math.random()}`;
                 <div className="flex flex-col gap-6">
                     <Step number={1} title={t('Upload Your Photo', 'Sube Tu Foto')}>
                         <p className="text-base text-gray-600 font-medium">{t('Upload a professional headshot. We will maintain your identity and place you in a luxury property.', 'Sube un retrato profesional. Mantendremos tu identidad y te ubicaremos en una propiedad de lujo.')}</p>
-                        <div onClick={() => personInputRef.current?.click()} className="aspect-square max-w-[400px] mx-auto bg-white/60 rounded-lg flex items-center justify-center border-2 border-dashed border-smw-pink/50 cursor-pointer hover:bg-white transition-colors p-4">
+                        <div onClick={() => personInputRef.current?.click()} className="aspect-square max-w-[400px] mx-auto bg-white/60 rounded-lg flex items-center justify-center border-2 border-dashed border-rosa-principal/50 cursor-pointer hover:bg-white transition-colors p-4">
                             {personImage ? (
                                 <img src={personImage.preview} className="max-h-full max-w-full rounded-md shadow-sm" alt={t('Preview', 'Vista Previa')} />
                             ) : (
@@ -189,13 +189,13 @@ Seed: ${Math.random()}`;
                         <div className="flex bg-white/50 rounded-full p-1 mb-6 shadow-sm border border-white/20">
                             <button 
                                 onClick={() => setSceneMode('preset')} 
-                                className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${sceneMode === 'preset' ? 'bg-smw-pink text-black' : 'text-gray-500 hover:text-gray-700'}`}
+                                className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${sceneMode === 'preset' ? 'bg-rosa-principal text-black' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 {t('Preset Scenes', 'Escenas Preestablecidas')}
                             </button>
                             <button 
                                 onClick={() => setSceneMode('upload')} 
-                                className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${sceneMode === 'upload' ? 'bg-smw-pink text-black' : 'text-gray-500 hover:text-gray-700'}`}
+                                className={`flex-1 text-center rounded-full py-2.5 text-sm font-bold transition-all ${sceneMode === 'upload' ? 'bg-rosa-principal text-black' : 'text-gray-500 hover:text-gray-700'}`}
                             >
                                 {t('Upload My Listing', 'Subir Mi Listado')}
                             </button>
@@ -208,7 +208,7 @@ Seed: ${Math.random()}`;
                                     const scene = sceneOptions.find(s => s.name === e.target.value);
                                     if (scene) setSelectedScene(scene);
                                 }}
-                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none text-gray-900 font-medium"
+                                className="w-full bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none text-gray-900 font-medium"
                             >
                                 {sceneOptions.map(scene => (
                                     <option key={scene.name} value={scene.name}>{scene.name}</option>
@@ -217,7 +217,7 @@ Seed: ${Math.random()}`;
                         ) : (
                             <div className="space-y-2">
                                 <label className="text-sm font-bold text-gray-600 uppercase tracking-wider ml-1">{t('Upload Your Home Photo', 'Sube la Foto de Tu Casa')}</label>
-                                <div onClick={() => homeInputRef.current?.click()} className="aspect-video bg-white/60 rounded-lg flex items-center justify-center border-2 border-dashed border-smw-pink/50 cursor-pointer hover:bg-white transition-colors p-4">
+                                <div onClick={() => homeInputRef.current?.click()} className="aspect-video bg-white/60 rounded-lg flex items-center justify-center border-2 border-dashed border-rosa-principal/50 cursor-pointer hover:bg-white transition-colors p-4">
                                     {homeImage ? (
                                         <img src={homeImage.preview} className="max-h-full max-w-full rounded-md shadow-sm" alt={t('Home Preview', 'Vista Previa de la Casa')} />
                                     ) : (
@@ -237,7 +237,7 @@ Seed: ${Math.random()}`;
                                 value={customDetails}
                                 onChange={(e) => setCustomDetails(e.target.value)}
                                 placeholder={t('e.g., wearing a blue suit, holding keys, leaning on a marble island', 'ej. vistiendo un traje azul, sosteniendo llaves, apoyado en una isla de mármol')}
-                                className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none resize-none text-black font-medium"
+                                className="w-full h-32 bg-white border-2 border-gray-100 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none resize-none text-black font-medium"
                             />
                         </div>
                     </Step>
@@ -245,7 +245,7 @@ Seed: ${Math.random()}`;
                     <button
                         onClick={handleGenerate}
                         disabled={isLoading || !personImage || (sceneMode === 'upload' && !homeImage)}
-                        className="w-full bg-smw-pink text-black font-bold py-3 rounded-xl hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed shadow-md text-lg transition-all"
+                        className="w-full bg-rosa-principal text-black font-bold py-3 rounded-xl hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed shadow-md text-lg transition-all"
                     >
                         {isLoading ? <Spinner className="mx-auto text-black" /> : t('Generate 4 photos', 'Generar 4 fotos')}
                     </button>
@@ -259,7 +259,7 @@ Seed: ${Math.random()}`;
                             <div key={i} className="relative aspect-square bg-white rounded-xl flex items-center justify-center border border-gray-100 overflow-hidden shadow-inner group">
                                 {isLoading && i >= generatedImages.length ? (
                                     <div className="text-center p-4">
-                                        <Spinner className="w-10 h-10 text-smw-pink mb-4 mx-auto" />
+                                        <Spinner className="w-10 h-10 text-rosa-principal mb-4 mx-auto" />
                                         <p className="text-xs font-bold text-gray-400 uppercase tracking-widest animate-pulse">{t('Rendering...', 'Renderizando...')}</p>
                                     </div>
                                 ) : generatedImages[i] ? (
@@ -281,7 +281,7 @@ Seed: ${Math.random()}`;
             </div>
 
             {/* Information Boxes */}
-            <div className="space-y-6 pt-10 border-t border-smw-pink/20">
+            <div className="space-y-6 pt-10 border-t border-rosa-principal/20">
                 <div className="bg-white/70 backdrop-blur-md p-8 rounded-xl shadow-md border border-white/50">
                     <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">{t('Introduction', 'Introducción')}</h2>
                     <div className={`text-gray-700 space-y-4 leading-relaxed text-base transition-all duration-500 overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px] overflow-y-auto' : 'max-h-[150px]'}`}>
@@ -290,7 +290,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isIntroExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -306,7 +306,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isHowItWorksExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -322,7 +322,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isSalesTipsExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>
@@ -338,7 +338,7 @@ Seed: ${Math.random()}`;
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/70 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-smw-pink font-bold hover:underline uppercase tracking-widest">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-rosa-principal font-bold hover:underline uppercase tracking-widest">
                             {isProTipsExpanded ? t('Read Less', 'Leer Menos') : t('Read More', 'Leer Más')}
                         </button>
                     </div>

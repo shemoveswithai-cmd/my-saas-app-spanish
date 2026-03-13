@@ -27,7 +27,7 @@ const poses = [
 ];
 
 const Step: React.FC<{ number: number, title: string, children: React.ReactNode }> = ({ number, title, children }) => (
-    <div className="bg-smw-gray-dark p-4 rounded-lg">
+    <div className="bg-negro-fondo p-4 rounded-lg">
         <h3 className="text-md font-bold mb-3">Step {number}: {title}</h3>
         {children}
     </div>
@@ -217,16 +217,16 @@ Your task is to create a high-fashion lookbook image. You will be given a refere
     };
     
     return (
-        <div className="bg-smw-black h-full overflow-y-auto p-4 space-y-4 border-r-2 border-smw-pink max-w-md mx-auto md:mx-0 md:ml-auto">
+        <div className="bg-negro-fondo h-full overflow-y-auto p-4 space-y-4 border-r-2 border-rosa-principal max-w-md mx-auto md:mx-0 md:ml-auto">
              <Step number={1} title="Upload Your Photo">
                 <div 
                     onClick={() => personInputRef.current?.click()}
-                    className="aspect-[4/5] bg-smw-black rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-smw-gray-light hover:bg-smw-gray-dark hover:border-smw-pink transition-colors p-1"
+                    className="aspect-[4/5] bg-negro-fondo rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-gris-medio-light hover:bg-negro-fondo hover:border-rosa-principal transition-colors p-1"
                 >
                     {personImage ? (
                         <img src={personImage.preview} alt="Person preview" className="w-full h-full rounded-md object-cover" />
                     ) : (
-                        <span className="text-smw-text-dim text-sm">Click to upload photo</span>
+                        <span className="text-gris-atenuado text-sm">Click to upload photo</span>
                     )}
                 </div>
              </Step>
@@ -246,9 +246,9 @@ Your task is to create a high-fashion lookbook image. You will be given a refere
                     {clothingItems.length < 6 && (
                         <div 
                             onClick={() => clothingInputRef.current?.click()}
-                            className="aspect-square bg-smw-black rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-smw-gray-light hover:bg-smw-gray-dark hover:border-smw-pink transition-colors"
+                            className="aspect-square bg-negro-fondo rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-gris-medio-light hover:bg-negro-fondo hover:border-rosa-principal transition-colors"
                         >
-                            <span className="text-smw-text-dim p-2 text-2xl font-light">+ Add</span>
+                            <span className="text-gris-atenuado p-2 text-2xl font-light">+ Add</span>
                         </div>
                     )}
                 </div>
@@ -260,7 +260,7 @@ Your task is to create a high-fashion lookbook image. You will be given a refere
                         <button
                             key={scene.name}
                             onClick={() => setSelectedScene(scene.prompt)}
-                            className={`px-3 py-1.5 text-sm rounded-md flex items-center transition-colors ${selectedScene === scene.prompt ? 'bg-smw-pink text-smw-gray-dark font-semibold' : 'bg-smw-gray-dark text-smw-text hover:bg-smw-black'}`}
+                            className={`px-3 py-1.5 text-sm rounded-md flex items-center transition-colors ${selectedScene === scene.prompt ? 'bg-rosa-principal text-negro-fondo font-semibold' : 'bg-negro-fondo text-blanco-texto hover:bg-negro-fondo'}`}
                         >
                             {scene.name}
                         </button>
@@ -272,19 +272,19 @@ Your task is to create a high-fashion lookbook image. You will be given a refere
                  <button
                     onClick={handleGenerate}
                     disabled={isLoading || !personImage || clothingItems.length === 0}
-                    className="w-full bg-smw-pink text-smw-gray-dark font-bold py-3 px-4 rounded-lg flex items-center justify-center hover:bg-smw-pink-light disabled:bg-smw-gray-dark disabled:cursor-not-allowed"
+                    className="w-full bg-rosa-principal text-negro-fondo font-bold py-3 px-4 rounded-lg flex items-center justify-center hover:bg-rosa-claro disabled:bg-negro-fondo disabled:cursor-not-allowed"
                  >
                     {isLoading ? <Spinner /> : 'Generate Lookbook'}
                  </button>
             </Step>
             
-            <div className="bg-smw-gray-dark p-4 rounded-lg">
+            <div className="bg-negro-fondo p-4 rounded-lg">
                 <h3 className="text-md font-bold mb-3">Your Virtual Lookbook</h3>
                 {error && <div className="p-3 bg-red-900 text-white rounded-md mb-4 text-sm">{error}</div>}
                 
                 <div className="grid grid-cols-2 gap-4">
                     {[...Array(6)].map((_, index) => (
-                        <div key={index} className="relative aspect-square bg-smw-black rounded-lg flex items-center justify-center">
+                        <div key={index} className="relative aspect-square bg-negro-fondo rounded-lg flex items-center justify-center">
                             {generatedImages[index] ? (
                                  <div className="relative group w-full h-full">
                                     <img src={generatedImages[index]} alt={`Generated try-on ${index + 1}`} className="w-full h-full object-cover rounded-lg shadow-lg" />
@@ -302,7 +302,7 @@ Your task is to create a high-fashion lookbook image. You will be given a refere
                             ) : isLoading && index >= generatedImages.length + collectedErrors.length ? (
                                 <Spinner />
                             ) : (
-                               <span className="text-smw-text-dim text-3xl font-bold">{index + 1}</span>
+                               <span className="text-gris-atenuado text-3xl font-bold">{index + 1}</span>
                             )}
                         </div>
                     ))}

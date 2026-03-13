@@ -18,12 +18,12 @@ const UploadIcon = () => (
 
 const UploadBox: React.FC<{ title: string, onFileSelect: (e: React.ChangeEvent<HTMLInputElement>) => void, inputRef: React.RefObject<HTMLInputElement>, dropzoneRef: React.RefObject<HTMLDivElement> }> = ({ title, onFileSelect, inputRef, dropzoneRef }) => (
     <div ref={dropzoneRef} className="w-1/2 md:w-5/12 lg:w-4/12">
-        <h3 className="text-base md:text-lg font-bold mb-2 text-center text-smw-gray-dark">{title}</h3>
+        <h3 className="text-base md:text-lg font-bold mb-2 text-center text-negro-fondo">{title}</h3>
         <div 
             onClick={() => inputRef.current?.click()}
-            className="aspect-video bg-white/60 backdrop-blur-sm shadow-md rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/50 hover:border-smw-pink transition-colors p-2 md:p-4"
+            className="aspect-video bg-white/60 backdrop-blur-sm shadow-md rounded-lg flex items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/50 hover:border-rosa-principal transition-colors p-2 md:p-4"
         >
-            <div className="flex flex-col items-center text-smw-gray-dark opacity-80 text-center">
+            <div className="flex flex-col items-center text-negro-fondo opacity-80 text-center">
                  <UploadIcon />
                 <p className="text-xs sm:text-sm font-semibold">Haz clic para subir o arrastrar y soltar</p>
             </div>
@@ -106,11 +106,11 @@ const HomeCanvas: React.FC<HomeCanvasProps> = ({ addCreations }) => {
             const dropTarget = dropzone.querySelector('.border-dashed');
             if (!dropTarget) return;
 
-            const onDragOver = (e: DragEvent) => { e.preventDefault(); dropTarget.classList.add('border-smw-pink', 'bg-white/80'); };
-            const onDragLeave = () => { dropTarget.classList.remove('border-smw-pink', 'bg-white/80'); };
+            const onDragOver = (e: DragEvent) => { e.preventDefault(); dropTarget.classList.add('border-rosa-principal', 'bg-white/80'); };
+            const onDragLeave = () => { dropTarget.classList.remove('border-rosa-principal', 'bg-white/80'); };
             const onDrop = (e: DragEvent) => {
                 e.preventDefault();
-                dropTarget.classList.remove('border-smw-pink', 'bg-white/80');
+                dropTarget.classList.remove('border-rosa-principal', 'bg-white/80');
                 if (e.dataTransfer?.files[0]) handleFile(e.dataTransfer.files[0]);
             };
 
@@ -329,13 +329,13 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
     };
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 sm:p-6 overflow-y-auto">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 sm:p-6 overflow-y-auto">
             <div className="flex-1">
                 {!scene ? (
                     <div className="flex flex-col items-center p-4 md:p-8 pt-8">
-                        <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                            <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">Lienzo de Hogar IA</h1>
-                            <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+                        <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                            <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">Lienzo de Hogar IA</h1>
+                            <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                                 Sube fotos de un producto y una escena, luego arrastra tu producto a su lugar para crear un montaje fotorrealista.
                             </p>
                         </div>
@@ -343,20 +343,20 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                             <UploadBox title="Subir Producto" onFileSelect={(e) => handleFileChange(e, 'product')} inputRef={productInputRef} dropzoneRef={productDropzoneRef} />
                             <UploadBox title="Subir Escena" onFileSelect={(e) => handleFileChange(e, 'scene')} inputRef={sceneInputRef} dropzoneRef={sceneDropzoneRef} />
                         </div>
-                        <p className="text-sm text-smw-gray-dark opacity-80 mt-8">Sube una imagen de escena para comenzar.</p>
+                        <p className="text-sm text-negro-fondo opacity-80 mt-8">Sube una imagen de escena para comenzar.</p>
                     </div>
                 ) : (
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col sm:flex-row sm:justify-between items-center flex-shrink-0 gap-4">
-                             <h2 className="text-2xl font-bold text-smw-gray-dark">Editor de Lienzo de Hogar IA</h2>
+                             <h2 className="text-2xl font-bold text-negro-fondo">Editor de Lienzo de Hogar IA</h2>
                              <div className="flex items-center gap-2">
-                                <button onClick={handleReset} className="text-sm font-semibold py-2 px-4 rounded-lg bg-white/80 hover:bg-white text-smw-gray-dark">Empezar de nuevo</button>
+                                <button onClick={handleReset} className="text-sm font-semibold py-2 px-4 rounded-lg bg-white/80 hover:bg-white text-negro-fondo">Empezar de nuevo</button>
                                 {generatedImage ? (
-                                    <button onClick={handleAddAnotherItem} className="bg-smw-pink text-smw-gray-dark font-bold py-2 px-6 rounded-lg hover:bg-white">
+                                    <button onClick={handleAddAnotherItem} className="bg-rosa-principal text-negro-fondo font-bold py-2 px-6 rounded-lg hover:bg-white">
                                         Añadir otro artículo
                                     </button>
                                 ) : (
-                                    <button onClick={handleGenerate} disabled={isLoading || !product} className="bg-smw-pink text-smw-gray-dark font-bold py-2 px-6 rounded-lg hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed">
+                                    <button onClick={handleGenerate} disabled={isLoading || !product} className="bg-rosa-principal text-negro-fondo font-bold py-2 px-6 rounded-lg hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed">
                                         {isLoading ? <Spinner /> : 'Generar'}
                                     </button>
                                 )}
@@ -365,7 +365,7 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                         {error && <div className="p-3 bg-red-900 text-white rounded-md text-sm">{error}</div>}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 min-h-0">
                             <div className="bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 flex flex-col items-center justify-center min-h-[300px]">
-                                <h3 className="text-lg font-semibold mb-2 text-smw-gray-dark opacity-80">Coloca tu Producto</h3>
+                                <h3 className="text-lg font-semibold mb-2 text-negro-fondo opacity-80">Coloca tu Producto</h3>
                                 <div ref={sceneContainerRef} className="relative w-full h-full flex items-center justify-center" style={{ touchAction: 'none' }}>
                                     <img src={scene.preview} className="max-w-full max-h-full object-contain" alt="Fondo de la escena" />
                                     {product ? (
@@ -390,7 +390,7 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                                     ) : (
                                        <>
                                            <label htmlFor="home-canvas-product-upload" className="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer">
-                                               <div className="flex flex-col items-center text-smw-text text-center p-8 bg-black/50 rounded-lg border-2 border-dashed border-smw-pink/50 hover:border-smw-pink">
+                                               <div className="flex flex-col items-center text-blanco-texto text-center p-8 bg-black/50 rounded-lg border-2 border-dashed border-rosa-principal/50 hover:border-rosa-principal">
                                                    <UploadIcon />
                                                    <p className="font-semibold">Subir Producto para Colocar</p>
                                                </div>
@@ -402,10 +402,10 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                             </div>
                              <div className="flex flex-col gap-y-4">
                                 <div className="bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 flex flex-col items-center justify-center min-h-[300px] flex-1">
-                                    <h3 className="text-lg font-semibold mb-2 text-smw-gray-dark opacity-80">Montaje Generado</h3>
+                                    <h3 className="text-lg font-semibold mb-2 text-negro-fondo opacity-80">Montaje Generado</h3>
                                     <div className="w-full h-full flex items-center justify-center">
                                         {isLoading ? (
-                                            <Spinner className="w-12 h-12 text-smw-gray-dark" />
+                                            <Spinner className="w-12 h-12 text-negro-fondo" />
                                         ) : generatedImage ? (
                                             <div className="relative group w-full h-full">
                                                 <img 
@@ -419,13 +419,13 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                                                 </a>
                                             </div>
                                         ) : (
-                                            <p className="text-smw-gray-dark opacity-80">Tu resultado aparecerá aquí.</p>
+                                            <p className="text-negro-fondo opacity-80">Tu resultado aparecerá aquí.</p>
                                         )}
                                     </div>
                                 </div>
                                 {generatedImage && !isLoading && (
                                     <div className="bg-white/60 backdrop-blur-sm shadow-md rounded-lg p-4 flex-shrink-0">
-                                        <label htmlFor="refine-prompt" className="block text-sm font-semibold text-smw-gray-dark mb-1">Refinar Resultado:</label>
+                                        <label htmlFor="refine-prompt" className="block text-sm font-semibold text-negro-fondo mb-1">Refinar Resultado:</label>
                                         <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                                             <input
                                                 id="refine-prompt"
@@ -433,12 +433,12 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                                                 value={editPrompt}
                                                 onChange={(e) => setEditPrompt(e.target.value)}
                                                 placeholder="ej: quita las almohadas de la izquierda"
-                                                className="flex-1 bg-white/50 border-2 border-smw-pink/50 rounded-lg p-2 focus:ring-2 focus:ring-smw-pink focus:outline-none text-smw-gray-dark placeholder:text-smw-gray-dark/70"
+                                                className="flex-1 bg-white/50 border-2 border-rosa-principal/50 rounded-lg p-2 focus:ring-2 focus:ring-rosa-principal focus:outline-none text-negro-fondo placeholder:text-negro-fondo/70"
                                             />
                                             <button
                                                 onClick={handleRefine}
                                                 disabled={!editPrompt.trim()}
-                                                className="bg-smw-pink text-smw-gray-dark font-bold py-2 px-4 rounded-lg hover:bg-white disabled:bg-smw-pink/50 disabled:cursor-not-allowed"
+                                                className="bg-rosa-principal text-negro-fondo font-bold py-2 px-4 rounded-lg hover:bg-white disabled:bg-rosa-principal/50 disabled:cursor-not-allowed"
                                             >
                                                 Refinar
                                             </button>
@@ -452,18 +452,18 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
             </div>
 
             {/* Secciones de Información */}
-            <div className="space-y-6 mt-12 border-t border-smw-pink/20 pt-10">
+            <div className="space-y-6 mt-12 border-t border-rosa-principal/20 pt-10">
                 {/* Introduction Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Introducción</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Introducción</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-4 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isIntroExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p>Bienvenido a Lienzo de Hogar IA, nuestro estudio de composición y puesta en escena digital impulsado por IA de precisión. Esta herramienta está diseñada para creadores, emprendedores y especialistas en marketing que necesitan un control perfecto sobre cómo aparecen los productos en escenas del mundo real.</p>
                         <p>A diferencia de los generadores de imágenes estándar, Lienzo de Hogar IA te permite "dirigir" a la IA. Tú eliges el fondo, eliges el producto y decides exactamente dónde se ubica. Nuestros modelos avanzados luego manejan la compleja física de la luz, las sombras y los reflejos para que la adición parezca 100% natural.</p>
                         <p>Ya sea que estés creando un catálogo de muebles, preparando una casa o creando contenido para redes sociales para el lanzamiento de un nuevo producto, Lienzo de Hogar IA te brinda resultados de nivel profesional con precisión quirúrgica.</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isIntroExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -471,8 +471,8 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
 
                 {/* How It Works Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Cómo funciona</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Cómo funciona</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isHowItWorksExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p><strong>Paso 1: Sube tu escena</strong> - Comienza subiendo una foto de alta calidad del entorno donde quieres que viva tu producto. Podría ser una sala de estar de lujo, una cocina minimalista o una calle concurrida de la ciudad.</p>
                         <p><strong>Paso 2: Sube tu producto</strong> - Sube una foto clara del producto que quieres añadir. Para obtener mejores resultados, utiliza una foto con un fondo limpio.</p>
                         <p><strong>Paso 3: Posicionar y redimensionar</strong> - Utiliza el cuadro punteado interactivo para arrastrar tu producto al lugar perfecto. Usa los bordes del cuadro para cambiar su tamaño para que las proporciones coincidan con la escena de manera realista.</p>
@@ -481,7 +481,7 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isHowItWorksExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -489,8 +489,8 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
 
                 {/* Sales Tips & Monetization Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos de ventas e ideas de monetización</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos de ventas e ideas de monetización</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isSalesTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p><strong>1. Puesta en escena virtual para bienes raíces:</strong> Ofrece servicios de colocación de muebles virtuales a agentes inmobiliarios. Toma fotos de habitaciones vacías y poblalas con muebles de lujo para ayudar a los compradores potenciales a visualizar su futuro hogar.</p>
                         <p><strong>2. Paquetes de "Estilo de vida" para comercio electrónico:</strong> Las marcas pagan miles por fotos de estilo de vida. Puedes ofrecer un servicio donde tomes sus fotos básicas de productos y las coloques en cientos de entornos de "hogar" diferentes para sus redes sociales y anuncios.</p>
                         <p><strong>3. Contenido para marketing de afiliados:</strong> Promociona decoración del hogar o dispositivos tecnológicos colocándolos en una escena estética que coincida con tu marca personal. Ver un producto "en uso" aumenta las tasas de clics en los enlaces de afiliados.</p>
@@ -498,7 +498,7 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isSalesTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsSalesTipsExpanded(!isSalesTipsExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isSalesTipsExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>
@@ -506,8 +506,8 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
 
                 {/* Pro Tips Box */}
                 <div className="bg-white/60 backdrop-blur-sm shadow-md p-8 rounded-lg border border-white/40">
-                    <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 text-center">Consejos profesionales</h2>
-                    <div className={`text-smw-gray-dark opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
+                    <h2 className="text-2xl font-bold text-negro-fondo mb-6 text-center">Consejos profesionales</h2>
+                    <div className={`text-negro-fondo opacity-90 space-y-6 leading-relaxed text-base transition-all duration-500 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[1000px]' : 'max-h-[120px]'}`}>
                         <p><strong>• Alinea la iluminación:</strong> Para el montaje más creíble, intenta que la dirección de la iluminación de la foto de tu producto coincida con la escena. Si el sol viene de la izquierda en la escena, un producto con luz dándole desde la izquierda se mezclará mucho mejor.</p>
                         <p><strong>• La perspectiva es prioridad:</strong> Presta mucha atención al ángulo. Si la escena se toma desde un ángulo alto, la foto de tu producto también debe ser desde un ángulo alto similar. La IA es buena mezclando, pero hacer coincidir las perspectivas manualmente primero conduce a resultados "pro".</p>
                         <p><strong>• El bucle "Añadir otro":</strong> Utiliza el botón "Añadir otro artículo" para crear escenas complejas. Puedes empezar con una mesa, añadir un portátil, luego añadir una taza de café y finalmente un cuaderno, todo uno por uno para asegurar la colocación perfecta de cada uno.</p>
@@ -515,7 +515,7 @@ Eres una herramienta de edición de fotos, no un asistente creativo. Tu trabajo 
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/60 to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
                     <div className="text-center">
-                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-sm text-smw-pink font-bold uppercase tracking-widest hover:underline">
+                        <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-sm text-rosa-principal font-bold uppercase tracking-widest hover:underline">
                             {isProTipsExpanded ? 'Leer menos' : 'Leer más'}
                         </button>
                     </div>

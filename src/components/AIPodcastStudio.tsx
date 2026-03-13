@@ -255,10 +255,10 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
     };
 
     return (
-        <div className="flex flex-col bg-smw-pink-light h-full p-4 md:p-8 space-y-6 overflow-y-auto text-smw-gray-dark">
-            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-smw-pink/5 max-w-3xl mx-auto">
-                <h1 className="text-xl md:text-2xl font-bold text-smw-black mb-2 uppercase tracking-tight">{t('AI Podcast', 'Podcast con IA')}</h1>
-                <p className="text-xs md:text-sm text-smw-gray-dark opacity-70 max-w-xl mx-auto leading-relaxed">
+        <div className="flex flex-col bg-rosa-claro h-full p-4 md:p-8 space-y-6 overflow-y-auto text-negro-fondo">
+            <div className="bg-white rounded-[1.5rem] shadow-sm p-5 md:p-6 text-center mb-6 border border-rosa-principal/5 max-w-3xl mx-auto">
+                <h1 className="text-xl md:text-2xl font-bold text-negro-fondo mb-2 uppercase tracking-tight">{t('AI Podcast', 'Podcast con IA')}</h1>
+                <p className="text-xs md:text-sm text-negro-fondo opacity-70 max-w-xl mx-auto leading-relaxed">
                     {t('Create professional, high-fidelity podcast visuals in seconds. Transform your identity into any studio environment with cinematic precision.', 'Crea visuales de podcast profesionales y de alta fidelidad en segundos. Transforma tu identidad en cualquier entorno de estudio con precisión cinematográfica.')}
                 </p>
             </div>
@@ -283,7 +283,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                     {activeTab === 'Studio Creator' ? (
                         <>
                             <Step number={1} title={t('upload your photo', 'sube tu foto')}>
-                                <div onClick={() => personInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-smw-pink transition-all p-4 group overflow-hidden">
+                                <div onClick={() => personInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-rosa-principal transition-all p-4 group overflow-hidden">
                                     {personImage ? <img src={personImage.preview} className="h-full object-contain rounded-lg" alt={t('Preview', 'Vista previa')} /> : <div className="text-center opacity-30 group-hover:opacity-60 transition-opacity"><svg className="w-10 h-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg><p className="text-sm font-black uppercase tracking-widest">{t('click to upload portrait', 'haz clic para subir retrato')}</p></div>}
                                     <input type="file" ref={personInputRef} onChange={e => e.target.files?.[0] && setPersonImage({file: e.target.files[0], preview: URL.createObjectURL(e.target.files[0])})} className="hidden" accept="image/*" />
                                 </div>
@@ -292,7 +292,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                             <Step number={2} title={t('choose your studio vibe', 'elige el estilo de tu estudio')}>
                                 <div className="flex flex-wrap gap-2">
                                     {studioVibes.map(v => (
-                                        <button key={v.name} onClick={() => setSelectedVibe(v)} className={`px-5 py-2.5 rounded-lg text-sm font-black border transition-all lowercase ${selectedVibe.name === v.name ? 'bg-smw-pink text-gray-900 border-smw-pink shadow-sm' : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'}`}>
+                                        <button key={v.name} onClick={() => setSelectedVibe(v)} className={`px-5 py-2.5 rounded-lg text-sm font-black border transition-all lowercase ${selectedVibe.name === v.name ? 'bg-rosa-principal text-gray-900 border-rosa-principal shadow-sm' : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'}`}>
                                             {t(v.name, {
                                                 'Cinematic blackout': 'Oscuridad cinematográfica',
                                                 'Neon high-tech': 'Neón de alta tecnología',
@@ -313,7 +313,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                             <Step number={3} title={t('select your scene', 'selecciona tu escena')}>
                                 <div className="flex flex-wrap gap-2">
                                     {studioScenes.map(s => (
-                                        <button key={s.name} onClick={() => setSelectedScene(s)} className={`px-5 py-2.5 rounded-lg text-sm font-black border transition-all lowercase ${selectedScene.name === s.name ? 'bg-smw-pink text-gray-900 border-smw-pink shadow-sm' : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'}`}>
+                                        <button key={s.name} onClick={() => setSelectedScene(s)} className={`px-5 py-2.5 rounded-lg text-sm font-black border transition-all lowercase ${selectedScene.name === s.name ? 'bg-rosa-principal text-gray-900 border-rosa-principal shadow-sm' : 'bg-white text-gray-400 border-gray-100 hover:border-gray-200'}`}>
                                             {t(s.name, {
                                                 'Extreme macro close-up': 'Primer plano macro extremo',
                                                 'Solo mic close-up': 'Primer plano con micrófono solo',
@@ -329,8 +329,8 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
 
                             <Step number={4} title={t('branding & prompt', 'marca y prompt')}>
                                 <div className="space-y-4">
-                                    <input type="text" value={signText} onChange={e => setSignText(e.target.value)} placeholder={t('custom studio sign text...', 'texto personalizado del letrero del estudio...')} className="w-full bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink outline-none lowercase font-medium" />
-                                    <textarea value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder={t('additional instructions / prompt override...', 'instrucciones adicionales / anulación de prompt...')} className="w-full h-24 bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink outline-none resize-none lowercase font-medium" />
+                                    <input type="text" value={signText} onChange={e => setSignText(e.target.value)} placeholder={t('custom studio sign text...', 'texto personalizado del letrero del estudio...')} className="w-full bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal outline-none lowercase font-medium" />
+                                    <textarea value={customPrompt} onChange={e => setCustomPrompt(e.target.value)} placeholder={t('additional instructions / prompt override...', 'instrucciones adicionales / anulación de prompt...')} className="w-full h-24 bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal outline-none resize-none lowercase font-medium" />
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <label className="text-xs font-black text-gray-400 uppercase mb-2 block tracking-widest">{t('aspect ratio', 'relación de aspecto')}</label>
@@ -346,7 +346,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                                             <label className="text-xs font-black text-gray-400 uppercase mb-2 block tracking-widest">{t('camera mode', 'modo de cámara')}</label>
                                             <div className="flex bg-gray-50 rounded-lg p-1 border border-gray-100">
                                                 {(['4 Different Angles', 'Consistent Angle'] as const).map(mode => (
-                                                    <button key={mode} onClick={() => setCameraAngleMode(mode)} className={`flex-1 py-2 rounded-md text-[10px] font-black transition-all lowercase ${cameraAngleMode === mode ? 'bg-smw-pink text-gray-900 shadow-sm' : 'text-gray-400'}`}>
+                                                    <button key={mode} onClick={() => setCameraAngleMode(mode)} className={`flex-1 py-2 rounded-md text-[10px] font-black transition-all lowercase ${cameraAngleMode === mode ? 'bg-rosa-principal text-gray-900 shadow-sm' : 'text-gray-400'}`}>
                                                         {t(mode, {
                                                             '4 Different Angles': '4 ángulos diferentes',
                                                             'Consistent Angle': 'Ángulo consistente'
@@ -360,13 +360,13 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                             </Step>
 
                             <button onClick={handleGenerateStudio} disabled={isLoading || !personImage} className="w-full bg-slate-800 text-white font-black py-5 rounded-xl shadow-lg hover:bg-slate-900 transition-all disabled:opacity-50 text-xl lowercase">
-                                {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-smw-pink" /><span>{t('generating studio...', 'generando estudio...')}</span></div> : t('generate podcast set', 'generar set de podcast')}
+                                {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-rosa-principal" /><span>{t('generating studio...', 'generando estudio...')}</span></div> : t('generate podcast set', 'generar set de podcast')}
                             </button>
                         </>
                     ) : (
                         <>
                             <Step number={1} title={t('select your anchor shot', 'selecciona tu toma de referencia')}>
-                                <div onClick={() => labInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-smw-pink transition-all p-4 mb-4 overflow-hidden">
+                                <div onClick={() => labInputRef.current?.click()} className="aspect-video bg-white rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-gray-200 hover:border-rosa-principal transition-all p-4 mb-4 overflow-hidden">
                                     {labAsset ? <img src={labAsset.preview} className="h-full object-contain rounded-lg" alt={t('Anchor', 'Referencia')} /> : <div className="text-center opacity-30"><svg className="w-10 h-10 mx-auto mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 010-2.828L16 8M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-2-2m0 0l-2 2m2-2v12" /></svg><p className="text-sm font-black uppercase tracking-widest">{t('click to upload anchor shot', 'haz clic para subir toma de referencia')}</p></div>}
                                     <input type="file" ref={labInputRef} onChange={e => e.target.files?.[0] && setLabAsset({file: e.target.files[0], preview: URL.createObjectURL(e.target.files[0]), ratio: '1:1'})} className="hidden" accept="image/*" />
                                 </div>
@@ -376,7 +376,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                                         <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
                                             {savedStudios.map((img, idx) => (
                                                 <div key={idx} className="relative flex-shrink-0 group">
-                                                    <img onClick={() => handleSendToLab(img)} src={img} className={`w-20 h-20 rounded-xl object-cover cursor-pointer border-4 transition-all ${labAsset?.preview === img ? 'border-smw-pink scale-105' : 'border-white shadow-sm'}`} />
+                                                    <img onClick={() => handleSendToLab(img)} src={img} className={`w-20 h-20 rounded-xl object-cover cursor-pointer border-4 transition-all ${labAsset?.preview === img ? 'border-rosa-principal scale-105' : 'border-white shadow-sm'}`} />
                                                     <button onClick={() => handleDeleteSavedStudio(idx)} className="absolute -top-1 -right-1 bg-red-500 text-white w-5 h-5 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-sm text-xs font-bold">&times;</button>
                                                 </div>
                                             ))}
@@ -404,12 +404,12 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                                             value={labCustomPrompt}
                                             onChange={e => setLabCustomPrompt(e.target.value)}
                                             placeholder={t("e.g., 'remove headphones', 'no coffee cup', 'add glasses'...", "ej., 'quitar auriculares', 'sin taza de café', 'añadir gafas'...")} 
-                                            className="w-full h-24 bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-smw-pink outline-none resize-none lowercase placeholder:text-gray-300 font-medium" 
+                                            className="w-full h-24 bg-white border border-gray-200 rounded-xl p-4 text-base focus:ring-2 focus:ring-rosa-principal outline-none resize-none lowercase placeholder:text-gray-300 font-medium" 
                                         />
                                     </div>
 
                                     <button onClick={handleGenerateAngles} disabled={isLoading || !labAsset} className="w-full bg-slate-800 text-white font-black py-5 rounded-xl shadow-lg hover:bg-slate-900 transition-all disabled:opacity-50 lowercase text-xl">
-                                        {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-smw-pink" /><span>{t('running lab...', 'ejecutando laboratorio...')}</span></div> : t('activate angle lab', 'activar laboratorio de ángulos')}
+                                        {isLoading ? <div className="flex items-center justify-center gap-2"><Spinner className="w-6 h-6 text-rosa-principal" /><span>{t('running lab...', 'ejecutando laboratorio...')}</span></div> : t('activate angle lab', 'activar laboratorio de ángulos')}
                                     </button>
                                 </div>
                             </Step>
@@ -423,7 +423,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                     <div className="flex-1 overflow-y-auto pr-2">
                         {isLoading && (activeTab === 'Studio Creator' ? generatedImages : labGeneratedImages).length === 0 ? (
                             <div className="h-full flex flex-col items-center justify-center space-y-6">
-                                <Spinner className="w-12 h-12 text-smw-pink" />
+                                <Spinner className="w-12 h-12 text-rosa-principal" />
                                 <p className="text-sm font-black text-gray-400 uppercase tracking-[0.3em]">{loadingMessage}</p>
                             </div>
                         ) : (activeTab === 'Studio Creator' ? generatedImages : labGeneratedImages).length === 0 ? (
@@ -440,7 +440,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                                                 <svg className="h-4 w-4 sm:h-6 sm:w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" /></svg>
                                             </button>
                                             {activeTab === 'Studio Creator' && (
-                                                <button onClick={() => { handleSaveStudio(img); handleSendToLab(img); }} className="bg-smw-pink text-slate-800 p-1.5 sm:p-2.5 rounded-full shadow-md hover:scale-110 transition-transform" title={t("Send to Lab", "Enviar al laboratorio")}>
+                                                <button onClick={() => { handleSaveStudio(img); handleSendToLab(img); }} className="bg-rosa-principal text-slate-800 p-1.5 sm:p-2.5 rounded-full shadow-md hover:scale-110 transition-transform" title={t("Send to Lab", "Enviar al laboratorio")}>
                                                     <svg className="h-4 w-4 sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 20 20"><path d="M5 4a2 2 0 012-2h6a2 2 0 012 2v14l-5-2.5L5 18V4z" /></svg>
                                                 </button>
                                             )}
@@ -465,7 +465,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                         <p className="lowercase">{t('our engine allows you to generate photorealistic, high-fidelity shots of yourself in any studio environment imaginable. from moody industrial dens to high-tech neon sets, we help you tell a professional visual story that looks like a high-budget production.', 'nuestro motor te permite generar tomas fotorrealistas y de alta fidelidad de ti mismo en cualquier entorno de estudio imaginable. desde guaridas industriales melancólicas hasta sets de neón de alta tecnología, te ayudamos a contar una historia visual profesional que parece una producción de alto presupuesto.')}</p>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isIntroExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isIntroExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
+                    <button onClick={() => setIsIntroExpanded(!isIntroExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isIntroExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -487,7 +487,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white/100 to-transparent ${isHowItWorksExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isHowItWorksExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
+                    <button onClick={() => setIsHowItWorksExpanded(!isHowItWorksExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isHowItWorksExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -495,25 +495,25 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                     <div className={`text-gray-700 space-y-8 leading-relaxed text-sm transition-all duration-500 ease-in-out overflow-hidden relative ${isMarketingExpanded ? 'max-h-[2000px]' : 'max-h-[100px]'}`}>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
                             <div className="bg-gray-50/50 p-6 rounded-xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">{t('1. "podcast host" branding', '1. marca de "presentador de podcast"')}</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">{t('1. "podcast host" branding', '1. marca de "presentador de podcast"')}</p>
                                 <p className="lowercase">{t('create high-engagement promo materials for your show. professional visuals build authority before you even hit record.', 'crea materiales promocionales de alto compromiso para tu programa. los visuales profesionales construyen autoridad incluso antes de que presiones grabar.')}</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">{t('2. guest promo kits', '2. kits promocionales para invitados')}</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">{t('2. guest promo kits', '2. kits promocionales para invitados')}</p>
                                 <p className="lowercase">{t('generate professional "studio session" shots for your guests to share on their platforms, increasing your reach and prestige.', 'genera tomas profesionales de "sesión de estudio" para que tus invitados las compartan en sus plataformas, aumentando tu alcance y prestigio.')}</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">{t('3. sponsorship pitch decks', '3. presentaciones para patrocinadores')}</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">{t('3. sponsorship pitch decks', '3. presentaciones para patrocinadores')}</p>
                                 <p className="lowercase">{t('place yourself in a high-end environment to show potential sponsors the quality and aesthetic of your visual brand.', 'colócate en un entorno de alta gama para mostrar a los patrocinadores potenciales la calidad y estética de tu marca visual.')}</p>
                             </div>
                             <div className="bg-gray-50/50 p-6 rounded-xl space-y-2 border border-gray-100">
-                                <p className="text-[10px] font-bold text-smw-pink uppercase tracking-[0.1em] lowercase">{t('4. consistent show identity', '4. identidad de programa consistente')}</p>
+                                <p className="text-[10px] font-bold text-rosa-principal uppercase tracking-[0.1em] lowercase">{t('4. consistent show identity', '4. identidad de programa consistente')}</p>
                                 <p className="lowercase">{t('use different angles of the same studio to create a cohesive visual theme across all social channels and youtube thumbnails.', 'usa diferentes ángulos del mismo estudio para crear un tema visual cohesivo en todos los canales sociales y miniaturas de youtube.')}</p>
                             </div>
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isMarketingExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isMarketingExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
+                    <button onClick={() => setIsMarketingExpanded(!isMarketingExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isMarketingExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 text-center relative overflow-hidden group">
@@ -521,25 +521,25 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                     <div className={`text-gray-700 space-y-8 leading-relaxed text-sm transition-all duration-700 ease-in-out overflow-hidden relative ${isProTipsExpanded ? 'max-h-[2000px]' : 'max-h-[100px]'}`}>
                         <div className="space-y-6 text-left max-w-4xl mx-auto">
                             <div className="flex gap-6 items-start">
-                                <span className="text-2xl font-semibold text-smw-pink leading-none">01</span>
+                                <span className="text-2xl font-semibold text-rosa-principal leading-none">01</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">{t('lighting matters:', 'la iluminación importa:') }</span> {t('for the most believable results, upload a source photo with soft, natural lighting. avoid harsh shadows or strong camera flashes.', 'para obtener los resultados más creíbles, sube una foto de origen con iluminación suave y natural. evita sombras marcadas o flashes de cámara fuertes.')}</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-2xl font-semibold text-smw-pink leading-none">02</span>
+                                <span className="text-2xl font-semibold text-rosa-principal leading-none">02</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">{t('use the angle lab:', 'usa el laboratorio de ángulos:')}</span> {t('consistency is king. generate a "master" studio shot, then use the angle lab to get 4 different perspectives of that same room for your carousel posts.', 'la consistencia es la clave. genera una toma de estudio "maestra", luego usa el laboratorio de ángulos para obtener 4 perspectivas diferentes de esa misma sala para tus publicaciones de carrusel.')}</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-2xl font-semibold text-smw-pink leading-none">03</span>
+                                <span className="text-2xl font-semibold text-rosa-principal leading-none">03</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">{t('custom details:', 'detalles personalizados:')}</span> {t('when using custom prompts, include action verbs like "laughing," "speaking," or "adjusting mic" to make the photo feel like a candid moment.', 'al usar prompts personalizados, incluye verbos de acción como "riendo", "hablando" o "ajustando el micrófono" para que la foto se sienta como un momento espontáneo.')}</p>
                                 </div>
                             </div>
                             <div className="flex gap-6 items-start">
-                                <span className="text-2xl font-semibold text-smw-pink leading-none">04</span>
+                                <span className="text-2xl font-semibold text-rosa-principal leading-none">04</span>
                                 <div className="space-y-1">
                                     <p className="lowercase"><span className="font-semibold text-black">{t('mix your ratios:', 'mezcla tus proporciones:')}</span> {t('generate the same scene in 9:16 for your stories and 1:1 for your main instagram feed to keep a cohesive multi-channel presence.', 'genera la misma escena en 9:16 para tus historias y 1:1 para tu feed principal de instagram para mantener una presencia multicanal cohesiva.')}</p>
                                 </div>
@@ -547,7 +547,7 @@ ESTILO: Fotografía de alta gama. Semilla: ${Math.random()}`;
                         </div>
                         <div className={`absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-white to-transparent ${isProTipsExpanded ? 'hidden' : ''}`} />
                     </div>
-                    <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-[10px] font-bold text-smw-pink uppercase tracking-[0.2em] border-b border-smw-pink pb-1 hover:text-black hover:border-black transition-all lowercase">{isProTipsExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
+                    <button onClick={() => setIsProTipsExpanded(!isProTipsExpanded)} className="mt-4 text-[10px] font-bold text-rosa-principal uppercase tracking-[0.2em] border-b border-rosa-principal pb-1 hover:text-black hover:border-black transition-all lowercase">{isProTipsExpanded ? t('read less', 'leer menos') : t('read more', 'leer más')}</button>
                 </div>
             </div>
 

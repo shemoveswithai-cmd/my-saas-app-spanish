@@ -63,8 +63,8 @@ export default function SubscriptionPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-smw-pink-light flex items-center justify-center p-4">
-      <div className="bg-smw-black rounded-3xl p-8 max-w-md w-full shadow-2xl border border-smw-pink/20">
+    <div className="min-h-screen bg-rosa-claro flex items-center justify-center p-4">
+      <div className="bg-negro-fondo rounded-3xl p-8 max-w-md w-full shadow-2xl border border-rosa-principal/20">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Desbloquea Todo el Poder</h1>
           <p className="text-gray-400">
@@ -72,16 +72,16 @@ export default function SubscriptionPage() {
           </p>
         </div>
 
-        <div className="bg-smw-light rounded-2xl p-6 mb-6">
+        <div className="bg-blanco-texto rounded-2xl p-6 mb-6">
           <div className="flex items-baseline justify-center mb-4">
-            <span className="text-5xl font-bold text-smw-pink">$15</span>
+            <span className="text-5xl font-bold text-rosa-principal">$15</span>
             <span className="text-gray-400 ml-2">/mes</span>
           </div>
           
           <ul className="space-y-3 mb-6">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center text-gray-300">
-                <svg className="w-5 h-5 text-smw-pink mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-5 h-5 text-rosa-principal mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
                 {feature}
@@ -100,7 +100,7 @@ export default function SubscriptionPage() {
           <button
             onClick={handleManageSubscription}
             disabled={isLoading}
-            className="w-full bg-smw-light text-white py-4 rounded-2xl font-semibold hover:bg-smw-gray transition-colors disabled:opacity-50"
+            className="w-full bg-blanco-texto text-white py-4 rounded-2xl font-semibold hover:bg-gris-medio transition-colors disabled:opacity-50"
           >
             {isLoading ? 'Cargando...' : 'Gestionar Suscripción'}
           </button>
@@ -108,7 +108,7 @@ export default function SubscriptionPage() {
           <button
             onClick={handleSubscribe}
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-smw-pink to-pink-600 text-white py-4 rounded-2xl font-bold hover:from-pink-600 hover:to-smw-pink transition-all shadow-lg shadow-smw-pink/25 disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-rosa-principal to-pink-600 text-white py-4 rounded-2xl font-bold hover:from-pink-600 hover:to-rosa-principal transition-all shadow-lg shadow-rosa-principal/25 disabled:opacity-50"
           >
             {isLoading ? 'Cargando...' : 'Suscribirse Ahora'}
           </button>
