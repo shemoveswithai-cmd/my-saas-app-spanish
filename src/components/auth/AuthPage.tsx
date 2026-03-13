@@ -98,14 +98,14 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-smw-pink-light flex items-center justify-center p-4">
-      <div className="bg-smw-black rounded-3xl p-8 max-w-md w-full shadow-2xl border border-smw-pink/20">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
+      <div className="bg-gray-800 rounded-3xl p-8 max-w-md w-full shadow-2xl border border-gray-700">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-smw-pink mb-2">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent mb-2">
             Crazy Addictive App
           </h1>
           <p className="text-gray-400">
-            {mode === 'login' ? 'Inicia sesión en tu cuenta' : 'Crea tu cuenta'}
+            {mode === 'login' ? '¡Bienvenido de nuevo! Inicia sesión para continuar.' : 'Crea tu cuenta'}
           </p>
         </div>
 
@@ -118,12 +118,12 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-gray-300 text-sm mb-2">Nombre</label>
+              <label className="block text-gray-300 text-sm font-medium mb-2">Nombre</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-smw-light text-white rounded-xl px-4 py-3 border border-gray-700 focus:border-smw-pink focus:outline-none transition-colors"
+                className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
                 placeholder="Tu nombre"
                 required={mode === 'signup'}
               />
@@ -131,24 +131,28 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
           )}
 
           <div>
-            <label className="block text-gray-300 text-sm mb-2">Correo electrónico</label>
+            <label className="block text-gray-300 text-sm font-medium mb-2">
+              {mode === 'login' ? 'Email' : 'Correo electrónico'}
+            </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-smw-light text-white rounded-xl px-4 py-3 border border-gray-700 focus:border-smw-pink focus:outline-none transition-colors"
-              placeholder="tu@correo.com"
+              className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
+              placeholder="you@example.com"
               required
             />
           </div>
 
           <div>
-            <label className="block text-gray-300 text-sm mb-2">Contraseña</label>
+            <label className="block text-gray-300 text-sm font-medium mb-2">
+              {mode === 'login' ? 'Password' : 'Contraseña'}
+            </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-smw-light text-white rounded-xl px-4 py-3 border border-gray-700 focus:border-smw-pink focus:outline-none transition-colors"
+              className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
               placeholder="••••••••"
               required
               minLength={6}
@@ -158,16 +162,16 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-smw-pink to-pink-600 text-white py-3 rounded-xl font-semibold hover:from-pink-600 hover:to-smw-pink transition-all shadow-lg shadow-smw-pink/25 disabled:opacity-50"
+            className="w-full bg-gradient-to-r from-pink-400 to-pink-600 text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-pink-700 transition-all shadow-lg shadow-pink-500/25 disabled:opacity-50"
           >
-            {isLoading ? 'Cargando...' : (mode === 'login' ? 'Iniciar Sesión' : 'Crear Cuenta')}
+            {isLoading ? 'Cargando...' : (mode === 'login' ? 'Sign In' : 'Crear Cuenta')}
           </button>
         </form>
 
         <div className="my-6 flex items-center">
-          <div className="flex-1 border-t border-gray-700"></div>
-          <span className="px-4 text-gray-500 text-sm">o</span>
-          <div className="flex-1 border-t border-gray-700"></div>
+          <div className="flex-1 border-t border-gray-600"></div>
+          <span className="px-4 text-gray-400 text-sm">o continuar con</span>
+          <div className="flex-1 border-t border-gray-600"></div>
         </div>
 
         <div id="google-signin-button" className="flex justify-center"></div>
@@ -178,9 +182,9 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
               ¿No tienes cuenta?{' '}
               <button
                 onClick={() => setMode('signup')}
-                className="text-smw-pink hover:underline font-semibold"
+                className="text-pink-400 hover:text-pink-300 font-semibold"
               >
-                Regístrate
+                Sign Up
               </button>
             </>
           ) : (
@@ -188,7 +192,7 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
               ¿Ya tienes cuenta?{' '}
               <button
                 onClick={() => setMode('login')}
-                className="text-smw-pink hover:underline font-semibold"
+                className="text-pink-400 hover:text-pink-300 font-semibold"
               >
                 Inicia Sesión
               </button>
