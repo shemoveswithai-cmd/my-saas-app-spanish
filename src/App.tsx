@@ -54,14 +54,25 @@ const App: React.FC = () => {
   const [lastToolFeature, setLastToolFeature] = useState<Feature | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
 
-  // Create userProfile from auth user
+  // Create userProfile from auth user with saved data from localStorage
+  const getSavedProfile = () => {
+    if (!user?.id) return null;
+    try {
+      const saved = localStorage.getItem(`smwUserProfile_${user.id}`);
+      return saved ? JSON.parse(saved) : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const savedProfile = getSavedProfile();
   const userProfile: UserProfile | null = user ? {
     uid: user.id,
     email: user.email,
-    name: user.name || 'Usuario',
-    nickname: user.name || 'Usuario',
-    avatar: null,
-    aiTwinSelfie: null,
+    name: savedProfile?.name || user.name || 'Usuario',
+    nickname: savedProfile?.nickname || user.name || 'Usuario',
+    avatar: savedProfile?.avatar || null,
+    aiTwinSelfie: savedProfile?.aiTwinSelfie || null,
     subscriptionStatus: isSubscribed ? 'active' : 'inactive',
   } : null;
 
@@ -213,6 +224,23 @@ const App: React.FC = () => {
     }
   };
 
+  const handleUpdateProfile = (updatedProfile: UserProfile) => {
+    // Save profile data to localStorage
+    if (user?.id) {
+      try {
+        localStorage.setItem(`smwUserProfile_${user.id}`, JSON.stringify({
+          name: updatedProfile.name,
+          nickname: updatedProfile.nickname,
+          avatar: updatedProfile.avatar,
+          aiTwinSelfie: updatedProfile.aiTwinSelfie,
+        }));
+        console.log('Profile saved successfully');
+      } catch (error) {
+        console.error('Failed to save profile:', error);
+      }
+    }
+  };
+
   // Loading state
   if (loading) {
     return (
@@ -319,6 +347,7 @@ const App: React.FC = () => {
         setActiveFeature={setActiveFeature} 
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        onAdminClick={user?.isAdmin ? () => setShowAdmin(true) : undefined}
       />
       
       <div className="flex-1 flex flex-col min-w-0 bg-smw-pink-light h-full overflow-hidden">

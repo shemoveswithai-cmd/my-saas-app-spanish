@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
 export type FeatureId = 
   | 'home'
@@ -98,9 +99,15 @@ interface SidebarProps {
   setActiveFeature: (feature: Feature) => void;
   isOpen?: boolean;
   onClose?: () => void;
+  onAdminClick?: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOpen, onClose }) => {
+// Icons for logout and admin
+const logoutIcon = <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>;
+const adminIcon = <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>;
+
+const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOpen, onClose, onAdminClick }) => {
+  const { user, logout } = useAuth();
   const [isCollapsed, setIsCollapsed] = useState(false);
   
   // Items that are NOT part of the numbered list
@@ -225,6 +232,53 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
             );
           })}
         </nav>
+
+        {/* Bottom Section - Admin Panel & Logout */}
+        <div className="flex-shrink-0 border-t border-blanco-texto/20 p-3 space-y-1">
+          {/* Panel de Admin - Only for admin users */}
+          {user?.isAdmin && onAdminClick && (
+            <button
+              onClick={() => {
+                onAdminClick();
+                if (onClose) onClose();
+              }}
+              className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-start'} px-4 py-3 rounded-lg transition-all group mb-1 text-blanco-texto hover:bg-gris-medio`}
+              title={isCollapsed ? "Panel de Admin" : ""}
+            >
+              <div className="flex items-center gap-3 min-w-0 flex-1">
+                <div className="flex-shrink-0">
+                  {adminIcon}
+                </div>
+                {(!isCollapsed || isOpen) && (
+                  <span className="text-[13px] font-medium tracking-wide whitespace-nowrap">
+                    Panel de Admin
+                  </span>
+                )}
+              </div>
+            </button>
+          )}
+
+          {/* Cerrar Sesión */}
+          <button
+            onClick={() => {
+              logout();
+              if (onClose) onClose();
+            }}
+            className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-start'} px-4 py-3 rounded-lg transition-all group text-red-400 hover:bg-red-500/10 hover:text-red-300`}
+            title={isCollapsed ? "Cerrar Sesión" : ""}
+          >
+            <div className="flex items-center gap-3 min-w-0 flex-1">
+              <div className="flex-shrink-0">
+                {logoutIcon}
+              </div>
+              {(!isCollapsed || isOpen) && (
+                <span className="text-[13px] font-medium tracking-wide whitespace-nowrap">
+                  Cerrar Sesión
+                </span>
+              )}
+            </div>
+          </button>
+        </div>
       </aside>
     </>
   );
