@@ -216,7 +216,7 @@ const App: React.FC = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="flex h-screen w-screen items-center justify-center bg-smw-black">
+      <div className="flex h-screen w-screen items-center justify-center bg-smw-pink-light">
         <Spinner className="w-12 h-12 text-smw-pink" />
       </div>
     );

@@ -98,8 +98,8 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-smw-black flex items-center justify-center p-4">
-      <div className="bg-smw-gray rounded-3xl p-8 max-w-md w-full shadow-2xl border border-smw-pink/20">
+    <div className="min-h-screen bg-smw-pink-light flex items-center justify-center p-4">
+      <div className="bg-smw-black rounded-3xl p-8 max-w-md w-full shadow-2xl border border-smw-pink/20">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-bold text-smw-pink mb-2">
             Crazy Addictive App
