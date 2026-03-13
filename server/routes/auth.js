@@ -14,6 +14,12 @@ const googleClient = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const ADMIN_EMAILS = (process.env.ADMIN_EMAILS || '').split(',').map(e => e.trim().toLowerCase());
 
+// Email validation helper
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 function generateToken(userId) {
   return jwt.sign({ userId }, process.env.JWT_SECRET, { expiresIn: process.env.SESSION_EXPIRY || '7d' });
 }
@@ -43,12 +49,22 @@ router.post('/signup', async (req, res) => {
     const { email, password, name } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password required' });
+      return res.status(400).json({ error: 'Correo y contraseña son requeridos.' });
+    }
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ error: 'Por favor, ingresa una dirección de correo válida.' });
+    }
+
+    // Validate password length (minimum 8 characters)
+    if (password.length < 8) {
+      return res.status(400).json({ error: 'La contraseña debe tener al menos 8 caracteres.' });
     }
 
     const existingUser = db.prepare('SELECT id FROM users WHERE email = ?').get(email.toLowerCase());
     if (existingUser) {
-      return res.status(400).json({ error: 'Email already registered' });
+      return res.status(409).json({ error: 'Ya existe una cuenta con este correo. Por favor, inicia sesión.' });
     }
 
     const passwordHash = await bcrypt.hash(password, 12);
@@ -85,17 +101,22 @@ router.post('/login', async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({ error: 'Email and password required' });
+      return res.status(400).json({ error: 'Correo y contraseña son requeridos.' });
+    }
+
+    // Validate email format
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ error: 'Por favor, ingresa una dirección de correo válida.' });
     }
 
     const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email.toLowerCase());
     if (!user || !user.password_hash) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      return res.status(404).json({ error: 'Cuenta no encontrada. Por favor, crea una cuenta para continuar.' });
     }
 
     const validPassword = await bcrypt.compare(password, user.password_hash);
     if (!validPassword) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+      return res.status(401).json({ error: 'Contraseña incorrecta. Por favor, intenta de nuevo.' });
     }
 
     const token = generateToken(user.id);

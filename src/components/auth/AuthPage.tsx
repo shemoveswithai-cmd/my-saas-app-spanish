@@ -5,6 +5,12 @@ interface AuthPageProps {
   onSuccess?: () => void;
 }
 
+// Email validation helper
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 export default function AuthPage({ onSuccess }: AuthPageProps) {
   const [mode, setMode] = useState<'login' | 'signup'>('login');
   const [email, setEmail] = useState('');
@@ -19,6 +25,19 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
     e.preventDefault();
     setIsLoading(true);
     setError('');
+
+    // Client-side validation
+    if (!isValidEmail(email)) {
+      setError('Por favor, ingresa una dirección de correo válida.');
+      setIsLoading(false);
+      return;
+    }
+
+    if (password.length < 8) {
+      setError('La contraseña debe tener al menos 8 caracteres.');
+      setIsLoading(false);
+      return;
+    }
 
     try {
       if (mode === 'login') {
@@ -92,7 +111,7 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
               className="w-full bg-gris-medio text-blanco-texto rounded-xl px-4 py-3 border border-gris-atenuado/30 focus:border-rosa-principal focus:outline-none focus:ring-1 focus:ring-rosa-principal transition-colors"
               placeholder="••••••••"
               required
-              minLength={6}
+              minLength={8}
             />
           </div>
 
