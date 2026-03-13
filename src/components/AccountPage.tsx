@@ -81,15 +81,15 @@ const AccountPage: React.FC<AccountPageProps> = ({ user, onUpdate }) => {
 
 
     return (
-        <div className="flex flex-col h-full bg-smw-pink-light p-4 md:p-10 space-y-8 overflow-y-auto">
+        <div className="flex flex-col h-full bg-rosa-claro p-4 md:p-10 space-y-8 overflow-y-auto">
             <header className="flex-shrink-0">
-                <h2 className="text-2xl font-bold text-smw-gray-dark tracking-tight">Mi Cuenta</h2>
-                <p className="text-smw-gray-dark opacity-70 font-medium">Gestiona tu información personal.</p>
+                <h2 className="text-2xl font-bold text-negro-fondo tracking-tight">Mi Cuenta</h2>
+                <p className="text-gris-atenuado font-medium">Gestiona tu información personal.</p>
             </header>
             
             <div className="space-y-10 max-w-5xl">
                 {/* Main Profile Box */}
-                <div className="bg-white/70 backdrop-blur-xl shadow-xl p-8 rounded-[2rem] border border-white/50">
+                <div className="bg-rosa-claro shadow-xl p-8 rounded-[2rem] border border-rosa-principal/30">
                     <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
                         {/* Avatar Column */}
                         <div className="md:col-span-4 flex flex-col items-center text-center">
@@ -114,38 +114,38 @@ const AccountPage: React.FC<AccountPageProps> = ({ user, onUpdate }) => {
                                     onChange={handleAvatarChange}
                                 />
                             </div>
-                            <h3 className="text-2xl font-black text-smw-gray-dark tracking-tight">{name}</h3>
+                            <h3 className="text-2xl font-black text-negro-fondo tracking-tight">{name}</h3>
                         </div>
 
                         {/* Form Column */}
                         <div className="md:col-span-8 space-y-8">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div>
-                                    <label htmlFor="name" className="block text-xs font-black text-smw-gray-dark opacity-40 uppercase tracking-widest mb-2">Nombre Completo</label>
+                                    <label htmlFor="name" className="block text-xs font-black text-gris-atenuado uppercase tracking-widest mb-2">Nombre Completo</label>
                                     <input
                                         id="name"
                                         type="text"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
-                                        className="w-full bg-white/40 border-2 border-smw-pink/10 rounded-xl p-3 focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none text-smw-gray-dark font-medium transition-all"
+                                        className="w-full bg-white/40 border-2 border-rosa-principal/10 rounded-xl p-3 focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none text-negro-fondo font-medium transition-all"
                                     />
                                 </div>
                                 <div>
-                                    <label htmlFor="nickname" className="block text-xs font-black text-smw-gray-dark opacity-40 uppercase tracking-widest mb-2">Apodo (La IA te llamará así)</label>
+                                    <label htmlFor="nickname" className="block text-xs font-black text-gris-atenuado uppercase tracking-widest mb-2">Apodo (La IA te llamará así)</label>
                                     <input
                                         id="nickname"
                                         type="text"
                                         value={nickname}
                                         onChange={(e) => setNickname(e.target.value)}
                                         placeholder="ej., Alex"
-                                        className="w-full bg-white/40 border-2 border-smw-pink/10 rounded-xl p-3 focus:ring-2 focus:ring-smw-pink focus:border-transparent outline-none text-smw-gray-dark font-medium transition-all placeholder:text-smw-gray-dark/30"
+                                        className="w-full bg-white/40 border-2 border-rosa-principal/10 rounded-xl p-3 focus:ring-2 focus:ring-rosa-principal focus:border-transparent outline-none text-negro-fondo font-medium transition-all placeholder:text-gris-atenuado"
                                     />
                                 </div>
                             </div>
 
                             <div>
                                 <div className="flex justify-between items-center mb-2">
-                                    <label className="block text-xs font-black text-smw-gray-dark opacity-40 uppercase tracking-widest">Selfie de Identidad Maestra</label>
+                                    <label className="block text-xs font-black text-gris-atenuado uppercase tracking-widest">Selfie de Identidad Maestra</label>
                                     {aiTwinSelfie && (
                                         <button
                                             onClick={handleRemoveAiTwinSelfie}
@@ -156,15 +156,15 @@ const AccountPage: React.FC<AccountPageProps> = ({ user, onUpdate }) => {
                                     )}
                                 </div>
                                 <div 
-                                    className="w-full h-56 bg-white/40 rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-smw-pink/20 hover:border-smw-pink transition-all group overflow-hidden"
+                                    className="w-full h-56 bg-white/40 rounded-2xl flex items-center justify-center cursor-pointer border-2 border-dashed border-rosa-principal/20 hover:border-rosa-principal transition-all group overflow-hidden"
                                     onClick={() => aiTwinSelfieInputRef.current?.click()}
                                 >
                                     {aiTwinSelfie ? (
                                         <img src={aiTwinSelfie} alt="Vista previa de Selfie IA Twin" className="h-full w-full object-contain p-2" />
                                     ) : (
                                         <div className="text-center group-hover:scale-105 transition-transform">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-smw-pink opacity-40 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
-                                            <p className="text-xs font-bold text-gray-400 uppercase tracking-widest">Subir Selfie Maestra</p>
+                                            <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-rosa-principal opacity-40 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16v1a3 3 0 013-3h10a3 3 0 013 3v1m-4-8l-4-4m0 0l-4-4m4 4V4" /></svg>
+                                            <p className="text-xs font-bold text-gris-atenuado uppercase tracking-widest">Subir Selfie Maestra</p>
                                         </div>
                                     )}
                                 </div>
@@ -175,25 +175,25 @@ const AccountPage: React.FC<AccountPageProps> = ({ user, onUpdate }) => {
                                     accept="image/png, image/jpeg"
                                     onChange={handleAiTwinSelfieChange}
                                 />
-                                <p className="text-[10px] text-smw-gray-dark opacity-50 mt-3 font-medium text-center">
+                                <p className="text-[10px] text-gris-atenuado mt-3 font-medium text-center">
                                     Esta foto se utiliza como tu fuente de identidad principal para todas las herramientas de generación de IA.
                                 </p>
                             </div>
 
-                            <div className="flex justify-end pt-4 border-t border-smw-pink/10">
+                            <div className="flex justify-end pt-4 border-t border-rosa-principal/10">
                                 <button
                                     onClick={handleSave}
                                     disabled={isSaving || saveSuccess || isUnchanged}
                                     className={`font-black py-3 px-8 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg text-sm uppercase tracking-widest
                                     ${saveSuccess 
                                         ? 'bg-green-500 text-white' 
-                                        : `bg-smw-pink text-smw-black hover:bg-black hover:text-white ${isUnchanged ? 'opacity-50 grayscale cursor-not-allowed shadow-none' : ''}`
+                                        : `bg-rosa-principal text-negro-fondo hover:bg-negro-fondo hover:text-blanco-texto ${isUnchanged ? 'opacity-50 grayscale cursor-not-allowed shadow-none' : ''}`
                                     }
                                      disabled:opacity-50 disabled:cursor-not-allowed`}
                                 >
-                                    {isSaving ? <Spinner className="w-5 h-5 text-smw-black" /> : saveSuccess ? (
+                                    {isSaving ? <Spinner className="w-5 h-5 text-negro-fondo" /> : saveSuccess ? (
                                         <div className="flex items-center gap-2">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
+                                            <svg xmlns="https://cdn-icons-png.flaticon.com/512/11825/11825984.png" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                                             ¡Guardado!
                                         </div>
                                     ) : 'Guardar Cambios de la Cuenta'}

@@ -10,13 +10,22 @@
         theme: {
           extend: {
             colors: {
-              'smw-pink': '#ec4899',
-              'smw-pink-light': '#fdf2f8',
-              'smw-pink-medium': '#fbcfe8',
-              'smw-black': '#1f2937',
-              'smw-gray': '#374151',
-              'smw-gray-dark': '#1f2937',
-              'smw-light': '#f9fafb'
+              /* Exact Color Palette */
+              'rosa-principal': '#F5B2E1',
+              'rosa-claro': '#F9D4EE',
+              'negro-fondo': '#111111',
+              'gris-oscuro': '#1C1C1C',
+              'gris-medio': '#2E2E2E',
+              'blanco-texto': '#F0F0F0',
+              'gris-atenuado': '#A0A0A0',
+              /* Legacy aliases for compatibility */
+              'smw-pink': '#F5B2E1',
+              'smw-pink-light': '#F9D4EE',
+              'smw-pink-medium': '#F5B2E1',
+              'smw-black': '#111111',
+              'smw-gray': '#2E2E2E',
+              'smw-gray-dark': '#1C1C1C',
+              'smw-light': '#F0F0F0'
             },
             animation: {
               'fade-in': 'fadeIn 0.5s ease-out',
@@ -38,10 +47,33 @@
     </script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <style>
+      :root {
+        --rosa-principal: #F5B2E1;
+        --rosa-claro: #F9D4EE;
+        --negro-fondo: #111111;
+        --gris-oscuro: #1C1C1C;
+        --gris-medio: #2E2E2E;
+        --blanco-texto: #F0F0F0;
+        --gris-atenuado: #A0A0A0;
+      }
       body {
-        background-color: #fdf2f8;
-        color: #1f2937;
+        background-color: #F9D4EE;
+        color: #111111;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #F9D4EE;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #F5B2E1;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #e89fd1;
       }
     </style>
   </head>

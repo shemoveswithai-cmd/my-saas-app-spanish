@@ -52,11 +52,11 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setActiveFeature, onAdminCl
     return (
         <div className="p-4 sm:p-6 h-full overflow-y-auto">
             <header className="mb-6 max-w-5xl mx-auto w-full">
-                <div className="bg-white shadow-xl p-5 sm:p-6 rounded-3xl text-center border border-white/40">
-                    <h2 className="text-xl sm:text-2xl font-bold text-smw-black tracking-tight mb-2">
-                        ¡Bienvenido de nuevo, <span className="text-smw-black">{user.nickname}!</span>
+                <div className="bg-rosa-claro shadow-xl p-5 sm:p-6 rounded-3xl text-center border border-rosa-principal/30">
+                    <h2 className="text-xl sm:text-2xl font-bold text-negro-fondo tracking-tight mb-2">
+                        ¡Bienvenido de nuevo, <span className="text-negro-fondo">{user.nickname}!</span>
                     </h2>
-                    <p className="text-sm sm:text-base text-smw-black opacity-70 font-normal leading-tight max-w-2xl mx-auto">
+                    <p className="text-sm sm:text-base text-gris-atenuado font-normal leading-tight max-w-2xl mx-auto">
                         Tu plataforma de IA todo en uno está lista para ayudarte a crear contenido increíble.
                     </p>
                 </div>
@@ -74,7 +74,7 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setActiveFeature, onAdminCl
             )}
 
             <section>
-                <h2 className="text-2xl font-bold text-smw-gray-dark mb-6 uppercase tracking-tight ml-2">Acciones Rápidas</h2>
+                <h2 className="text-2xl font-bold text-negro-fondo mb-6 uppercase tracking-tight ml-2">Acciones Rápidas</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {dashboardFeatures.map((feature) => {
                         const description = featureDescriptions[feature.id] || 'Explora esta función.';
@@ -82,15 +82,15 @@ const Dashboard: React.FC<DashboardProps> = ({ user, setActiveFeature, onAdminCl
                             <button
                                 key={feature.id}
                                 onClick={() => handleFeatureClick(feature.id)}
-                                className="bg-white/70 backdrop-blur-md p-6 rounded-[2rem] shadow-lg border border-white/40 hover:border-smw-pink/30 transform hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden group"
+                                className="bg-rosa-claro p-6 rounded-[2rem] shadow-lg border border-rosa-principal/20 hover:border-rosa-principal/40 transform hover:-translate-y-1 transition-all duration-300 text-left relative overflow-hidden group"
                             >
                                 <div className="flex justify-between items-start mb-4">
-                                    <div className="text-smw-black bg-smw-pink/20 p-2.5 rounded-2xl group-hover:bg-smw-pink group-hover:text-smw-black transition-colors">
+                                    <div className="text-negro-fondo bg-rosa-principal/20 p-2.5 rounded-2xl group-hover:bg-rosa-principal group-hover:text-negro-fondo transition-colors">
                                         {React.cloneElement(feature.icon as React.ReactElement<any>, { className: 'h-6 w-6' })}
                                     </div>
                                 </div>
-                                <h3 className="text-lg font-black text-smw-gray-dark mb-2 uppercase tracking-tight">{feature.name}</h3>
-                                <p className="text-sm text-smw-gray-dark opacity-70 leading-relaxed font-medium">{description}</p>
+                                <h3 className="text-lg font-black text-negro-fondo mb-2 uppercase tracking-tight">{feature.name}</h3>
+                                <p className="text-sm text-gris-atenuado leading-relaxed font-medium">{description}</p>
                             </button>
                         );
                     })}

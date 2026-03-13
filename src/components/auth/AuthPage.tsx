@@ -114,13 +114,13 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4">
-      <div className="bg-gray-800 rounded-3xl p-8 max-w-md w-full shadow-2xl border border-gray-700">
+    <div className="min-h-screen bg-negro-fondo flex items-center justify-center p-4">
+      <div className="bg-gris-oscuro rounded-3xl p-8 max-w-md w-full shadow-2xl border border-gris-medio">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-pink-400 to-pink-600 bg-clip-text text-transparent mb-2">
+          <h1 className="text-3xl font-bold text-rosa-principal mb-2">
             Crazy Addictive App
           </h1>
-          <p className="text-gray-400">
+          <p className="text-gris-atenuado">
             {mode === 'login' ? '¡Bienvenido de nuevo! Inicia sesión para continuar.' : 'Crea tu cuenta'}
           </p>
         </div>
@@ -134,12 +134,12 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           {mode === 'signup' && (
             <div>
-              <label className="block text-gray-300 text-sm font-medium mb-2">Nombre</label>
+              <label className="block text-blanco-texto text-sm font-medium mb-2">Nombre</label>
               <input
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
+                className="w-full bg-gris-medio text-blanco-texto rounded-xl px-4 py-3 border border-gris-atenuado/30 focus:border-rosa-principal focus:outline-none focus:ring-1 focus:ring-rosa-principal transition-colors"
                 placeholder="Tu nombre"
                 required={mode === 'signup'}
               />
@@ -147,28 +147,28 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
           )}
 
           <div>
-            <label className="block text-gray-300 text-sm font-medium mb-2">
+            <label className="block text-blanco-texto text-sm font-medium mb-2">
               Correo electrónico
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
+              className="w-full bg-gris-medio text-blanco-texto rounded-xl px-4 py-3 border border-gris-atenuado/30 focus:border-rosa-principal focus:outline-none focus:ring-1 focus:ring-rosa-principal transition-colors"
               placeholder="tu@ejemplo.com"
               required
             />
           </div>
 
           <div>
-            <label className="block text-gray-300 text-sm font-medium mb-2">
+            <label className="block text-blanco-texto text-sm font-medium mb-2">
               Contraseña
             </label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-gray-700 text-white rounded-xl px-4 py-3 border border-gray-600 focus:border-pink-500 focus:outline-none focus:ring-1 focus:ring-pink-500 transition-colors"
+              className="w-full bg-gris-medio text-blanco-texto rounded-xl px-4 py-3 border border-gris-atenuado/30 focus:border-rosa-principal focus:outline-none focus:ring-1 focus:ring-rosa-principal transition-colors"
               placeholder="••••••••"
               required
               minLength={6}
@@ -178,16 +178,16 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-pink-400 to-pink-600 text-white py-3 rounded-xl font-semibold hover:from-pink-500 hover:to-pink-700 transition-all shadow-lg shadow-pink-500/25 disabled:opacity-50"
+            className="w-full bg-rosa-principal text-negro-fondo py-3 rounded-xl font-semibold hover:bg-rosa-claro transition-all shadow-lg shadow-rosa-principal/25 disabled:opacity-50"
           >
             {isLoading ? 'Cargando...' : (mode === 'login' ? 'Iniciar Sesión' : 'Crear Cuenta')}
           </button>
         </form>
 
         <div className="my-6 flex items-center">
-          <div className="flex-1 border-t border-gray-600"></div>
-          <span className="px-4 text-gray-400 text-sm">o continuar con</span>
-          <div className="flex-1 border-t border-gray-600"></div>
+          <div className="flex-1 border-t border-gris-medio"></div>
+          <span className="px-4 text-gris-atenuado text-sm">o continuar con</span>
+          <div className="flex-1 border-t border-gris-medio"></div>
         </div>
 
         {/* Google Sign-In Button - rendered by Google library */}
@@ -222,13 +222,13 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
           </button>
         )}
 
-        <p className="text-center text-gray-400 mt-6">
+        <p className="text-center text-gris-atenuado mt-6">
           {mode === 'login' ? (
             <>
               ¿No tienes cuenta?{' '}
               <button
                 onClick={() => setMode('signup')}
-                className="text-pink-400 hover:text-pink-300 font-semibold"
+                className="text-rosa-principal hover:text-rosa-claro font-semibold"
               >
                 Regístrate
               </button>
@@ -238,7 +238,7 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
               ¿Ya tienes cuenta?{' '}
               <button
                 onClick={() => setMode('login')}
-                className="text-pink-400 hover:text-pink-300 font-semibold"
+                className="text-rosa-principal hover:text-rosa-claro font-semibold"
               >
                 Iniciar Sesión
               </button>
