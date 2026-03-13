@@ -136,15 +136,15 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
         fixed lg:static inset-y-0 left-0 z-50
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         ${isCollapsed ? 'lg:w-20' : 'w-72'} 
-        bg-negro-fondo text-blanco-texto flex flex-col border-r border-rosa-principal/10 h-screen transition-all duration-300 ease-in-out
+        bg-smw-black text-white flex flex-col border-r border-smw-pink/10 h-screen transition-all duration-300 ease-in-out
       `}>
         {/* Fixed Header section */}
-        <div className={`p-6 flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-end'} border-b border-blanco-texto/20 flex-shrink-0`}>
+        <div className={`p-6 flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-end'} border-b border-white/50 flex-shrink-0`}>
           <div className="flex items-center gap-2">
             {/* Desktop Collapse Toggle */}
             <button 
               onClick={() => setIsCollapsed(!isCollapsed)}
-              className="hidden lg:block text-blanco-texto hover:text-rosa-principal transition-colors focus:outline-none"
+              className="hidden lg:block text-white hover:text-smw-pink transition-colors focus:outline-none"
               title={isCollapsed ? "Expandir Barra Lateral" : "Contraer Barra Lateral"}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -155,7 +155,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
             {/* Mobile Close Button */}
             <button 
               onClick={onClose}
-              className="lg:hidden text-blanco-texto hover:text-rosa-principal transition-colors"
+              className="lg:hidden text-white hover:text-smw-pink transition-colors"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -173,8 +173,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
                   onClick={() => handleFeatureClick(feature)}
                   className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-between'} px-4 py-3 rounded-lg transition-all group mb-1 ${
                     activeFeature?.id === feature.id
-                      ? 'bg-rosa-principal text-negro-fondo font-bold'
-                      : 'text-blanco-texto hover:bg-gris-medio'
+                      ? 'bg-smw-pink text-smw-black font-bold'
+                      : 'text-white hover:bg-white/5'
                   }`}
                   title={isCollapsed ? feature.name : ""}
                 >
@@ -192,7 +192,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
             ))}
           </div>
 
-          <div className="h-4 border-t border-blanco-texto/10 my-4" />
+          <div className="h-4 border-t border-white/10 my-4" />
 
           {toolFeatures.map((feature, index) => {
             const numberedIndex = index + 1;
@@ -203,8 +203,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
                 onClick={() => handleFeatureClick(feature)}
                 className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-between'} px-4 py-3 rounded-lg transition-all group mb-1 overflow-visible pr-3 gap-10 ${
                   activeFeature?.id === feature.id
-                    ? 'bg-rosa-principal text-negro-fondo font-bold'
-                    : 'text-blanco-texto hover:bg-gris-medio'
+                    ? 'bg-smw-pink text-smw-black font-bold'
+                    : 'text-white hover:bg-white/5'
                 }`}
                 title={isCollapsed ? feature.name : ""}
               >
@@ -222,8 +222,8 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
                 {(!isCollapsed || isOpen) && (
                   <div className={`flex items-center justify-center w-[26px] h-[26px] rounded-full text-[12px] font-bold flex-shrink-0 leading-none ${
                     activeFeature?.id === feature.id
-                      ? 'bg-negro-fondo/20 text-negro-fondo'
-                      : 'bg-rosa-principal text-negro-fondo'
+                      ? 'bg-smw-black/20 text-smw-black'
+                      : 'bg-smw-pink text-smw-black'
                   }`}>
                     {numberedIndex}
                   </div>
@@ -234,7 +234,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
         </nav>
 
         {/* Bottom Section - Admin Panel & Logout */}
-        <div className="flex-shrink-0 border-t border-blanco-texto/20 p-3 space-y-1">
+        <div className="flex-shrink-0 border-t border-white/10 p-3 space-y-1">
           {/* Panel de Admin - Only for admin users */}
           {user?.isAdmin && onAdminClick && (
             <button
@@ -242,7 +242,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeFeature, setActiveFeature, isOp
                 onAdminClick();
                 if (onClose) onClose();
               }}
-              className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-start'} px-4 py-3 rounded-lg transition-all group mb-1 text-blanco-texto hover:bg-gris-medio`}
+              className={`w-full flex items-center ${isCollapsed ? 'lg:justify-center' : 'justify-start'} px-4 py-3 rounded-lg transition-all group mb-1 text-white hover:bg-white/5`}
               title={isCollapsed ? "Panel de Admin" : ""}
             >
               <div className="flex items-center gap-3 min-w-0 flex-1">
