@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Crazy Addictive App Official \"es\"",
+  "description": "Crazy Addictive App is an intelligent all in one ecosystem created by She Moves With AI LLC. Designed to make advanced AI simple and accessible for everyone, this platform brings together text to speech, image creation and analysis, AI twin generation, and real-time Gemini conversations all in one place. Built to inspire creativity and empower individuals, Crazy Addictive App helps users turn ideas into intelligent experiences with ease.",
+  "requestFramePermissions": [
+    "microphone",
+    "geolocation"
+  ]
+}
