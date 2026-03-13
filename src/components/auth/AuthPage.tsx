@@ -107,10 +107,10 @@ export default function AuthPage({ onSuccess }: AuthPageProps) {
     }
   };
 
-  // Fallback Google Sign-In using redirect
+  // Fallback Google Sign-In using redirect (note: backend only supports POST, so this won't work)
+  // The proper fix is to ensure Google SDK loads by adding the domain to Google OAuth authorized origins
   const handleGoogleRedirect = () => {
-    const apiUrl = import.meta.env.VITE_API_URL || '';
-    window.location.href = `${apiUrl}/auth/google`;
+    setError('Error: No se pudo cargar Google Sign-In. Verifica que el dominio esté autorizado en Google Cloud Console.');
   };
 
   return (
